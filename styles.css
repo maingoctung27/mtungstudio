@@ -43,3 +43,13 @@
     max-height:none;
   }
 }
+
+/* Thang Long Youth Center — full project image series */
+.case-page .case-gallery figure{margin:0 0 64px}
+.case-page .case-gallery figure img{width:100%;height:auto;max-height:none;object-fit:contain;background:#fff}
+.case-page .case-gallery figure figcaption{margin-top:9px}
+
+/* Hanoi Theater media — preserve source resolution and aspect ratio */
+.case-page .case-gallery .case-video video{width:100%;height:auto;max-height:none;display:block;background:#111;object-fit:contain}
+.case-page .case-gallery .case-video{margin-bottom:64px}
+@media(max-width:900px){.case-page .case-gallery .case-video video{width:100%;height:auto}}
