@@ -3,7 +3,7 @@
 
 /* Case-study redesign / tighter desktop composition */
 :root{--content:1240px;--line:#111;--muted:#777}
-.projects-page,.info-page,.case-page{max-width:var(--content)}
+.projects-page,.info-page,.case-page{max-width:var(--content);margin-left:auto;margin-right:auto}
 .projects-page{padding-left:0;padding-right:0}
 .grid{column-gap:24px;row-gap:52px}
 .card img{aspect-ratio:1.55/1}
@@ -22,3 +22,24 @@
 .case-gallery figure{margin:0}.case-gallery img{width:100%;display:block;max-height:780px;object-fit:cover;background:#eee}.case-gallery figcaption{font-size:10px;color:var(--muted);margin-top:9px}
 .case-nav{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:70px;padding:20px 0 0}
 @media(max-width:900px){.projects-page,.info-page,.case-page{padding-left:20px;padding-right:20px}.case-head{align-items:flex-start;flex-direction:column}.case-head h1{font-size:46px}.case-meta{grid-template-columns:1fr}.case-intro,.gallery-heading{grid-template-columns:1fr;gap:18px}.case-description{font-size:18px}.case-page{padding-top:32px}}
+
+/* Milano Community Food Hub cover positioning fix */
+.grid .card:first-child img{
+  object-fit:cover;
+  object-position:center 15%;
+  background:#fff;
+}
+.case-hero.milano-hero img,
+.case-hero img[src*="milano-foodhub"]{
+  height:760px;
+  object-fit:contain;
+  object-position:center center;
+  background:#fff;
+}
+@media(max-width:900px){
+  .case-hero.milano-hero img,
+  .case-hero img[src*="milano-foodhub"]{
+    height:auto;
+    max-height:none;
+  }
+}
