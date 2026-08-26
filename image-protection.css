@@ -1,0 +1,10 @@
+/* M.TUNG Studio — image protection styles */
+.project-gallery img,
+.project-page img,
+.project-media img,
+.project-cover img,
+.portfolio-image-protected {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
