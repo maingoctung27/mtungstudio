@@ -69,7 +69,9 @@
 }
 
 
-/* ===== M.TUNG HEADER — ORIGINAL BRAND SCALE ===== */
+
+
+/* ===== CLEAN M.TUNG HEADER — DEVELOPMENT ===== */
 .header{
   display:grid;
   grid-template-columns:auto 1fr auto auto;
@@ -90,7 +92,6 @@
   white-space:nowrap;
   text-decoration:none;
   padding-top:0;
-  grid-column:1;
 }
 .mtung-identity img{
   width:34px;
