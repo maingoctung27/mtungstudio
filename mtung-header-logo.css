@@ -1,0 +1,29 @@
+
+/* M.TUNG Studio — top-right wordmark + logo */
+.mtung-header-identity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mtung-header-identity .mtung-header-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  .mtung-header-identity {
+    gap: 7px;
+  }
+  .mtung-header-identity .mtung-header-logo {
+    width: 24px;
+    height: 24px;
+  }
+}
