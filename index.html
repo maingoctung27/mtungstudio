@@ -18,6 +18,23 @@
 .mtung-identity span{display:inline-block!important;font-size:inherit!important;line-height:1!important;letter-spacing:inherit!important}
 .mtung-identity img{display:block!important;width:28px!important;height:28px!important;object-fit:contain!important;opacity:1!important}
 </style>
+
+<style id="hanoi-popup-final-fix">
+.hanoi-exhibition-modal {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+}
+.hanoi-exhibition-modal.is-open {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.hanoi-exhibition-dialog {
+  position: relative !important;
+  z-index: 2147483647 !important;
+}
+</style>
+
 </head><body>
 <header class="header">
   <a class="mtung-identity" href="/" aria-label="M.TUNG — Home">
@@ -40,37 +57,58 @@
   </div>
 </div>
 <script>
-(function(){
+(function () {
   var card = document.querySelector('[data-exhibition-popup="hanoi-museum"]');
-  var image = card ? card.querySelector('img') : null;
   var modal = document.getElementById('hanoiExhibitionModal');
-  if(!image || !modal) return;
 
-  var close = modal.querySelector('.hanoi-exhibition-close');
-  var open = false;
+  if (!card || !modal) return;
 
-  function show(){
-    if(open) return;
-    open = true;
+  var dialog = modal.querySelector('.hanoi-exhibition-dialog');
+  var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var timer = null;
+
+  function showPopup() {
+    clearTimeout(timer);
     modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden','false');
+    modal.setAttribute('aria-hidden', 'false');
   }
-  function hide(){
-    open = false;
+
+  function hidePopup() {
+    clearTimeout(timer);
     modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden','true');
+    modal.setAttribute('aria-hidden', 'true');
   }
 
-  // Open specifically when the pointer enters the project image.
-  image.addEventListener('mouseenter', show);
-  image.addEventListener('focus', show);
-
-  close.addEventListener('click', hide);
-  modal.addEventListener('click', function(e){
-    if(e.target === modal) hide();
+  // Trigger from the WHOLE Hanoi Museum project card, not the image.
+  card.addEventListener('mouseenter', showPopup);
+  card.addEventListener('mouseleave', function () {
+    // Keep it open while the pointer is moving toward the popup.
+    timer = setTimeout(function () {
+      if (!dialog.matches(':hover')) hidePopup();
+    }, 180);
   });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') hide();
+
+  // If the popup itself is reached, keep it open.
+  modal.addEventListener('mouseenter', function () {
+    clearTimeout(timer);
+  });
+
+  modal.addEventListener('mouseleave', function () {
+    hidePopup();
+  });
+
+  closeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    hidePopup();
+  });
+
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) hidePopup();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') hidePopup();
   });
 })();
 </script>
