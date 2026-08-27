@@ -2,10 +2,7 @@
 <style id="hanoi-museum-popup-css">
 .hanoi-exhibition-modal{
   position:fixed!important;
-  left:0!important;
-  top:0!important;
-  width:100vw!important;
-  height:100vh!important;
+  inset:0!important;
   z-index:2147483647!important;
   display:none!important;
   pointer-events:none!important;
@@ -19,64 +16,68 @@
 }
 .hanoi-exhibition-dialog{
   position:fixed!important;
-  left:50%!important;
-  top:50%!important;
-  transform:translate(-50%,-50%)!important;
-  width:min(360px,calc(100vw - 32px))!important;
-  padding:22px 26px 24px!important;
-  background:rgba(255,255,255,.96)!important;
+  left:0!important;
+  top:0!important;
+  transform:none!important;
+  width:min(300px,calc(100vw - 28px))!important;
+  padding:20px 24px 21px!important;
+  background:rgba(255,255,255,.97)!important;
   color:#111!important;
-  border:1px solid rgba(0,0,0,.10)!important;
-  box-shadow:0 12px 36px rgba(0,0,0,.12)!important;
+  border:1px solid rgba(0,0,0,.09)!important;
+  border-radius:12px!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.10)!important;
   pointer-events:auto!important;
-  backdrop-filter:blur(8px)!important;
-  -webkit-backdrop-filter:blur(8px)!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  box-sizing:border-box!important;
+  transition:left .08s ease-out,top .08s ease-out!important;
 }
 .hanoi-exhibition-close{
   position:absolute!important;
-  top:8px!important;
-  right:11px!important;
+  top:7px!important;
+  right:10px!important;
   border:0!important;
   background:none!important;
   color:#111!important;
-  font-size:20px!important;
+  font-size:19px!important;
   line-height:1!important;
   cursor:pointer!important;
   padding:4px!important;
 }
 .hanoi-exhibition-dialog .popup-label{
-  margin:0 0 8px!important;
-  font-size:9px!important;
+  margin:0 0 7px!important;
+  font-size:8px!important;
   letter-spacing:.08em!important;
   text-transform:uppercase!important;
-  opacity:.48!important;
+  opacity:.45!important;
 }
 .hanoi-exhibition-dialog h2{
-  margin:0 0 9px!important;
-  font-size:20px!important;
+  margin:0 0 8px!important;
+  font-size:19px!important;
   line-height:1.08!important;
   font-weight:500!important;
   letter-spacing:-.02em!important;
 }
 .hanoi-exhibition-dialog p{
-  margin:0 0 16px!important;
-  max-width:290px!important;
-  font-size:12px!important;
+  margin:0 0 15px!important;
+  max-width:255px!important;
+  font-size:11px!important;
   line-height:1.45!important;
 }
 .hanoi-exhibition-link{
   display:inline-block!important;
-  padding:8px 12px!important;
+  padding:7px 11px!important;
   background:#111!important;
   color:#fff!important;
   text-decoration:none!important;
-  font-size:11px!important;
+  font-size:10px!important;
+  border-radius:5px!important;
 }
-.hanoi-exhibition-link:hover{opacity:.78!important}
+.hanoi-exhibition-link:hover{opacity:.76!important}
 @media(max-width:600px){
   .hanoi-exhibition-dialog{
-    width:min(320px,calc(100vw - 28px))!important;
-    padding:20px 22px 22px!important;
+    width:min(280px,calc(100vw - 24px))!important;
+    padding:19px 21px 20px!important;
   }
 }
 </style>
@@ -113,27 +114,74 @@
 (function () {
   var card = document.querySelector('[data-exhibition-popup="hanoi-museum"]');
   var modal = document.getElementById('hanoiExhibitionModal');
-  if (!card || !modal) return;
+  var dialog = modal ? modal.querySelector('.hanoi-exhibition-dialog') : null;
+
+  if (!card || !modal || !dialog) return;
 
   var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var image = card.querySelector('img');
+  var raf = null;
+  var mouseX = 0;
+  var mouseY = 0;
 
-  function showPopup() {
+  function movePopup() {
+    raf = null;
+    var rect = image ? image.getBoundingClientRect() : card.getBoundingClientRect();
+
+    var boxW = dialog.offsetWidth;
+    var boxH = dialog.offsetHeight;
+
+    // Keep the popup completely inside the project image.
+    var minX = rect.left + 10;
+    var maxX = rect.right - boxW - 10;
+    var minY = rect.top + 10;
+    var maxY = rect.bottom - boxH - 10;
+
+    // Follow the cursor, with a small offset so it does not sit directly
+    // underneath it.
+    var x = mouseX + 16;
+    var y = mouseY + 16;
+
+    // If there isn't enough room to the right/bottom, place it to the
+    // opposite side of the cursor.
+    if (x > maxX) x = mouseX - boxW - 16;
+    if (y > maxY) y = mouseY - boxH - 16;
+
+    x = Math.max(minX, Math.min(x, maxX));
+    y = Math.max(minY, Math.min(y, maxY));
+
+    dialog.style.left = x + 'px';
+    dialog.style.top = y + 'px';
+  }
+
+  function showPopup(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
+    movePopup();
   }
 
   function hidePopup() {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
+    if (raf) {
+      cancelAnimationFrame(raf);
+      raf = null;
+    }
   }
 
-  // Subtle hover popup: show when entering the Hanoi Museum card.
   card.addEventListener('mouseenter', showPopup);
 
-  // Disappear immediately when the pointer leaves the project card.
+  card.addEventListener('mousemove', function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!raf) raf = requestAnimationFrame(movePopup);
+  });
+
+  // The card is the boundary. Leaving it closes the popup.
   card.addEventListener('mouseleave', hidePopup);
 
-  // Manual close.
   closeButton.addEventListener('click', function (event) {
     event.preventDefault();
     event.stopPropagation();
