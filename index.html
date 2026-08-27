@@ -16,9 +16,9 @@
 }
 .hanoi-exhibition-dialog{
   position:fixed!important;
-  left:0!important;
-  top:0!important;
-  transform:none!important;
+  left:0;
+  top:0;
+  transform:none;
   width:min(300px,calc(100vw - 28px))!important;
   padding:20px 24px 21px!important;
   background:rgba(255,255,255,.97)!important;
@@ -126,32 +126,32 @@
 
   function movePopup() {
     raf = null;
-    var rect = image ? image.getBoundingClientRect() : card.getBoundingClientRect();
 
+    var rect = (image || card).getBoundingClientRect();
     var boxW = dialog.offsetWidth;
     var boxH = dialog.offsetHeight;
+    var margin = 12;
+    var gap = 18;
 
-    // Keep the popup completely inside the project image.
-    var minX = rect.left + 10;
-    var maxX = rect.right - boxW - 10;
-    var minY = rect.top + 10;
-    var maxY = rect.bottom - boxH - 10;
+    var minX = rect.left + margin;
+    var maxX = rect.right - boxW - margin;
+    var minY = rect.top + margin;
+    var maxY = rect.bottom - boxH - margin;
 
-    // Follow the cursor, with a small offset so it does not sit directly
-    // underneath it.
-    var x = mouseX + 16;
-    var y = mouseY + 16;
+    // Follow the cursor with a small offset.
+    var x = mouseX + gap;
+    var y = mouseY + gap;
 
-    // If there isn't enough room to the right/bottom, place it to the
-    // opposite side of the cursor.
-    if (x > maxX) x = mouseX - boxW - 16;
-    if (y > maxY) y = mouseY - boxH - 16;
+    // Flip to the other side when near the right/bottom edge.
+    if (x > maxX) x = mouseX - boxW - gap;
+    if (y > maxY) y = mouseY - boxH - gap;
 
+    // Keep the whole popup inside the project image.
     x = Math.max(minX, Math.min(x, maxX));
     y = Math.max(minY, Math.min(y, maxY));
 
-    dialog.style.left = x + 'px';
-    dialog.style.top = y + 'px';
+    dialog.style.setProperty('left', x + 'px', 'important');
+    dialog.style.setProperty('top', y + 'px', 'important');
   }
 
   function showPopup(e) {
@@ -159,7 +159,9 @@
     mouseY = e.clientY;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
-    movePopup();
+
+    // Wait one frame so the browser has calculated the popup dimensions.
+    requestAnimationFrame(movePopup);
   }
 
   function hidePopup() {
@@ -179,7 +181,6 @@
     if (!raf) raf = requestAnimationFrame(movePopup);
   });
 
-  // The card is the boundary. Leaving it closes the popup.
   card.addEventListener('mouseleave', hidePopup);
 
   closeButton.addEventListener('click', function (event) {
