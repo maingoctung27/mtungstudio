@@ -69,24 +69,27 @@
 }
 
 
-/* ===== FINAL M.TUNG HEADER ===== */
+/* ===== FINAL M.TUNG HEADER — TOP LEFT ===== */
 .header{
-  grid-template-columns: 1fr auto auto auto auto;
-  align-items: start;
+  display:grid;
+  grid-template-columns:auto 1fr auto auto;
+  align-items:start;
 }
-.header .brand{display:none !important;}
-.header-spacer{min-width:0;}
+.header .brand,
+.header-spacer{display:none !important;}
+
 .mtung-identity{
   display:inline-flex;
   align-items:center;
-  justify-content:flex-end;
+  justify-content:flex-start;
   gap:8px;
   font-size:12px;
   font-weight:500;
-  line-height:18px;
+  line-height:22px;
   white-space:nowrap;
-  padding-top:0;
   text-decoration:none;
+  padding-top:0;
+  grid-column:1;
 }
 .mtung-identity img{
   width:22px;
@@ -98,12 +101,12 @@
   user-select:none;
 }
 .mtung-identity:hover{opacity:.65;}
+
 @media(max-width:800px){
   .header{
-    grid-template-columns:1fr auto auto;
+    grid-template-columns:auto 1fr auto;
   }
   .header-center{display:none;}
-  .header nav{grid-column:auto;grid-row:auto;}
   .mtung-identity{font-size:11px;gap:6px;}
   .mtung-identity img{width:20px;height:20px;}
 }
