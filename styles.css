@@ -55,4 +55,55 @@
 @media(max-width:900px){.case-page .case-gallery .case-video video{width:100%;height:auto}}
 
 
-.case-text-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line,#ddd);border-top:1px solid var(--line,#ddd);border-bottom:1px solid var(--line,#ddd);margin:2.5rem 0}.case-text-grid article{background:var(--bg,#fff);padding:2rem 1.5rem 2.25rem}.case-text-grid h2{font-size:clamp(1.25rem,2vw,2rem);margin:.35rem 0 .8rem;line-height:1.05}.case-text-grid p:not(.label){max-width:34rem;line-height:1.6;margin:0}.case-text-grid .label{margin:0 0 .4rem}.case-gallery figure{margin-top:2.5rem}@media(max-width:800px){.case-text-grid{grid-template-columns:1fr}}
+/* M.TUNG Studio — portfolio image protection */
+.portfolio-image-protected,
+.project-gallery img,
+.project-cover img,
+.project-media img,
+.project-page img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* ===== FINAL M.TUNG HEADER ===== */
+.header{
+  grid-template-columns: 1fr auto auto auto auto;
+  align-items: start;
+}
+.header .brand{display:none !important;}
+.header-spacer{min-width:0;}
+.mtung-identity{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  font-size:12px;
+  font-weight:500;
+  line-height:18px;
+  white-space:nowrap;
+  padding-top:0;
+  text-decoration:none;
+}
+.mtung-identity img{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 auto;
+  -webkit-user-drag:none;
+  user-select:none;
+}
+.mtung-identity:hover{opacity:.65;}
+@media(max-width:800px){
+  .header{
+    grid-template-columns:1fr auto auto;
+  }
+  .header-center{display:none;}
+  .header nav{grid-column:auto;grid-row:auto;}
+  .mtung-identity{font-size:11px;gap:6px;}
+  .mtung-identity img{width:20px;height:20px;}
+}
