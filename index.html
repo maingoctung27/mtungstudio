@@ -121,6 +121,7 @@
   var closeButton = modal.querySelector('.hanoi-exhibition-close');
   var image = card.querySelector('img');
   var raf = null;
+  var hideTimer = null;
   var mouseX = 0;
   var mouseY = 0;
 
@@ -138,15 +139,12 @@
     var minY = rect.top + margin;
     var maxY = rect.bottom - boxH - margin;
 
-    // Follow the cursor with a small offset.
     var x = mouseX + gap;
     var y = mouseY + gap;
 
-    // Flip to the other side when near the right/bottom edge.
     if (x > maxX) x = mouseX - boxW - gap;
     if (y > maxY) y = mouseY - boxH - gap;
 
-    // Keep the whole popup inside the project image.
     x = Math.max(minX, Math.min(x, maxX));
     y = Math.max(minY, Math.min(y, maxY));
 
@@ -155,33 +153,52 @@
   }
 
   function showPopup(e) {
+    clearTimeout(hideTimer);
     mouseX = e.clientX;
     mouseY = e.clientY;
+
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
 
-    // Wait one frame so the browser has calculated the popup dimensions.
     requestAnimationFrame(movePopup);
   }
 
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    // Gives the cursor enough time to travel from the image to the popup.
+    hideTimer = setTimeout(function () {
+      if (!dialog.matches(':hover')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 700);
+  }
+
   function hidePopup() {
+    clearTimeout(hideTimer);
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
-    if (raf) {
-      cancelAnimationFrame(raf);
-      raf = null;
-    }
   }
 
   card.addEventListener('mouseenter', showPopup);
 
   card.addEventListener('mousemove', function (e) {
+    clearTimeout(hideTimer);
     mouseX = e.clientX;
     mouseY = e.clientY;
     if (!raf) raf = requestAnimationFrame(movePopup);
   });
 
-  card.addEventListener('mouseleave', hidePopup);
+  // Do not disappear instantly when moving from the image toward the popup.
+  card.addEventListener('mouseleave', scheduleHide);
+
+  // The popup is clickable. Entering it cancels the pending close.
+  dialog.addEventListener('mouseenter', function () {
+    clearTimeout(hideTimer);
+  });
+
+  // Once the cursor leaves the popup, close it.
+  dialog.addEventListener('mouseleave', hidePopup);
 
   closeButton.addEventListener('click', function (event) {
     event.preventDefault();
