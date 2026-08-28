@@ -99,7 +99,7 @@
   <nav><a class="active" href="/">Projects</a><a href="/info.html">Info</a></nav>
   <div class="social"><a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
 </header>
-<main class="projects-page"><div class="page-top"><h1>Projects</h1><p>Selected work in architecture, urban design, sustainability and environmental design.</p></div><section class="grid"><a class="card" href="/projects/milano-food-hub/"><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub" loading="lazy" decoding="async"><div class="meta"><div><span class="num">01</span><h2>Milano Community Food Hub</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-theater/"><img src="/assets/hanoi-theater-exterior.webp" alt="Hanoi Theater" loading="lazy" decoding="async"><div class="meta"><div><span class="num">02</span><h2>Hanoi Theater</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-youth-center/"><img src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center" loading="lazy" decoding="async"><div class="meta"><div><span class="num">03</span><h2>Thang Long Youth Center</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/sonla/"><img src="/assets/sonla.webp" alt="Son La Climate Combat Urban Design" loading="lazy" decoding="async"><div class="meta"><div><span class="num">04</span><h2>Son La Climate Combat Urban Design</h2><p>Urban Design · Climate</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/museum/" data-exhibition-popup="hanoi-museum"><img src="/assets/hanoi-museum.webp" alt="Hanoi Museum Installation" loading="lazy" decoding="async"><div class="meta"><div><span class="num">05</span><h2>Hanoi Museum Installation</h2><p>Architecture · Installation</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/tura/"><img src="/assets/tura.jpg" alt="Tura" loading="lazy" decoding="async"><div class="meta"><div><span class="num">06</span><h2>Tura</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a></section></main>
+<main class="projects-page"><div class="page-top"><h1>Projects</h1><p>Selected work in architecture, urban design, sustainability and environmental design.</p></div><section class="grid"><a class="card" href="/projects/milano-food-hub/" data-book-popup="milano-food-hub"><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub" loading="lazy" decoding="async"><div class="meta"><div><span class="num">01</span><h2>Milano Community Food Hub</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-theater/"><img src="/assets/hanoi-theater-exterior.webp" alt="Hanoi Theater" loading="lazy" decoding="async"><div class="meta"><div><span class="num">02</span><h2>Hanoi Theater</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-youth-center/"><img src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center" loading="lazy" decoding="async"><div class="meta"><div><span class="num">03</span><h2>Thang Long Youth Center</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/sonla/"><img src="/assets/sonla.webp" alt="Son La Climate Combat Urban Design" loading="lazy" decoding="async"><div class="meta"><div><span class="num">04</span><h2>Son La Climate Combat Urban Design</h2><p>Urban Design · Climate</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/museum/" data-exhibition-popup="hanoi-museum"><img src="/assets/hanoi-museum.webp" alt="Hanoi Museum Installation" loading="lazy" decoding="async"><div class="meta"><div><span class="num">05</span><h2>Hanoi Museum Installation</h2><p>Architecture · Installation</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/tura/"><img src="/assets/tura.jpg" alt="Tura" loading="lazy" decoding="async"><div class="meta"><div><span class="num">06</span><h2>Tura</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a></section></main>
 <footer><span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span><a href="#top">Back to top ↑</a></footer>
 <div class="hanoi-exhibition-modal" id="hanoiExhibitionModal" aria-hidden="true">
   <div class="hanoi-exhibition-dialog" role="dialog" aria-modal="true" aria-labelledby="hanoiExhibitionTitle">
@@ -110,6 +110,17 @@
     <a class="hanoi-exhibition-link" href="https://hanoicreativecity.com/en/blend-sculpture-light/" target="_blank" rel="noopener noreferrer">View feature →</a>
   </div>
 </div>
+
+<div class="hanoi-exhibition-modal" id="milanoBookModal" aria-hidden="true">
+  <div class="hanoi-exhibition-dialog" role="dialog" aria-modal="true" aria-labelledby="milanoBookTitle">
+    <button class="hanoi-exhibition-close" type="button" aria-label="Close">×</button>
+    <p class="popup-label">Featured elsewhere</p>
+    <h2 id="milanoBookTitle">Milano Community Food Hub</h2>
+    <p>View the full project book.</p>
+    <a class="hanoi-exhibition-link" href="https://www.calameo.com/read/0082742829d4061535a52" target="_blank" rel="noopener noreferrer">View full book →</a>
+  </div>
+</div>
+
 <script>
 (function () {
   var card = document.querySelector('[data-exhibition-popup="hanoi-museum"]');
@@ -198,6 +209,98 @@
   });
 
   // Once the cursor leaves the popup, close it.
+  dialog.addEventListener('mouseleave', hidePopup);
+
+  closeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    hidePopup();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') hidePopup();
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var card = document.querySelector('[data-book-popup="milano-food-hub"]');
+  var modal = document.getElementById('milanoBookModal');
+  var dialog = modal ? modal.querySelector('.hanoi-exhibition-dialog') : null;
+
+  if (!card || !modal || !dialog) return;
+
+  var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var image = card.querySelector('img');
+  var raf = null;
+  var hideTimer = null;
+  var mouseX = 0;
+  var mouseY = 0;
+
+  function movePopup() {
+    raf = null;
+    var rect = (image || card).getBoundingClientRect();
+    var boxW = dialog.offsetWidth;
+    var boxH = dialog.offsetHeight;
+    var margin = 12;
+    var gap = 18;
+
+    var minX = rect.left + margin;
+    var maxX = rect.right - boxW - margin;
+    var minY = rect.top + margin;
+    var maxY = rect.bottom - boxH - margin;
+
+    var x = mouseX + gap;
+    var y = mouseY + gap;
+
+    if (x > maxX) x = mouseX - boxW - gap;
+    if (y > maxY) y = mouseY - boxH - gap;
+
+    x = Math.max(minX, Math.min(x, maxX));
+    y = Math.max(minY, Math.min(y, maxY));
+
+    dialog.style.setProperty('left', x + 'px', 'important');
+    dialog.style.setProperty('top', y + 'px', 'important');
+  }
+
+  function showPopup(e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(movePopup);
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      if (!dialog.matches(':hover')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 700);
+  }
+
+  function hidePopup() {
+    clearTimeout(hideTimer);
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  card.addEventListener('mouseenter', showPopup);
+  card.addEventListener('mousemove', function (e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!raf) raf = requestAnimationFrame(movePopup);
+  });
+  card.addEventListener('mouseleave', scheduleHide);
+
+  dialog.addEventListener('mouseenter', function () {
+    clearTimeout(hideTimer);
+  });
   dialog.addEventListener('mouseleave', hidePopup);
 
   closeButton.addEventListener('click', function (event) {
