@@ -119,3 +119,192 @@
     height:28px;
   }
 }
+/* =====================================================
+   M.TUNG HEADER WORDMARK
+   Uses /mtung-wordmark.png on every website page
+   ===================================================== */
+
+.mtung-identity {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* Replace the text M.TUNG with the uploaded wordmark */
+.mtung-identity span {
+  display: block !important;
+  width: 145px !important;
+  height: 34px !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+
+  background-image: url("/mtung-wordmark.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+/* Keep the circular M.TUNG mark */
+.mtung-identity img {
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 800px) {
+  .mtung-identity span {
+    width: 120px !important;
+    height: 29px !important;
+  }
+}
+/* =====================================================
+   HEADER — SCALE TO 150%
+   ===================================================== */
+
+.header {
+  min-height: 90px !important;
+  padding: 0 42px !important;
+}
+
+.mtung-identity {
+  gap: 14px !important;
+}
+
+.mtung-identity span {
+  width: 218px !important;   /* 145px × 1.5 */
+  height: 51px !important;   /* 34px × 1.5 */
+}
+
+.mtung-identity img {
+  width: 42px !important;    /* 28px × 1.5 */
+  height: 42px !important;
+}
+
+.header-center {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+.header-center span {
+  font-size: 13px !important;
+}
+
+.header nav {
+  font-size: 15px !important;
+}
+
+.header nav a {
+  margin-left: 27px !important;
+}
+
+.social {
+  gap: 14px !important;
+}
+
+.social a {
+  font-size: 15px !important;
+}
+
+@media (max-width: 800px) {
+  .header {
+    min-height: 72px !important;
+    padding: 0 20px !important;
+  }
+
+  .mtung-identity span {
+    width: 180px !important;
+    height: 43px !important;
+  }
+
+  .mtung-identity img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+//* =====================================================
+   M.TUNG HEADER — TRUE VERTICAL CENTER
+   ===================================================== */
+
+.header {
+  min-height: 90px !important;
+  height: 90px !important;
+  padding: 0 42px !important;
+
+  display: grid !important;
+  grid-template-columns: auto 1fr auto auto !important;
+
+  align-items: center !important;
+}
+
+/* M.TUNG wordmark + circular mark */
+.header .mtung-identity {
+  align-self: center !important;
+  transform: translateY(10px) !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+/* Center description */
+.header .header-center {
+  align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Projects / Info */
+.header nav {
+  align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Social icons */
+.header .social {
+  align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Language switch */
+.header .language-switch {
+  align-self: center !important;
+  transform: translateY(10px) !important;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+  .header {
+    min-height: 72px !important;
+    height: 72px !important;
+    padding: 0 20px !important;
+    align-items: center !important;
+  }
+
+  .header .mtung-identity {
+    transform: translateY(5px) !important;
+  }
+
+  .header .social {
+    top: 50% !important;
+    transform: translateY(calc(-50% + 5px)) !important;
+  }
+/* STEP 1 — Tighten space below header */
+.projects-page {
+  padding-top: 10px !important;
+}
+
+.page-top {
+  margin-top: 0 !important;
+}
+}
