@@ -226,3 +226,57 @@
     height: 36px !important;
   }
 }
+/* =====================================================
+   M.TUNG HEADER — VERTICAL CENTERING
+   Keep current 150% scale, center everything vertically
+   ===================================================== */
+
+.header {
+  align-items: center !important;
+}
+
+/* M.TUNG wordmark + circular mark */
+.mtung-identity {
+  align-items: center !important;
+  padding-top: 0 !important;
+}
+
+/* Center description text */
+.header-center {
+  padding-top: 0 !important;
+  align-self: center !important;
+}
+
+/* Projects / Info */
+.header nav {
+  padding-top: 0 !important;
+  align-self: center !important;
+}
+
+/* Social icons */
+.social {
+  padding-top: 0 !important;
+  align-self: center !important;
+}
+
+/* Language switch */
+.language-switch {
+  align-self: center !important;
+  margin-top: 0 !important;
+}
+
+/* Keep the header objects vertically centered on mobile too */
+@media (max-width: 800px) {
+  .header {
+    align-items: center !important;
+  }
+
+  .mtung-identity {
+    align-self: center !important;
+  }
+
+  .social {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+}
