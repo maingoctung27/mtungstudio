@@ -301,10 +301,34 @@
   }
 /* STEP 1 — Tighten space below header */
 .projects-page {
-  padding-top: 10px !important;
+  padding-top: 50px !important;
 }
 
 .page-top {
   margin-top: 0 !important;
 }
+}
+.header .social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+
+.header .social a {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.header .social img {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+.header .social a:hover {
+  opacity: .55 !important;
 }
