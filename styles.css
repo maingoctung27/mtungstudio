@@ -226,57 +226,78 @@
     height: 36px !important;
   }
 }
-/* =====================================================
-   M.TUNG HEADER — VERTICAL CENTERING
-   Keep current 150% scale, center everything vertically
+//* =====================================================
+   M.TUNG HEADER — TRUE VERTICAL CENTER
    ===================================================== */
 
 .header {
+  min-height: 90px !important;
+  height: 90px !important;
+  padding: 0 42px !important;
+
+  display: grid !important;
+  grid-template-columns: auto 1fr auto auto !important;
+
   align-items: center !important;
 }
 
 /* M.TUNG wordmark + circular mark */
-.mtung-identity {
+.header .mtung-identity {
+  align-self: center !important;
+  transform: translateY(10px) !important;
+
+  display: inline-flex !important;
   align-items: center !important;
-  padding-top: 0 !important;
+  padding: 0 !important;
 }
 
-/* Center description text */
-.header-center {
-  padding-top: 0 !important;
+/* Center description */
+.header .header-center {
   align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
 }
 
 /* Projects / Info */
 .header nav {
-  padding-top: 0 !important;
   align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
 }
 
 /* Social icons */
-.social {
-  padding-top: 0 !important;
+.header .social {
   align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
 }
 
 /* Language switch */
-.language-switch {
+.header .language-switch {
   align-self: center !important;
-  margin-top: 0 !important;
+  transform: translateY(10px) !important;
 }
 
-/* Keep the header objects vertically centered on mobile too */
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
 @media (max-width: 800px) {
+
   .header {
+    min-height: 72px !important;
+    height: 72px !important;
+    padding: 0 20px !important;
     align-items: center !important;
   }
 
-  .mtung-identity {
-    align-self: center !important;
+  .header .mtung-identity {
+    transform: translateY(5px) !important;
   }
 
-  .social {
+  .header .social {
     top: 50% !important;
-    transform: translateY(-50%) !important;
+    transform: translateY(calc(-50% + 5px)) !important;
   }
+
 }
