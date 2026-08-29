@@ -119,3 +119,46 @@
     height:28px;
   }
 }
+/* =====================================================
+   M.TUNG HEADER WORDMARK
+   Uses /mtung-wordmark.png on every website page
+   ===================================================== */
+
+.mtung-identity {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* Replace the text M.TUNG with the uploaded wordmark */
+.mtung-identity span {
+  display: block !important;
+  width: 145px !important;
+  height: 34px !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+
+  background-image: url("/mtung-wordmark.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+/* Keep the circular M.TUNG mark */
+.mtung-identity img {
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 800px) {
+  .mtung-identity span {
+    width: 120px !important;
+    height: 29px !important;
+  }
+}
