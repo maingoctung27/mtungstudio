@@ -299,5 +299,12 @@
     top: 50% !important;
     transform: translateY(calc(-50% + 5px)) !important;
   }
+/* STEP 1 — Tighten space below header */
+.projects-page {
+  padding-top: 10px !important;
+}
 
+.page-top {
+  margin-top: 0 !important;
+}
 }
