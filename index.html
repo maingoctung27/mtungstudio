@@ -1,141 +1,447 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M.TUNG — Projects</title><meta name="description" content="M.TUNG — Architecture, Sustainability, Environmental Design. Based in Italy · Working internationally."><link rel="stylesheet" href="/styles.css">
 <style id="hanoi-museum-popup-css">
-.hanoi-exhibition-modal{position:fixed!important;inset:0!important;z-index:2147483647!important;display:none!important;pointer-events:none!important;background:transparent!important;padding:0!important}
-.hanoi-exhibition-modal.is-open{display:block!important;visibility:visible!important;opacity:1!important}
-.hanoi-exhibition-dialog{position:fixed!important;left:0;top:0;transform:none;width:min(300px,calc(100vw - 28px))!important;padding:20px 24px 21px!important;background:rgba(255,255,255,.97)!important;color:#111!important;border:1px solid rgba(0,0,0,.09)!important;border-radius:12px!important;box-shadow:0 8px 28px rgba(0,0,0,.10)!important;pointer-events:auto!important;backdrop-filter:blur(5px)!important;-webkit-backdrop-filter:blur(5px)!important;box-sizing:border-box!important;transition:left .08s ease-out,top .08s ease-out!important}
-.hanoi-exhibition-close{position:absolute!important;top:7px!important;right:10px!important;border:0!important;background:none!important;color:#111!important;font-size:19px!important;line-height:1!important;cursor:pointer!important;padding:4px!important}
-.hanoi-exhibition-dialog .popup-label{margin:0 0 7px!important;font-size:8px!important;letter-spacing:.08em!important;text-transform:uppercase!important;opacity:.45!important}
-.hanoi-exhibition-dialog h2{margin:0 0 8px!important;font-size:19px!important;line-height:1.08!important;font-weight:500!important;letter-spacing:-.02em!important}
-.hanoi-exhibition-dialog p{margin:0 0 15px!important;max-width:255px!important;font-size:11px!important;line-height:1.45!important}
-.hanoi-exhibition-link{display:inline-block!important;padding:7px 11px!important;background:#111!important;color:#fff!important;text-decoration:none!important;font-size:10px!important;border-radius:5px!important}
+.hanoi-exhibition-modal{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2147483647!important;
+  display:none!important;
+  pointer-events:none!important;
+  background:transparent!important;
+  padding:0!important;
+}
+.hanoi-exhibition-modal.is-open{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+.hanoi-exhibition-dialog{
+  position:fixed!important;
+  left:0;
+  top:0;
+  transform:none;
+  width:min(300px,calc(100vw - 28px))!important;
+  padding:20px 24px 21px!important;
+  background:rgba(255,255,255,.97)!important;
+  color:#111!important;
+  border:1px solid rgba(0,0,0,.09)!important;
+  border-radius:12px!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.10)!important;
+  pointer-events:auto!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  box-sizing:border-box!important;
+  transition:left .08s ease-out,top .08s ease-out!important;
+}
+.hanoi-exhibition-close{
+  position:absolute!important;
+  top:7px!important;
+  right:10px!important;
+  border:0!important;
+  background:none!important;
+  color:#111!important;
+  font-size:19px!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  padding:4px!important;
+}
+.hanoi-exhibition-dialog .popup-label{
+  margin:0 0 7px!important;
+  font-size:8px!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  opacity:.45!important;
+}
+.hanoi-exhibition-dialog h2{
+  margin:0 0 8px!important;
+  font-size:19px!important;
+  line-height:1.08!important;
+  font-weight:500!important;
+  letter-spacing:-.02em!important;
+}
+.hanoi-exhibition-dialog p{
+  margin:0 0 15px!important;
+  max-width:255px!important;
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+.hanoi-exhibition-link{
+  display:inline-block!important;
+  padding:7px 11px!important;
+  background:#111!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  font-size:10px!important;
+  border-radius:5px!important;
+}
 .hanoi-exhibition-link:hover{opacity:.76!important}
-@media(max-width:600px){.hanoi-exhibition-dialog{width:min(280px,calc(100vw - 24px))!important;padding:19px 21px 20px!important}}
+@media(max-width:600px){
+  .hanoi-exhibition-dialog{
+    width:min(280px,calc(100vw - 24px))!important;
+    padding:19px 21px 20px!important;
+  }
+}
+</style>
 
+
+<style id="mtung-identity-fix">
 .mtung-identity{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:inherit!important;white-space:nowrap!important}
 .mtung-identity span{display:inline-block!important;font-size:inherit!important;line-height:1!important;letter-spacing:inherit!important}
 .mtung-identity img{display:block!important;width:28px!important;height:28px!important;object-fit:contain!important;opacity:1!important}
-.mtung-wordmark{display:block!important;width:178px!important;height:auto!important;object-fit:contain!important;opacity:1!important}
-.mtung-splash-logo{display:flex!important;align-items:center!important;justify-content:center!important;width:min(420px,78vw)!important;height:auto!important}
-.mtung-splash-logo img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important}
-
-/* Homepage opening sequence — no image asset required */
-#mtung-splash{position:fixed;inset:0;background:#000;color:#fff;z-index:999999;display:grid;place-items:center;overflow:hidden;opacity:1;visibility:visible}
-#mtung-splash.is-leaving{animation:mtungSplashOut .75s cubic-bezier(.77,0,.18,1) forwards}
-.mtung-splash-inner{position:relative;width:min(920px,90vw);height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.mtung-splash-logo{position:relative;z-index:3;margin:0;font-family:"Arial Rounded MT Bold","Trebuchet MS","Helvetica Neue",Arial,sans-serif;font-size:clamp(48px,8vw,104px);font-weight:500;letter-spacing:-.065em;line-height:.9;white-space:nowrap;transform:scaleX(.94);text-rendering:geometricPrecision}
-.mtung-splash-sub{position:relative;z-index:3;margin-top:25px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:clamp(8px,1vw,12px);font-weight:400;letter-spacing:.31em;text-indent:.31em;white-space:nowrap;opacity:.92}
-.mtung-splash-line{position:absolute;left:50%;top:50%;width:100vw;height:1px;background:rgba(255,255,255,.28);transform:translate(-50%,-50%);z-index:1}
-.mtung-splash-line::before,.mtung-splash-line::after{content:"";position:absolute;top:50%;width:46vw;height:1px;transform:translateY(-50%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);filter:blur(.2px);opacity:0}
-.mtung-splash-line::before{right:50%}
-.mtung-splash-line::after{left:50%}
-.mtung-splash-glow{position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 16px 4px rgba(255,255,255,.95),0 0 60px 16px rgba(255,255,255,.32);transform:translate(-50%,-50%) scale(.2);opacity:0;z-index:2}
-.mtung-splash-enter{position:absolute;z-index:3;bottom:7px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:9px;letter-spacing:.34em;text-indent:.34em;opacity:0}
-.mtung-splash-arrow{position:absolute;z-index:3;bottom:-16px;width:7px;height:7px;border-right:1px solid #fff;border-bottom:1px solid #fff;transform:rotate(45deg);opacity:0}
-.mtung-splash-line::before{animation:mtungBeamLeft 2s cubic-bezier(.65,0,.2,1) forwards}
-.mtung-splash-line::after{animation:mtungBeamRight 2s cubic-bezier(.65,0,.2,1) forwards}
-.mtung-splash-glow{animation:mtungGlow 2s cubic-bezier(.65,0,.2,1) forwards}
-.mtung-splash-enter,.mtung-splash-arrow{animation:mtungEnter 1s ease 1.15s forwards}
-
-@keyframes mtungBeamLeft{0%{opacity:0;transform:translateY(-50%) translateX(-100%)}18%{opacity:1}100%{opacity:.8;transform:translateY(-50%) translateX(0)}}
-@keyframes mtungBeamRight{0%{opacity:0;transform:translateY(-50%) translateX(100%)}18%{opacity:1}100%{opacity:.8;transform:translateY(-50%) translateX(0)}}
-@keyframes mtungGlow{0%{opacity:0;transform:translate(-50%,-50%) scale(.15)}18%{opacity:1;transform:translate(-50%,-50%) scale(1)}65%{opacity:.9}100%{opacity:.55;transform:translate(-50%,-50%) scale(.55)}}
-@keyframes mtungEnter{from{opacity:0;transform:translateY(7px)}to{opacity:.78;transform:translateY(0)}}
-@keyframes mtungSplashOut{0%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden;pointer-events:none}}
-@media(max-width:600px){
-  .mtung-splash-sub{letter-spacing:.18em;text-indent:.18em}
-  .mtung-splash-inner{height:220px}
-}
-@media(prefers-reduced-motion:reduce){
-  #mtung-splash{animation:none!important}
-  .mtung-splash-line::before,.mtung-splash-line::after,.mtung-splash-glow,.mtung-splash-enter,.mtung-splash-arrow{animation:none!important}
-  .mtung-splash-enter{opacity:.78}.mtung-splash-arrow{opacity:.78}
-}
 </style>
-</head><body>
 
-<!-- 2-second architectural opening sequence -->
-<div id="mtung-splash" aria-label="M.TUNG opening">
+<style id="language-switch-css">
+.language-switch{display:inline-flex;align-items:center;gap:5px;margin-left:14px;font-size:10px;letter-spacing:.04em;white-space:nowrap}
+.language-switch a{color:inherit;text-decoration:none;opacity:.45}
+.language-switch a:hover,.language-switch .lang-active{opacity:1}
+</style>
+<style id="mtung-splash-css">
+  html.mtung-loading,
+  body.mtung-loading {
+    overflow: hidden !important;
+  }
+
+  #mtung-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity .65s cubic-bezier(.22,1,.36,1), visibility .65s;
+  }
+
+  #mtung-splash.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .mtung-splash-inner {
+    width: min(520px, 62vw);
+    text-align: center;
+  }
+
+  .mtung-splash-logo {
+    display: block;
+    width: min(520px, 62vw);
+    height: auto;
+    margin: 0 auto 30px;
+    object-fit: contain;
+  }
+
+  .mtung-splash-title {
+    margin: 0 0 30px;
+    font-family: inherit;
+    font-size: clamp(34px, 5vw, 68px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.055em;
+  }
+
+  .mtung-splash-logo { opacity: 1; filter: none; }
+
+  .mtung-splash-line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    background: rgba(255,255,255,.18);
+  }
+
+  .mtung-splash-light {
+    position: absolute;
+    top: 0;
+    left: -24%;
+    width: 24%;
+    height: 1px;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(255,255,255,.9), 0 0 28px rgba(255,255,255,.45);
+    animation: mtung-light-run 1.65s cubic-bezier(.65,0,.35,1) .08s forwards;
+  }
+
+  @keyframes mtung-light-run {
+    0%   { left: -24%; opacity: 0; }
+    8%   { opacity: 1; }
+    82%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    .mtung-splash-inner { width: min(360px, 72vw); }
+    .mtung-splash-logo {
+    display: block;
+    width: min(520px, 62vw);
+    height: auto;
+    margin: 0 auto 30px;
+    object-fit: contain;
+  }
+
+  .mtung-splash-title { margin-bottom: 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #mtung-splash { transition-duration: .2s; }
+    .mtung-splash-light { animation: none; left: 100%; opacity: 0; }
+  }
+</style>
+</head><body class="mtung-loading">
+<div id="mtung-splash" aria-hidden="true">
   <div class="mtung-splash-inner">
-    <div class="mtung-splash-line"></div>
-    <div class="mtung-splash-glow"></div>
-    <div class="mtung-splash-logo"><img src="/mtung-wordmark.png" alt="M.TUNG"></div>
-    <div class="mtung-splash-sub">ARCHITECTURE · SUSTAINABILITY · ENVIRONMENT</div>
-    <div class="mtung-splash-enter">ENTER</div>
-    <div class="mtung-splash-arrow"></div>
+    <img class="mtung-splash-logo" src="/assets/mtung-splash-logo-white.png" alt="M.TUNG">
+    <div class="mtung-splash-line"><span class="mtung-splash-light"></span></div>
   </div>
 </div>
 
 <header class="header">
   <a class="mtung-identity" href="/" aria-label="M.TUNG — Home">
-    <img class="mtung-wordmark" src="/mtung-wordmark.png" alt="M.TUNG" aria-hidden="false"><img src="/mtung-mark.png" alt="" aria-hidden="true">
+    <span>M.TUNG</span>
+    <img src="/mtung-mark.png" alt="" aria-hidden="true">
   </a>
   <div class="header-center">Architecture · Sustainability · Environmental Design<br><span>Based in Italy · Working internationally</span></div>
   <nav><a class="active" href="/">Projects</a><a href="/info.html">Info</a></nav>
-  <div class="social"><a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+  <div class="social"><a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div><div class="language-switch" aria-label="Language"><a class="lang-active" href="/">EN</a><span>·</span><a href="/vi/">VI</a></div>
 </header>
-
-<main class="projects-page">
-  <div class="page-top"><h1>Projects</h1><p>Selected work in architecture, urban design, sustainability and environmental design.</p></div>
-  <section class="grid">
-    <a class="card" href="/projects/milano-food-hub/"><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub" loading="lazy" decoding="async"><div class="meta"><div><span class="num">01</span><h2>Milano Community Food Hub</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a>
-    <a class="card" href="/projects/hanoi-theater/"><img src="/assets/hanoi-theater-exterior.webp" alt="Hanoi Theater" loading="lazy" decoding="async"><div class="meta"><div><span class="num">02</span><h2>Hanoi Theater</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a>
-    <a class="card" href="/projects/hanoi-youth-center/"><img src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center" loading="lazy" decoding="async"><div class="meta"><div><span class="num">03</span><h2>Thang Long Youth Center</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a>
-    <a class="card" href="/projects/sonla/"><img src="/assets/sonla.webp" alt="Son La Climate Combat Urban Design" loading="lazy" decoding="async"><div class="meta"><div><span class="num">04</span><h2>Son La Climate Combat Urban Design</h2><p>Urban Design · Climate</p></div><span class="arrow">↗</span></div></a>
-    <a class="card" href="/projects/museum/" data-exhibition-popup="hanoi-museum"><img src="/assets/hanoi-museum.webp" alt="Hanoi Museum Installation" loading="lazy" decoding="async"><div class="meta"><div><span class="num">05</span><h2>Hanoi Museum Installation</h2><p>Architecture · Installation</p></div><span class="arrow">↗</span></div></a>
-    <a class="card" href="/projects/tura/"><img src="/assets/tura.jpg" alt="Tura" loading="lazy" decoding="async"><div class="meta"><div><span class="num">06</span><h2>Tura</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a>
-  </section>
-</main>
-
+<main class="projects-page"><div class="page-top"><h1>Projects</h1><p>Selected work in architecture, urban design, sustainability and environmental design.</p></div><section class="grid"><a class="card" href="/projects/milano-food-hub/" data-book-popup="milano-food-hub"><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub" loading="lazy" decoding="async"><div class="meta"><div><span class="num">01</span><h2>Milano Community Food Hub</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-theater/"><img src="/assets/hanoi-theater-exterior.webp" alt="Hanoi Theater" loading="lazy" decoding="async"><div class="meta"><div><span class="num">02</span><h2>Hanoi Theater</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-youth-center/"><img src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center" loading="lazy" decoding="async"><div class="meta"><div><span class="num">03</span><h2>Thang Long Youth Center</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/sonla/"><img src="/assets/sonla.webp" alt="Son La Climate Combat Urban Design" loading="lazy" decoding="async"><div class="meta"><div><span class="num">04</span><h2>Son La Climate Combat Urban Design</h2><p>Urban Design · Climate</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/museum/" data-exhibition-popup="hanoi-museum"><img src="/assets/hanoi-museum.webp" alt="Hanoi Museum Installation" loading="lazy" decoding="async"><div class="meta"><div><span class="num">05</span><h2>Hanoi Museum Installation</h2><p>Architecture · Installation</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/tura/"><img src="/assets/tura.jpg" alt="Tura" loading="lazy" decoding="async"><div class="meta"><div><span class="num">06</span><h2>Tura</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a></section></main>
 <footer><span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span><a href="#top">Back to top ↑</a></footer>
-
 <div class="hanoi-exhibition-modal" id="hanoiExhibitionModal" aria-hidden="true">
   <div class="hanoi-exhibition-dialog" role="dialog" aria-modal="true" aria-labelledby="hanoiExhibitionTitle">
     <button class="hanoi-exhibition-close" type="button" aria-label="Close">×</button>
-    <p class="popup-label">Featured elsewhere</p><h2 id="hanoiExhibitionTitle">Hanoi Museum Exhibition</h2>
+    <p class="popup-label">Featured elsewhere</p>
+    <h2 id="hanoiExhibitionTitle">Hanoi Museum Exhibition</h2>
     <p>View the exhibition / project feature on Hanoi Creative City.</p>
     <a class="hanoi-exhibition-link" href="https://hanoicreativecity.com/en/blend-sculpture-light/" target="_blank" rel="noopener noreferrer">View feature →</a>
   </div>
 </div>
 
+<div class="hanoi-exhibition-modal" id="milanoBookModal" aria-hidden="true">
+  <div class="hanoi-exhibition-dialog" role="dialog" aria-modal="true" aria-labelledby="milanoBookTitle">
+    <button class="hanoi-exhibition-close" type="button" aria-label="Close">×</button>
+    <p class="popup-label">Featured elsewhere</p>
+    <h2 id="milanoBookTitle">Milano Community Food Hub</h2>
+    <p>View the full project book.</p>
+    <a class="hanoi-exhibition-link" href="https://www.calameo.com/read/0082742829d4061535a52" target="_blank" rel="noopener noreferrer">View full book →</a>
+  </div>
+</div>
+
 <script>
-(function(){
-  var splash=document.getElementById('mtung-splash');
-  if(!splash)return;
-  var leave=function(){
-    splash.classList.add('is-leaving');
-    setTimeout(function(){splash.remove()},800);
-  };
-  window.addEventListener('load',function(){setTimeout(leave,2000)});
-  setTimeout(leave,3200);
+(function () {
+  var card = document.querySelector('[data-exhibition-popup="hanoi-museum"]');
+  var modal = document.getElementById('hanoiExhibitionModal');
+  var dialog = modal ? modal.querySelector('.hanoi-exhibition-dialog') : null;
+
+  if (!card || !modal || !dialog) return;
+
+  var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var image = card.querySelector('img');
+  var raf = null;
+  var hideTimer = null;
+  var mouseX = 0;
+  var mouseY = 0;
+
+  function movePopup() {
+    raf = null;
+
+    var rect = (image || card).getBoundingClientRect();
+    var boxW = dialog.offsetWidth;
+    var boxH = dialog.offsetHeight;
+    var margin = 12;
+    var gap = 18;
+
+    var minX = rect.left + margin;
+    var maxX = rect.right - boxW - margin;
+    var minY = rect.top + margin;
+    var maxY = rect.bottom - boxH - margin;
+
+    var x = mouseX + gap;
+    var y = mouseY + gap;
+
+    if (x > maxX) x = mouseX - boxW - gap;
+    if (y > maxY) y = mouseY - boxH - gap;
+
+    x = Math.max(minX, Math.min(x, maxX));
+    y = Math.max(minY, Math.min(y, maxY));
+
+    dialog.style.setProperty('left', x + 'px', 'important');
+    dialog.style.setProperty('top', y + 'px', 'important');
+  }
+
+  function showPopup(e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+
+    requestAnimationFrame(movePopup);
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    // Gives the cursor enough time to travel from the image to the popup.
+    hideTimer = setTimeout(function () {
+      if (!dialog.matches(':hover')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 700);
+  }
+
+  function hidePopup() {
+    clearTimeout(hideTimer);
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  card.addEventListener('mouseenter', showPopup);
+
+  card.addEventListener('mousemove', function (e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!raf) raf = requestAnimationFrame(movePopup);
+  });
+
+  // Do not disappear instantly when moving from the image toward the popup.
+  card.addEventListener('mouseleave', scheduleHide);
+
+  // The popup is clickable. Entering it cancels the pending close.
+  dialog.addEventListener('mouseenter', function () {
+    clearTimeout(hideTimer);
+  });
+
+  // Once the cursor leaves the popup, close it.
+  dialog.addEventListener('mouseleave', hidePopup);
+
+  closeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    hidePopup();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') hidePopup();
+  });
 })();
 </script>
 
 <script>
-(function(){
-  var card=document.querySelector('[data-exhibition-popup="hanoi-museum"]');
-  var modal=document.getElementById('hanoiExhibitionModal');
-  var dialog=modal?modal.querySelector('.hanoi-exhibition-dialog'):null;
-  if(!card||!modal||!dialog)return;
-  var closeButton=modal.querySelector('.hanoi-exhibition-close'),image=card.querySelector('img'),raf=null,hideTimer=null,mouseX=0,mouseY=0;
-  function movePopup(){
-    raf=null;var rect=(image||card).getBoundingClientRect(),boxW=dialog.offsetWidth,boxH=dialog.offsetHeight,margin=12,gap=18;
-    var minX=rect.left+margin,maxX=rect.right-boxW-margin,minY=rect.top+margin,maxY=rect.bottom-boxH-margin;
-    var x=mouseX+gap,y=mouseY+gap;
-    if(x>maxX)x=mouseX-boxW-gap;if(y>maxY)y=mouseY-boxH-gap;
-    x=Math.max(minX,Math.min(x,maxX));y=Math.max(minY,Math.min(y,maxY));
-    dialog.style.setProperty('left',x+'px','important');dialog.style.setProperty('top',y+'px','important');
+(function () {
+  var card = document.querySelector('[data-book-popup="milano-food-hub"]');
+  var modal = document.getElementById('milanoBookModal');
+  var dialog = modal ? modal.querySelector('.hanoi-exhibition-dialog') : null;
+
+  if (!card || !modal || !dialog) return;
+
+  var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var image = card.querySelector('img');
+  var raf = null;
+  var hideTimer = null;
+  var mouseX = 0;
+  var mouseY = 0;
+
+  function movePopup() {
+    raf = null;
+    var rect = (image || card).getBoundingClientRect();
+    var boxW = dialog.offsetWidth;
+    var boxH = dialog.offsetHeight;
+    var margin = 12;
+    var gap = 18;
+
+    var minX = rect.left + margin;
+    var maxX = rect.right - boxW - margin;
+    var minY = rect.top + margin;
+    var maxY = rect.bottom - boxH - margin;
+
+    var x = mouseX + gap;
+    var y = mouseY + gap;
+
+    if (x > maxX) x = mouseX - boxW - gap;
+    if (y > maxY) y = mouseY - boxH - gap;
+
+    x = Math.max(minX, Math.min(x, maxX));
+    y = Math.max(minY, Math.min(y, maxY));
+
+    dialog.style.setProperty('left', x + 'px', 'important');
+    dialog.style.setProperty('top', y + 'px', 'important');
   }
-  function showPopup(e){clearTimeout(hideTimer);mouseX=e.clientX;mouseY=e.clientY;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');requestAnimationFrame(movePopup)}
-  function scheduleHide(){clearTimeout(hideTimer);hideTimer=setTimeout(function(){if(!dialog.matches(':hover')){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true')}},700)}
-  function hidePopup(){clearTimeout(hideTimer);modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true')}
-  card.addEventListener('mouseenter',showPopup);
-  card.addEventListener('mousemove',function(e){clearTimeout(hideTimer);mouseX=e.clientX;mouseY=e.clientY;if(!raf)raf=requestAnimationFrame(movePopup)});
-  card.addEventListener('mouseleave',scheduleHide);
-  dialog.addEventListener('mouseenter',function(){clearTimeout(hideTimer)});
-  dialog.addEventListener('mouseleave',hidePopup);
-  closeButton.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();hidePopup()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')hidePopup()});
+
+  function showPopup(e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(movePopup);
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      if (!dialog.matches(':hover')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 700);
+  }
+
+  function hidePopup() {
+    clearTimeout(hideTimer);
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  card.addEventListener('mouseenter', showPopup);
+  card.addEventListener('mousemove', function (e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!raf) raf = requestAnimationFrame(movePopup);
+  });
+  card.addEventListener('mouseleave', scheduleHide);
+
+  dialog.addEventListener('mouseenter', function () {
+    clearTimeout(hideTimer);
+  });
+  dialog.addEventListener('mouseleave', hidePopup);
+
+  closeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    hidePopup();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') hidePopup();
+  });
 })();
 </script>
-<script src="/image-protection.js"></script>
-</body></html>
+
+
+<script id="mtung-splash-js">
+(function () {
+  var splash = document.getElementById('mtung-splash');
+  if (!splash) return;
+
+  var reduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var delay = reduced ? 450 : 2050;
+
+  window.setTimeout(function () {
+    splash.classList.add('is-leaving');
+    document.documentElement.classList.remove('mtung-loading');
+    document.body.classList.remove('mtung-loading');
+
+    window.setTimeout(function () {
+      if (splash.parentNode) splash.parentNode.removeChild(splash);
+    }, reduced ? 250 : 700);
+  }, delay);
+})();
+</script>
+<script src="/image-protection.js"></script></body></html>
