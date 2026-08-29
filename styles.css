@@ -393,3 +393,42 @@
     height: 22px !important;
   }
 }
+/* SOCIAL ICONS */
+
+.header .social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+
+.header .social a {
+  width: 26px !important;
+  height: 26px !important;
+  display: block !important;
+  position: relative !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.header .social a::before,
+.header .social a::after {
+  content: none !important;
+  display: none !important;
+}
+
+.header .social img {
+  width: 26px !important;
+  height: 26px !important;
+  display: block !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.header .social a:hover {
+  opacity: .55 !important;
+}
