@@ -162,3 +162,67 @@
     height: 29px !important;
   }
 }
+/* =====================================================
+   HEADER — SCALE TO 150%
+   ===================================================== */
+
+.header {
+  min-height: 90px !important;
+  padding: 0 42px !important;
+}
+
+.mtung-identity {
+  gap: 14px !important;
+}
+
+.mtung-identity span {
+  width: 218px !important;   /* 145px × 1.5 */
+  height: 51px !important;   /* 34px × 1.5 */
+}
+
+.mtung-identity img {
+  width: 42px !important;    /* 28px × 1.5 */
+  height: 42px !important;
+}
+
+.header-center {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+.header-center span {
+  font-size: 13px !important;
+}
+
+.header nav {
+  font-size: 15px !important;
+}
+
+.header nav a {
+  margin-left: 27px !important;
+}
+
+.social {
+  gap: 14px !important;
+}
+
+.social a {
+  font-size: 15px !important;
+}
+
+@media (max-width: 800px) {
+  .header {
+    min-height: 72px !important;
+    padding: 0 20px !important;
+  }
+
+  .mtung-identity span {
+    width: 180px !important;
+    height: 43px !important;
+  }
+
+  .mtung-identity img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
