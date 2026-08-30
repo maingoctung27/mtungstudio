@@ -45,6 +45,61 @@
       }
     }
   </style>
+
+<style id="mtung-drag-hint-css">
+  .mtung-drag-hint{
+    position:fixed;
+    top:50%;
+    z-index:9998;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    transform:translateY(-50%);
+    color:#111;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.13em;
+    white-space:nowrap;
+    pointer-events:none;
+    opacity:.58;
+    user-select:none;
+  }
+  .mtung-drag-hint .hint-arrow{
+    display:inline-block;
+    font-size:15px;
+    line-height:1;
+    letter-spacing:0;
+    animation:mtungHintArrow 1.7s ease-in-out infinite;
+  }
+  .mtung-drag-hint.right{
+    right:22px;
+  }
+  .mtung-drag-hint.left{
+    left:22px;
+  }
+  @keyframes mtungHintArrow{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(-5px)}
+  }
+  .mtung-drag-hint.left .hint-arrow{
+    animation-name:mtungHintArrowRight;
+  }
+  @keyframes mtungHintArrowRight{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(5px)}
+  }
+  .mtung-drag-hint.is-hidden{
+    opacity:0;
+    transition:opacity .6s ease;
+  }
+  @media (max-width:600px){
+    .mtung-drag-hint{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mtung-drag-hint .hint-arrow{animation:none}
+  }
+</style>
+
 </head>
 
 <body>
@@ -361,6 +416,29 @@
 
     setTimeout(resetPageShift, 320);
   });
+})();
+</script>
+
+
+<div class="mtung-drag-hint left" id="mtungDragHint" aria-hidden="true">
+  <span>PROJECTS</span>
+  <span class="hint-arrow">→</span>
+  <span>DRAG</span>
+</div>
+
+
+<script id="mtung-drag-hint-js">
+(function () {
+  var hint = document.getElementById("mtungDragHint");
+  if (!hint) return;
+
+  window.setTimeout(function () {
+    hint.classList.add("is-hidden");
+  }, 6000);
+
+  window.addEventListener("mousedown", function () {
+    hint.classList.add("is-hidden");
+  }, { passive: true });
 })();
 </script>
 
