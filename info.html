@@ -35,6 +35,16 @@
       opacity: 1;
     }
   </style>
+
+  <style id="mtung-info-drag-css">
+    @media (min-width:601px){
+      body.mtung-dragging,
+      body.mtung-dragging *{
+        cursor:grabbing !important;
+        user-select:none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -264,6 +274,95 @@
 
 
 <script src="/image-protection.js"></script>
+
+<script id="mtung-info-drag">
+(function () {
+  var down = false;
+  var startX = 0;
+  var startY = 0;
+  var currentX = 0;
+  var threshold = 100;
+  var navigating = false;
+
+  function isDesktop() {
+    return window.matchMedia && window.matchMedia("(min-width: 601px)").matches;
+  }
+
+  function resetPageShift() {
+    document.body.style.transform = "";
+    document.body.style.transition = "";
+    document.body.style.willChange = "";
+  }
+
+  document.addEventListener("mousedown", function (e) {
+    if (!isDesktop() || e.button !== 0 || navigating) return;
+
+    down = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    currentX = 0;
+
+    document.body.classList.add("mtung-dragging");
+    document.body.style.willChange = "transform";
+    document.body.style.transition = "none";
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!down || navigating) return;
+
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+
+    if (Math.abs(dx) < Math.abs(dy) * 1.15) return;
+
+    // Info → Home: drag RIGHT.
+    currentX = Math.max(0, dx);
+
+    document.body.style.transform =
+      "translateX(" + (currentX * 0.9) + "px)";
+
+    e.preventDefault();
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!down || navigating) return;
+
+    down = false;
+    document.body.classList.remove("mtung-dragging");
+
+    if (currentX >= threshold) {
+      navigating = true;
+
+      document.body.style.transition =
+        "transform .38s cubic-bezier(.22,.61,.36,1)";
+      document.body.style.transform = "translateX(100vw)";
+
+      setTimeout(function () {
+        window.location.assign("/");
+      }, 300);
+    } else {
+      document.body.style.transition =
+        "transform .3s cubic-bezier(.22,.61,.36,1)";
+      document.body.style.transform = "translateX(0)";
+
+      setTimeout(resetPageShift, 320);
+    }
+  });
+
+  document.addEventListener("mouseleave", function () {
+    if (!down || navigating) return;
+
+    down = false;
+    document.body.classList.remove("mtung-dragging");
+
+    document.body.style.transition =
+      "transform .3s cubic-bezier(.22,.61,.36,1)";
+    document.body.style.transform = "translateX(0)";
+
+    setTimeout(resetPageShift, 320);
+  });
+})();
+</script>
 
 </body>
 </html>
