@@ -132,6 +132,37 @@
   }
 </style>
 
+
+<style id="mtung-page-preview-css">
+@media (min-width:601px){
+  #mtung-drag-preview{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    background:#fff!important;
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  body{
+    position:relative;
+    z-index:2;
+  }
+  body.mtung-preview-active{
+    overflow:hidden!important;
+  }
+}
+@media (max-width:600px){
+  #mtung-drag-preview{display:none!important}
+}
+</style>
 </head>
 
 <body>
@@ -370,16 +401,60 @@
   var currentX = 0;
   var threshold = 100;
   var navigating = false;
+  var preview = null;
 
   function isDesktop() {
     return window.matchMedia && window.matchMedia("(min-width: 601px)").matches;
+  }
+
+  function createPreview() {
+    if (preview || !isDesktop()) return;
+    preview = document.createElement("iframe");
+    preview.id = "mtung-drag-preview";
+    preview.setAttribute("aria-hidden", "true");
+    preview.tabIndex = -1;
+    preview.src = "/?dragpreview=1";
+    document.documentElement.appendChild(preview);
+    preview.addEventListener("load", function () {
+      try {
+        var doc = preview.contentDocument;
+        if (!doc) return;
+        var style = doc.createElement("style");
+        style.textContent = "#mtung-splash,.mtung-drag-hint,.swipe-hint{display:none!important}html,body{overflow:hidden!important}";
+        doc.head.appendChild(style);
+        doc.documentElement.classList.remove("mtung-loading");
+        if (doc.body) doc.body.classList.remove("mtung-loading");
+      } catch(e) {}
+    });
+  }
+
+  function setPreviewShift(x) {
+    if (!preview) return;
+    preview.style.transform = "translateX(" + (-window.innerWidth + x) + "px)";
+  }
+
+  function resetPreview() {
+    if (!preview) return;
+    preview.style.transition = "";
+    setPreviewShift(0);
+    preview.style.opacity = "1";
+  }
+
+  function setPageShift(x) {
+    document.body.style.transform = "translateX(" + x + "px)";
+    document.body.style.transition = "none";
+    setPreviewShift(x);
+    if (preview) preview.style.transition = "none";
   }
 
   function resetPageShift() {
     document.body.style.transform = "";
     document.body.style.transition = "";
     document.body.style.willChange = "";
+    resetPreview();
   }
+
+  createPreview();
 
   document.addEventListener("mousedown", function (e) {
     if (!isDesktop() || e.button !== 0 || navigating) return;
@@ -389,9 +464,10 @@
     startY = e.clientY;
     currentX = 0;
 
-    document.body.classList.add("mtung-dragging");
+    createPreview();
+    document.body.classList.add("mtung-dragging", "mtung-preview-active");
     document.body.style.willChange = "transform";
-    document.body.style.transition = "none";
+    e.preventDefault();
   });
 
   document.addEventListener("mousemove", function (e) {
@@ -402,50 +478,49 @@
 
     if (Math.abs(dx) < Math.abs(dy) * 1.15) return;
 
-    // Info → Home: drag RIGHT.
-    currentX = Math.max(0, dx);
-
-    document.body.style.transform =
-      "translateX(" + (currentX * 0.9) + "px)";
-
+    currentX = Math.max(0, Math.min(window.innerWidth, dx));
+    setPageShift(currentX * 0.9);
     e.preventDefault();
   });
 
-  document.addEventListener("mouseup", function () {
+  function finishDrag() {
     if (!down || navigating) return;
-
     down = false;
-    document.body.classList.remove("mtung-dragging");
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
 
     if (currentX >= threshold) {
       navigating = true;
-
-      document.body.style.transition =
-        "transform .38s cubic-bezier(.22,.61,.36,1)";
+      var duration = ".38s cubic-bezier(.22,.61,.36,1)";
+      document.body.style.transition = "transform " + duration;
       document.body.style.transform = "translateX(100vw)";
-
-      setTimeout(function () {
-        window.location.assign("/");
-      }, 300);
+      if (preview) {
+        preview.style.transition = "transform " + duration;
+        preview.style.transform = "translateX(0)";
+      }
+      setTimeout(function () { window.location.assign("/"); }, 300);
     } else {
-      document.body.style.transition =
-        "transform .3s cubic-bezier(.22,.61,.36,1)";
+      document.body.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
       document.body.style.transform = "translateX(0)";
-
+      if (preview) {
+        preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+        preview.style.transform = "translateX(-100vw)";
+      }
       setTimeout(resetPageShift, 320);
     }
-  });
+  }
+
+  document.addEventListener("mouseup", finishDrag);
 
   document.addEventListener("mouseleave", function () {
     if (!down || navigating) return;
-
     down = false;
-    document.body.classList.remove("mtung-dragging");
-
-    document.body.style.transition =
-      "transform .3s cubic-bezier(.22,.61,.36,1)";
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
+    document.body.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
     document.body.style.transform = "translateX(0)";
-
+    if (preview) {
+      preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      preview.style.transform = "translateX(-100vw)";
+    }
     setTimeout(resetPageShift, 320);
   });
 })();
