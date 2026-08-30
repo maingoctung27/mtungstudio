@@ -52,8 +52,9 @@
     top:50%;
     z-index:9998;
     display:flex;
+    flex-direction:column;
     align-items:center;
-    gap:9px;
+    gap:7px;
     transform:translateY(-50%);
     color:#111;
     font-size:9px;
@@ -64,37 +65,68 @@
     opacity:.58;
     user-select:none;
   }
+
+  .mtung-drag-hint .hint-text{
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+
+  /* Small rounded triangular outline: 50% of the previous visual size. */
+  .mtung-drag-hint .hint-shape{
+    width:26px;
+    height:22px;
+    display:block;
+    overflow:visible;
+  }
+
+  .mtung-drag-hint .hint-shape path{
+    fill:none;
+    stroke:#111;
+    stroke-width:1.35;
+    stroke-linejoin:round;
+    stroke-linecap:round;
+  }
+
   .mtung-drag-hint .hint-arrow{
     display:inline-block;
-    font-size:15px;
+    font-size:14px;
     line-height:1;
     letter-spacing:0;
     animation:mtungHintArrow 1.7s ease-in-out infinite;
   }
+
   .mtung-drag-hint.right{
     right:22px;
   }
+
   .mtung-drag-hint.left{
     left:22px;
   }
+
   @keyframes mtungHintArrow{
     0%,100%{transform:translateX(0)}
     50%{transform:translateX(-5px)}
   }
+
   .mtung-drag-hint.left .hint-arrow{
     animation-name:mtungHintArrowRight;
   }
+
   @keyframes mtungHintArrowRight{
     0%,100%{transform:translateX(0)}
     50%{transform:translateX(5px)}
   }
+
   .mtung-drag-hint.is-hidden{
     opacity:0;
     transition:opacity .6s ease;
   }
+
   @media (max-width:600px){
     .mtung-drag-hint{display:none}
   }
+
   @media (prefers-reduced-motion:reduce){
     .mtung-drag-hint .hint-arrow{animation:none}
   }
@@ -421,9 +453,14 @@
 
 
 <div class="mtung-drag-hint left" id="mtungDragHint" aria-hidden="true">
-  <span>PROJECTS</span>
-  <span class="hint-arrow">→</span>
-  <span>DRAG</span>
+  <div class="hint-text">
+    <span>PROJECTS</span>
+    <span class="hint-arrow">→</span>
+    <span>DRAG</span>
+  </div>
+  <svg class="hint-shape" viewBox="0 0 30 24" aria-hidden="true">
+    <path d="M6 2.5 Q3 2.5 3 5.5 L3 18.5 Q3 21.5 6 21.5 L23.5 15.5 Q27.5 12 23.5 8.5 Z"/>
+  </svg>
 </div>
 
 
