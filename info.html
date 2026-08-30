@@ -35,6 +35,164 @@
       opacity: 1;
     }
   </style>
+
+  <style id="mtung-info-drag-css">
+    @media (min-width:601px){
+      body.mtung-dragging,
+      body.mtung-dragging *{
+        cursor:grabbing !important;
+        user-select:none !important;
+      }
+    }
+  </style>
+
+<style id="mtung-drag-hint-css">
+  .mtung-drag-hint{
+    position:fixed;
+    top:50%;
+    z-index:9998;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    transform:translateY(-50%);
+    color:#111;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.13em;
+    white-space:nowrap;
+    pointer-events:none;
+    opacity:.58;
+    user-select:none;
+  }
+
+  .mtung-drag-hint .hint-text{
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+
+  /* Small rounded triangular outline: 50% of the previous visual size. */
+  .mtung-drag-hint .hint-shape{
+    width:26px;
+    height:22px;
+    display:block;
+    overflow:visible;
+  }
+
+  .mtung-drag-hint .hint-shape path{
+    fill:none;
+    stroke:#111;
+    stroke-width:1.35;
+    stroke-linejoin:round;
+    stroke-linecap:round;
+  }
+
+  .mtung-drag-hint .hint-arrow{
+    display:inline-block;
+    font-size:14px;
+    line-height:1;
+    letter-spacing:0;
+    animation:mtungHintArrow 1.7s ease-in-out infinite;
+  }
+
+  .mtung-drag-hint.right{
+    right:22px;
+  }
+
+  .mtung-drag-hint.left{
+    left:22px;
+  }
+
+  @keyframes mtungHintArrow{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(-5px)}
+  }
+
+  .mtung-drag-hint.left .hint-arrow{
+    animation-name:mtungHintArrowRight;
+  }
+
+  @keyframes mtungHintArrowRight{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(5px)}
+  }
+
+  .mtung-drag-hint.is-hidden{
+    opacity:0;
+    transition:opacity .6s ease;
+  }
+
+  @media (max-width:600px){
+    .mtung-drag-hint{display:none}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .mtung-drag-hint .hint-arrow{animation:none}
+  }
+</style>
+
+
+<style id="mtung-page-preview-css">
+@media (min-width:601px){
+  #mtung-drag-preview{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    z-index:2147483645!important;
+    pointer-events:none!important;
+    background:#fff!important;
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  body{
+    position:relative;
+    overflow-x:hidden!important;
+    background:#fff!important;
+  }
+  #mtung-page-shell{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background:#fff;
+    z-index:2147483644;
+    transform:translateX(0);
+    will-change:auto;
+  }
+  body.mtung-preview-active{
+    overflow:hidden!important;
+  }
+}
+@media (max-width:600px){
+  #mtung-drag-preview{display:none!important}
+}
+</style>
+
+<style id="mtung-preview-isolation-fix">
+@media (min-width:601px){
+  iframe#mtung-drag-preview{
+    display:block!important;
+    visibility:visible!important;
+    pointer-events:none!important;
+    position:fixed!important;
+    inset:0 auto auto 0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    border:0!important;
+  }
+  body.mtung-dragging{
+    cursor:grabbing!important;
+    user-select:none!important;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -264,6 +422,185 @@
 
 
 <script src="/image-protection.js"></script>
+
+<script id="mtung-info-drag">
+(function () {
+  if (new URLSearchParams(window.location.search).has("dragpreview")) return;
+  var down = false;
+  var startX = 0;
+  var startY = 0;
+  var currentX = 0;
+  var threshold = 100;
+  var navigating = false;
+  var preview = null;
+  var pageShell = null;
+
+  function ensurePageShell() {
+    if (pageShell) return;
+    pageShell = document.createElement("div");
+    pageShell.id = "mtung-page-shell";
+    while (document.body.firstChild) {
+      pageShell.appendChild(document.body.firstChild);
+    }
+    document.body.appendChild(pageShell);
+  }
+
+  function isDesktop() {
+    return window.matchMedia && window.matchMedia("(min-width: 601px)").matches;
+  }
+
+  function createPreview() {
+    if (preview || !isDesktop()) return;
+    preview = document.createElement("iframe");
+    preview.id = "mtung-drag-preview";
+    preview.setAttribute("aria-hidden", "true");
+    preview.tabIndex = -1;
+    preview.src = "/?dragpreview=1";
+    document.documentElement.appendChild(preview);
+    setPreviewShift(0);
+    preview.addEventListener("load", function () {
+      try {
+        var doc = preview.contentDocument;
+        if (!doc) return;
+        var style = doc.createElement("style");
+        style.textContent = "#mtung-splash,.mtung-drag-hint,.swipe-hint{display:none!important}html,body{overflow:hidden!important}";
+        doc.head.appendChild(style);
+        doc.documentElement.classList.remove("mtung-loading");
+        if (doc.body) doc.body.classList.remove("mtung-loading");
+      } catch(e) {}
+    });
+  }
+
+  function setPreviewShift(x) {
+    if (!preview) return;
+    preview.style.transform = "translateX(" + (-window.innerWidth + x) + "px)";
+  }
+
+  function resetPreview() {
+    if (!preview) return;
+    preview.style.transition = "";
+    setPreviewShift(0);
+    preview.style.opacity = "1";
+  }
+
+  function setPageShift(x) {
+    ensurePageShell();
+    pageShell.style.transform = "translateX(" + x + "px)";
+    pageShell.style.transition = "none";
+    setPreviewShift(x);
+    if (preview) preview.style.transition = "none";
+  }
+
+  function resetPageShift() {
+    if (pageShell) {
+      pageShell.style.transform = "";
+      pageShell.style.transition = "";
+      pageShell.style.willChange = "";
+    }
+    resetPreview();
+  }
+
+  createPreview();
+
+  document.addEventListener("mousedown", function (e) {
+    if (!isDesktop() || e.button !== 0 || navigating) return;
+
+    down = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    currentX = 0;
+
+    createPreview();
+    document.body.classList.add("mtung-dragging", "mtung-preview-active");
+    ensurePageShell();
+    pageShell.style.willChange = "transform";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!down || navigating) return;
+
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+
+    if (Math.abs(dx) < Math.abs(dy) * 1.15) return;
+
+    currentX = Math.max(0, Math.min(window.innerWidth, dx));
+    setPageShift(currentX * 0.9);
+    e.preventDefault();
+  });
+
+  function finishDrag() {
+    if (!down || navigating) return;
+    down = false;
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
+
+    if (currentX >= threshold) {
+      navigating = true;
+      ensurePageShell();
+      var duration = ".38s cubic-bezier(.22,.61,.36,1)";
+      pageShell.style.transition = "transform " + duration;
+      pageShell.style.transform = "translateX(100vw)";
+      if (preview) {
+        preview.style.transition = "transform " + duration;
+        preview.style.transform = "translateX(0)";
+      }
+      setTimeout(function () { window.location.assign("/"); }, 300);
+    } else {
+      pageShell.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      pageShell.style.transform = "translateX(0)";
+      if (preview) {
+        preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+        preview.style.transform = "translateX(-100vw)";
+      }
+      setTimeout(resetPageShift, 320);
+    }
+  }
+
+  document.addEventListener("mouseup", finishDrag);
+
+  document.addEventListener("mouseleave", function () {
+    if (!down || navigating) return;
+    down = false;
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
+    pageShell.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+    pageShell.style.transform = "translateX(0)";
+    if (preview) {
+      preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      preview.style.transform = "translateX(-100vw)";
+    }
+    setTimeout(resetPageShift, 320);
+  });
+})();
+</script>
+
+
+<div class="mtung-drag-hint left" id="mtungDragHint" aria-hidden="true">
+  <div class="hint-text">
+    <span>PROJECTS</span>
+    <span class="hint-arrow">→</span>
+    <span>DRAG</span>
+  </div>
+  <svg class="hint-shape" viewBox="0 0 30 24" aria-hidden="true">
+    <path d="M6 2.5 Q3 2.5 3 5.5 L3 18.5 Q3 21.5 6 21.5 L23.5 15.5 Q27.5 12 23.5 8.5 Z"/>
+  </svg>
+</div>
+
+
+<script id="mtung-drag-hint-js">
+(function () {
+  var hint = document.getElementById("mtungDragHint");
+  if (!hint) return;
+
+  window.setTimeout(function () {
+    hint.classList.add("is-hidden");
+  }, 6000);
+
+  window.addEventListener("mousedown", function () {
+    hint.classList.add("is-hidden");
+  }, { passive: true });
+})();
+</script>
 
 </body>
 </html>
