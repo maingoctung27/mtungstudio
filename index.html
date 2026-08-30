@@ -384,6 +384,26 @@
   #mtung-drag-preview{display:none!important}
 }
 </style>
+
+<style id="mtung-preview-isolation-fix">
+@media (min-width:601px){
+  iframe#mtung-drag-preview{
+    display:block!important;
+    visibility:visible!important;
+    pointer-events:none!important;
+    position:fixed!important;
+    inset:0 auto auto 0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    border:0!important;
+  }
+  body.mtung-dragging{
+    cursor:grabbing!important;
+    user-select:none!important;
+  }
+}
+</style>
 </head><body class="mtung-loading">
 <div id="mtung-splash" aria-hidden="true">
   <div class="mtung-splash-inner">
@@ -648,6 +668,7 @@
 </script>
 <script id="mtung-desktop-drag">
 (function () {
+  if (new URLSearchParams(window.location.search).has("dragpreview")) return;
   var down = false;
   var startX = 0;
   var startY = 0;
