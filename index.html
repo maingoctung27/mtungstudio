@@ -245,6 +245,17 @@
   }
 </style>
 
+
+<style id="mtung-desktop-drag-css">
+@media (min-width:601px){
+  body.mtung-dragging,
+  body.mtung-dragging *{
+    cursor:grabbing !important;
+    user-select:none !important;
+  }
+}
+</style>
+
 </head><body class="mtung-loading">
 <div id="mtung-splash" aria-hidden="true">
   <div class="mtung-splash-inner">
@@ -512,47 +523,92 @@
   var down = false;
   var startX = 0;
   var startY = 0;
-  var threshold = 90;
+  var currentX = 0;
+  var threshold = 100;
+  var navigating = false;
 
   function isDesktop() {
-    return window.matchMedia("(min-width: 601px)").matches;
+    return window.matchMedia && window.matchMedia("(min-width: 601px)").matches;
+  }
+
+  function setPageShift(x) {
+    document.body.style.transform = "translateX(" + x + "px)";
+    document.body.style.transition = "none";
+  }
+
+  function resetPageShift() {
+    document.body.style.transform = "";
+    document.body.style.transition = "";
   }
 
   document.addEventListener("mousedown", function (e) {
-    if (!isDesktop() || e.button !== 2) return;
+    if (!isDesktop() || e.button !== 0 || navigating) return;
+
     down = true;
     startX = e.clientX;
     startY = e.clientY;
+    currentX = 0;
+
+    document.body.classList.add("mtung-dragging");
+    document.body.style.willChange = "transform";
     e.preventDefault();
   });
 
   document.addEventListener("mousemove", function (e) {
-    if (!down) return;
+    if (!down || navigating) return;
 
     var dx = e.clientX - startX;
     var dy = e.clientY - startY;
 
-    if (Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy) * 1.2) {
-      down = false;
+    // Only treat a predominantly horizontal movement as the page gesture.
+    if (Math.abs(dx) < Math.abs(dy) * 1.15) return;
 
-      if (dx < 0) {
-        window.location.assign("/info.html");
-      }
-    }
+    // Home → Info is a LEFT drag only.
+    currentX = Math.min(0, dx);
+
+    // Follow the mouse naturally.
+    setPageShift(currentX * 0.9);
 
     e.preventDefault();
   });
 
   document.addEventListener("mouseup", function () {
+    if (!down || navigating) return;
+
     down = false;
+    document.body.classList.remove("mtung-dragging");
+
+    if (currentX <= -threshold) {
+      navigating = true;
+
+      // Complete the movement off-screen before changing page.
+      document.body.style.transition =
+        "transform .38s cubic-bezier(.22,.61,.36,1)";
+      document.body.style.transform = "translateX(-100vw)";
+
+      setTimeout(function () {
+        window.location.assign("/info.html");
+      }, 300);
+    } else {
+      // Snap smoothly back to the original position.
+      document.body.style.transition =
+        "transform .3s cubic-bezier(.22,.61,.36,1)";
+      document.body.style.transform = "translateX(0)";
+
+      setTimeout(resetPageShift, 320);
+    }
   });
 
   document.addEventListener("mouseleave", function () {
-    down = false;
-  });
+    if (!down || navigating) return;
 
-  document.addEventListener("contextmenu", function (e) {
-    if (down) e.preventDefault();
+    down = false;
+    document.body.classList.remove("mtung-dragging");
+    document.body.style.transition =
+      "transform .3s cubic-bezier(.22,.61,.36,1)";
+    document.body.style.transform = "translateX(0)";
+
+    setTimeout(resetPageShift, 320);
   });
 })();
 </script>
