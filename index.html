@@ -355,7 +355,7 @@
     margin:0!important;
     padding:0!important;
     border:0!important;
-    z-index:1!important;
+    z-index:2147483645!important;
     pointer-events:none!important;
     background:#fff!important;
     display:block!important;
@@ -364,7 +364,17 @@
   }
   body{
     position:relative;
-    z-index:2;
+    overflow-x:hidden!important;
+    background:#fff!important;
+  }
+  #mtung-page-shell{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background:#fff;
+    z-index:2147483644;
+    transform:translateX(0);
+    will-change:auto;
   }
   body.mtung-preview-active{
     overflow:hidden!important;
@@ -645,6 +655,17 @@
   var threshold = 100;
   var navigating = false;
   var preview = null;
+  var pageShell = null;
+
+  function ensurePageShell() {
+    if (pageShell) return;
+    pageShell = document.createElement("div");
+    pageShell.id = "mtung-page-shell";
+    while (document.body.firstChild) {
+      pageShell.appendChild(document.body.firstChild);
+    }
+    document.body.appendChild(pageShell);
+  }
 
   function isDesktop() {
     return window.matchMedia && window.matchMedia("(min-width: 601px)").matches;
@@ -658,6 +679,7 @@
     preview.tabIndex = -1;
     preview.src = "/info.html?dragpreview=1";
     document.documentElement.appendChild(preview);
+    setPreviewShift(0);
     preview.addEventListener("load", function () {
       try {
         var doc = preview.contentDocument;
@@ -684,16 +706,19 @@
   }
 
   function setPageShift(x) {
-    document.body.style.transform = "translateX(" + x + "px)";
-    document.body.style.transition = "none";
+    ensurePageShell();
+    pageShell.style.transform = "translateX(" + x + "px)";
+    pageShell.style.transition = "none";
     setPreviewShift(x);
     if (preview) preview.style.transition = "none";
   }
 
   function resetPageShift() {
-    document.body.style.transform = "";
-    document.body.style.transition = "";
-    document.body.style.willChange = "";
+    if (pageShell) {
+      pageShell.style.transform = "";
+      pageShell.style.transition = "";
+      pageShell.style.willChange = "";
+    }
     resetPreview();
   }
 
@@ -709,7 +734,8 @@
 
     createPreview();
     document.body.classList.add("mtung-dragging", "mtung-preview-active");
-    document.body.style.willChange = "transform";
+    ensurePageShell();
+    pageShell.style.willChange = "transform";
     e.preventDefault();
   });
 
@@ -734,16 +760,16 @@
     if (currentX <= -threshold) {
       navigating = true;
       var duration = ".38s cubic-bezier(.22,.61,.36,1)";
-      document.body.style.transition = "transform " + duration;
-      document.body.style.transform = "translateX(-100vw)";
+      pageShell.style.transition = "transform " + duration;
+      pageShell.style.transform = "translateX(-100vw)";
       if (preview) {
         preview.style.transition = "transform " + duration;
         preview.style.transform = "translateX(0)";
       }
       setTimeout(function () { window.location.assign("/info.html"); }, 300);
     } else {
-      document.body.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
-      document.body.style.transform = "translateX(0)";
+      pageShell.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      pageShell.style.transform = "translateX(0)";
       if (preview) {
         preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
         preview.style.transform = "translateX(100vw)";
@@ -758,8 +784,8 @@
     if (!down || navigating) return;
     down = false;
     document.body.classList.remove("mtung-dragging", "mtung-preview-active");
-    document.body.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
-    document.body.style.transform = "translateX(0)";
+    pageShell.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+    pageShell.style.transform = "translateX(0)";
     if (preview) {
       preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
       preview.style.transform = "translateX(100vw)";
