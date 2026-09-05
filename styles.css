@@ -432,3 +432,156 @@
 .header .social a:hover {
   opacity: .55 !important;
 }
+@media (max-width: 800px) {
+
+  /* HEADER */
+  .header {
+    min-height: 72px !important;
+    height: auto !important;
+    padding: 16px 20px 18px !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: auto auto !important;
+    gap: 18px 12px !important;
+  }
+
+  .mtung-identity {
+    grid-column: 1;
+    grid-row: 1;
+    transform: none !important;
+  }
+
+  .mtung-identity span {
+    width: 120px !important;
+    height: 29px !important;
+  }
+
+  .mtung-identity img {
+    width: 29px !important;
+    height: 29px !important;
+  }
+
+  .header .social {
+    grid-column: 2;
+    grid-row: 1;
+    position: static !important;
+    transform: none !important;
+    gap: 14px !important;
+  }
+
+  .header .social a,
+  .header .social img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .header nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start !important;
+    gap: 24px !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  .header nav a {
+    margin: 0 !important;
+  }
+
+
+  /* PROJECTS */
+  .projects-page {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 38px 20px 0 !important;
+    margin: 0 !important;
+  }
+
+  .projects-page .page-top {
+    width: 100% !important;
+    margin: 0 0 24px !important;
+    padding: 0 0 18px !important;
+  }
+
+  .page-top h1 {
+    font-size: 17px !important;
+  }
+
+  .page-top p {
+    display: none;
+  }
+
+
+  /* PROJECT GRID */
+  .projects-page .grid {
+    width: 100% !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 42px !important;
+  }
+
+  .card img {
+    width: 100% !important;
+    aspect-ratio: 1.45 / 1 !important;
+    object-fit: cover !important;
+  }
+
+  .meta {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  .meta h2 {
+    font-size: 14px !important;
+  }
+
+
+  /* CASE STUDIES */
+  .case-page {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 32px 20px 0 !important;
+  }
+
+  .case-head {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+  }
+
+  .case-head h1 {
+    font-size: clamp(40px, 11vw, 52px) !important;
+    max-width: 100% !important;
+  }
+
+  .case-meta {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .case-intro,
+  .gallery-heading {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .case-description {
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  .case-hero,
+  .case-gallery {
+    width: 100% !important;
+  }
+
+  .case-hero img,
+  .case-gallery img,
+  .case-gallery video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+}
