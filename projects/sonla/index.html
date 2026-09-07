@@ -12,6 +12,150 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<style id="sonla-mobile-final-fix">
+/* SON LA — FINAL MOBILE LAYOUT FIX
+   Desktop is intentionally untouched. */
+@media (max-width: 900px) {
+  .sonla-project {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    padding: 28px 20px 40px !important;
+    margin: 0 !important;
+  }
+
+  .sonla-project .project-layout {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .sonla-project .project-info {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 0 30px !important;
+    box-sizing: border-box !important;
+  }
+
+  .sonla-project .project-info h1 {
+    display: block !important;
+    font-size: clamp(36px, 10vw, 48px) !important;
+    line-height: .96 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .sonla-project .project-rule {
+    width: 100% !important;
+    margin: 20px 0 !important;
+  }
+
+  .sonla-project .case-meta {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .sonla-project .case-intro {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 22px !important;
+  }
+
+  .sonla-project .case-description {
+    max-width: none !important;
+    width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  .sonla-project .back-link {
+    display: block !important;
+    margin-top: 26px !important;
+  }
+
+  .sonla-project .interactive-gallery {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .sonla-project .gallery-top {
+    display: none !important;
+  }
+
+  .sonla-project .gallery-thumbnails {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    margin: 0 0 10px !important;
+    padding: 0 0 2px !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .sonla-project .gallery-thumbnails::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .sonla-project .gallery-thumb {
+    flex: 0 0 78px !important;
+    width: 78px !important;
+    height: 52px !important;
+    min-width: 78px !important;
+    box-sizing: border-box !important;
+  }
+
+  .sonla-project .gallery-stage {
+    position: relative !important;
+    width: 100% !important;
+    height: clamp(360px, 58vh, 420px) !important;
+    min-height: 0 !important;
+    max-height: 420px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .sonla-project .gallery-track,
+  .sonla-project .gallery-slide {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .sonla-project .gallery-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .sonla-project [data-gallery-slide]:nth-child(3) img,
+  .sonla-project [data-gallery-slide]:nth-child(6) img,
+  .sonla-project [data-gallery-slide]:nth-child(7) img {
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
