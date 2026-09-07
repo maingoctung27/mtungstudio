@@ -1,8 +1,52 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tura — M.TUNG</title><meta name="description" content="Tura — selected architectural project presented through aerial, exterior, courtyard and interior views."><link rel="stylesheet" href="/styles.css"><link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tura — M.TUNG</title>
+<meta name="description" content="Tura — selected architectural project presented through aerial, exterior, courtyard and interior views.">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-</head><body>
+
+<style id="mtung-project-gallery-css">
+.case-gallery-wrap { width:100%; }
+.case-gallery-wrap .gallery-stage { height:700px !important; min-height:700px !important; max-height:700px !important; }
+.case-gallery-wrap .gallery-track,
+.case-gallery-wrap .gallery-slide { height:700px !important; min-height:700px !important; max-height:700px !important; }
+.case-gallery-wrap .gallery-slide img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
+@media (max-width:900px) {
+  .case-gallery-wrap .gallery-stage,
+  .case-gallery-wrap .gallery-track,
+  .case-gallery-wrap .gallery-slide { height:min(70vw,700px) !important; min-height:min(70vw,700px) !important; max-height:min(70vw,700px) !important; }
+}
+</style>
+
+<style id="mtung-project-layout-final">
+.case-page { width:100% !important; max-width:none !important; }
+.case-head { display:none !important; }
+.case-hero { display:none !important; }
+.case-gallery-wrap { display:grid !important; grid-template-columns:minmax(260px,0.28fr) minmax(0,0.72fr) !important; gap:40px !important; align-items:start !important; width:100% !important; }
+.case-gallery-wrap .case-info { min-width:0; }
+.case-gallery-wrap .case-meta { margin-top:0 !important; }
+.case-gallery-wrap .case-intro { margin-top:32px !important; }
+.case-gallery-wrap .case-intro:first-child { margin-top:0 !important; }
+.case-gallery-wrap .gallery-info { display:none !important; }
+.case-gallery-wrap .case-gallery { min-width:0 !important; margin:0 !important; }
+.case-gallery-wrap .gallery-heading { display:none !important; }
+.case-gallery-wrap .case-nav { grid-column:1 / -1 !important; }
+.case-gallery-wrap .case-nav a:not(:first-child) { display:none !important; }
+
+@media (max-width:900px) {
+  .case-gallery-wrap { grid-template-columns:1fr !important; gap:28px !important; }
+  .case-gallery-wrap .case-gallery { width:100% !important; }
+}
+</style>
+</head>
+
+<body>
 <header class="header">
   <a class="mtung-identity" href="/" aria-label="M.TUNG — Home">
     <span>M.TUNG</span>
@@ -10,21 +54,75 @@
   </a>
   <div class="header-center">Architecture · Sustainability · Environmental Design<br><span>Based in Italy · Working internationally</span></div>
   <nav><a class="active" href="/">Projects</a><a href="/info.html">Info</a></nav>
-  <div class="social"><a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+  <div class="social">
+    <a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+    <a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+  </div>
 </header>
-<main class="case-page"><div class="case-head"><div><p class="label">Project 06</p><h1>Tura</h1></div><a class="back-link" href="/">← All projects</a></div>
-<dl class="case-meta"><div><dt>Location</dt><dd>India</dd></div><div><dt>Year</dt><dd>2025</dd></div><div><dt>Type</dt><dd>Architecture · Cultural</dd></div></dl>
-<div class="case-hero"><img fetchpriority="high" decoding="async" src="/assets/tura.jpg" alt="Tura — aerial view"></div>
-<section class="case-intro"><p class="label">Project views</p><p class="case-description">A visual sequence documenting the project through aerial, exterior, courtyard, entrance and interior views.</p></section>
-<section class="case-gallery"><div class="gallery-heading"><p class="label">Project images</p><p>Selected views of the architecture, landscape and public spaces.</p></div>
-<figure><img src="/assets/tura-exterior-02.jpg" alt="Tura — main exterior view" loading="lazy" decoding="async"><figcaption>Main exterior view</figcaption></figure>
-<figure><img src="/assets/tura-exterior-01.jpg" alt="Tura — secondary exterior view" loading="lazy" decoding="async"><figcaption>Secondary exterior view</figcaption></figure>
-<figure><img src="/assets/tura-atrium-01.jpg" alt="Tura — interior green atrium" loading="lazy" decoding="async"><figcaption>Interior green atrium</figcaption></figure>
-<figure><img src="/assets/tura-atrium-02.jpg" alt="Tura — interior courtyard" loading="lazy" decoding="async"><figcaption>Interior courtyard</figcaption></figure>
-<figure><img src="/assets/tura-courtyard-03.jpg" alt="Tura — public courtyard" loading="lazy" decoding="async"><figcaption>Public courtyard</figcaption></figure>
-<figure><img src="/assets/tura-courtyard-01.jpg" alt="Tura — covered walkway" loading="lazy" decoding="async"><figcaption>Covered walkway</figcaption></figure>
-<figure><img src="/assets/tura-courtyard-02.jpg" alt="Tura — landscape edge" loading="lazy" decoding="async"><figcaption>Landscape edge</figcaption></figure>
-<figure><img src="/assets/tura-entry-01.jpg" alt="Tura — entrance pavilion" loading="lazy" decoding="async"><figcaption>Entrance pavilion</figcaption></figure>
-</section>
-<div class="case-nav"><a href="/">← All projects</a><a href="/projects/milano-food-hub/">Next: Milano Community Food Hub →</a></div></main>
-<footer><span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span><a href="#top">Back to top ↑</a></footer><script src="/image-protection.js"></script></body></html>
+
+<main class="case-page">
+  <div class="case-gallery-wrap">
+    <aside class="case-info">
+      <p class="label">Project 06</p>
+      <h1>Tura</h1>
+
+      <dl class="case-meta">
+        <div><dt>Location</dt><dd>India</dd></div>
+        <div><dt>Year</dt><dd>2025</dd></div>
+        <div><dt>Type</dt><dd>Architecture · Cultural</dd></div>
+      </dl>
+
+      <section class="case-intro">
+        <p class="label">Project views</p>
+        <p class="case-description">A visual sequence documenting the project through aerial, exterior, courtyard, entrance and interior views.</p>
+      </section>
+    </aside>
+
+    <section class="case-gallery" data-gallery>
+      <div class="gallery-thumbs" data-gallery-thumbs>
+        <button type="button" data-gallery-thumb aria-label="View image 01">01</button>
+        <button type="button" data-gallery-thumb aria-label="View image 02">02</button>
+        <button type="button" data-gallery-thumb aria-label="View image 03">03</button>
+        <button type="button" data-gallery-thumb aria-label="View image 04">04</button>
+        <button type="button" data-gallery-thumb aria-label="View image 05">05</button>
+        <button type="button" data-gallery-thumb aria-label="View image 06">06</button>
+        <button type="button" data-gallery-thumb aria-label="View image 07">07</button>
+        <button type="button" data-gallery-thumb aria-label="View image 08">08</button>
+      </div>
+
+      <div class="gallery-stage" data-gallery-stage>
+        <div class="gallery-track" data-gallery-track>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-exterior-02.jpg" alt="Tura — main exterior view" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-exterior-01.jpg" alt="Tura — secondary exterior view" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-atrium-01.jpg" alt="Tura — interior green atrium" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-atrium-02.jpg" alt="Tura — interior courtyard" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-courtyard-03.jpg" alt="Tura — public courtyard" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-courtyard-01.jpg" alt="Tura — covered walkway" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-courtyard-02.jpg" alt="Tura — landscape edge" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/tura-entry-01.jpg" alt="Tura — entrance pavilion" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+
+      <div class="gallery-info">
+        <span data-gallery-counter>01 / 08</span>
+      </div>
+
+      <div class="case-nav">
+        <a href="/">← All projects</a>
+        <a href="/projects/milano-food-hub/">Next: Milano Community Food Hub →</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>© M.TUNG STUDIO</span>
+  <span>2026</span>
+  <span>Based in Italy</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<script src="/gallery.js"></script>
+<script src="/image-protection.js"></script>
+</body>
+</html>
