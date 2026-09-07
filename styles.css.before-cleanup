@@ -1,0 +1,1692 @@
+﻿*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f8f8f5;color:#111;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.45}a{color:inherit;text-decoration:none}.header{display:grid;grid-template-columns:1fr auto auto auto;gap:30px;align-items:start;padding:18px 28px 20px;border-bottom:1px solid #d9d9d4;position:sticky;top:0;background:#f8f8f5ee;backdrop-filter:blur(8px);z-index:10}.brand{font-size:34px;font-weight:700;letter-spacing:-1.8px;line-height:1}.header-center{font-size:10px;line-height:1.25;font-weight:600;padding-top:2px}.header-center span{font-weight:400}.header nav{display:flex;gap:24px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}.header nav a{padding-bottom:4px;border-bottom:1px solid transparent}.header nav a.active{border-color:#111}.social{display:flex;gap:12px;font-size:12px;font-weight:700;padding-top:2px}.social a{width:18px;height:18px;border:1px solid #111;border-radius:50%;display:grid;place-items:center;font-size:9px}.projects-page,.info-page{max-width:1500px;margin:auto;padding:30px 28px 0}.page-top{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #111;padding:10px 0 22px;margin-bottom:28px}.page-top h1{font-size:18px;font-weight:500;margin:0;text-transform:uppercase;letter-spacing:.04em}.page-top p{font-size:11px;max-width:420px;margin:0;text-align:right}.grid{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;row-gap:48px}.card img{width:100%;aspect-ratio:1.48/1;object-fit:cover;display:block;background:#e9e9e4;transition:transform .5s ease}.card{overflow:hidden}.card:hover img{transform:scale(1.015)}.meta{display:flex;justify-content:space-between;border-top:1px solid #111;margin-top:9px;padding-top:9px}.meta h2{font-size:15px;text-transform:uppercase;font-weight:500;margin:2px 0 2px}.meta p{font-size:10px;margin:0}.num{font-size:9px;letter-spacing:.08em}.arrow{font-size:17px}.grid .card:nth-child(5) img{object-position:center}.grid .card:nth-child(6) img{object-fit:contain;padding:0;background:white}footer{max-width:1500px;margin:90px auto 0;padding:18px 28px 28px;border-top:1px solid #111;display:grid;grid-template-columns:1fr auto auto 1fr;gap:30px;font-size:10px;text-transform:uppercase;letter-spacing:.03em}footer a{text-align:right}.info-page{padding-top:48px}.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;padding-bottom:70px;border-bottom:1px solid #111}.label{font-size:10px;text-transform:uppercase;letter-spacing:.09em;margin:0 0 14px}.intro-grid h1{font-size:48px;line-height:1.02;font-weight:500;letter-spacing:-1.5px;max-width:720px;margin:0 0 18px}.lead{font-size:16px}.intro-grid p:not(.label):not(.lead){max-width:570px;font-size:13px}.portrait{min-height:410px;display:flex;align-items:flex-start;justify-content:flex-end}.portrait img{width:100%;max-width:560px;aspect-ratio:1/1;object-fit:cover;display:block;filter:grayscale(100%)}.experience{padding:65px 0;border-bottom:1px solid #111}.section-title{font-size:42px;line-height:1;margin-bottom:30px;letter-spacing:-1.5px}.row{display:grid;grid-template-columns:1fr 1fr 1.5fr;border-top:1px solid #aaa;padding:18px 0;gap:20px;font-size:11px}.row strong{font-size:13px;font-weight:500;text-transform:uppercase}.row p{margin:0}.columns{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:50px;padding:55px 0;border-bottom:1px solid #111}.columns h3{font-size:12px;text-transform:uppercase;font-weight:500;margin:20px 0 3px}.columns p:not(.label){font-size:11px;margin:0}.contact{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:55px 0}.contact h2{font-size:28px;font-weight:500;margin:0;letter-spacing:-.8px}.contact a{font-size:11px}@media(max-width:800px){.header{grid-template-columns:1fr auto;gap:12px}.header-center{display:none}.header nav{grid-column:1/-1;grid-row:2;justify-content:flex-end}.social{position:absolute;right:28px;top:18px}.grid,.intro-grid,.columns,.contact{grid-template-columns:1fr}.page-top{display:block}.page-top p{text-align:left;margin-top:10px}.grid{gap:35px}.intro-grid{gap:30px}.intro-grid h1{font-size:38px}.row{grid-template-columns:1fr 1fr}.row p{grid-column:1/-1}.section-title{font-size:34px}footer{grid-template-columns:1fr 1fr;gap:12px}footer a{text-align:left}.portrait{min-height:300px}.portrait img{max-width:100%}}
+
+
+/* Case-study redesign / tighter desktop composition */
+:root{--content:1240px;--line:#111;--muted:#777}
+.projects-page,.info-page,.case-page{max-width:var(--content);margin-left:auto;margin-right:auto}
+.projects-page{padding-left:0;padding-right:0}
+.grid{column-gap:24px;row-gap:52px}
+.card img{aspect-ratio:1.55/1}
+.card .meta h2{letter-spacing:-.2px}
+.case-page{padding:48px 0 0}
+.case-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:24px;gap:30px}
+.case-head h1{font-size:clamp(42px,5.5vw,76px);line-height:.94;letter-spacing:-2.8px;font-weight:500;margin:0;max-width:900px}
+.back-link,.case-nav a{font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.case-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:0;padding:20px 0 42px;border-bottom:1px solid #aaa}
+.case-meta div{display:grid;grid-template-columns:90px 1fr;gap:12px}
+.case-meta dt,.case-meta dd{margin:0;font-size:11px}.case-meta dt{text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.case-hero{margin:36px 0 72px;background:#e8e8e3}.case-hero img{width:100%;display:block;max-height:760px;object-fit:cover}
+.case-intro{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:0 0 80px;border-bottom:1px solid var(--line)}
+.case-description{font-size:22px;line-height:1.3;letter-spacing:-.3px;max-width:850px;margin:0}
+.case-gallery{padding:70px 0 20px}.gallery-heading{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-bottom:28px}.gallery-heading p:last-child{margin:0;font-size:12px;color:var(--muted)}
+.case-gallery figure{margin:0}.case-gallery img{width:100%;display:block;max-height:780px;object-fit:cover;background:#eee}.case-gallery figcaption{font-size:10px;color:var(--muted);margin-top:9px}
+.case-nav{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:70px;padding:20px 0 0}
+@media(max-width:900px){.projects-page,.info-page,.case-page{padding-left:20px;padding-right:20px}.case-head{align-items:flex-start;flex-direction:column}.case-head h1{font-size:46px}.case-meta{grid-template-columns:1fr}.case-intro,.gallery-heading{grid-template-columns:1fr;gap:18px}.case-description{font-size:18px}.case-page{padding-top:32px}}
+
+/* Milano Community Food Hub cover positioning fix */
+.grid .card:first-child img{
+  object-fit:cover;
+  object-position:center 15%;
+  background:#fff;
+}
+.case-hero.milano-hero img,
+.case-hero img[src*="milano-foodhub"]{
+  height:760px;
+  object-fit:contain;
+  object-position:center center;
+  background:#fff;
+}
+@media(max-width:900px){
+  .case-hero.milano-hero img,
+  .case-hero img[src*="milano-foodhub"]{
+    height:auto;
+    max-height:none;
+  }
+}
+
+/* Thang Long Youth Center â€” full project image series */
+.case-page .case-gallery figure{margin:0 0 64px}
+.case-page .case-gallery figure img{width:100%;height:auto;max-height:none;object-fit:contain;background:#fff}
+.case-page .case-gallery figure figcaption{margin-top:9px}
+
+/* Hanoi Theater media â€” preserve source resolution and aspect ratio */
+.case-page .case-gallery .case-video video{width:100%;height:auto;max-height:none;display:block;background:#111;object-fit:contain}
+.case-page .case-gallery .case-video{margin-bottom:64px}
+@media(max-width:900px){.case-page .case-gallery .case-video video{width:100%;height:auto}}
+
+
+/* M.TUNG Studio â€” portfolio image protection */
+.portfolio-image-protected,
+.project-gallery img,
+.project-cover img,
+.project-media img,
+.project-page img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+
+
+/* ===== CLEAN M.TUNG HEADER â€” DEVELOPMENT ===== */
+.header{
+  display:grid;
+  grid-template-columns:auto 1fr auto auto;
+  align-items:start;
+}
+.header .brand,
+.header-spacer{display:none !important;}
+
+.mtung-identity{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:-1.8px;
+  line-height:1;
+  white-space:nowrap;
+  text-decoration:none;
+  padding-top:0;
+}
+.mtung-identity img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 auto;
+  -webkit-user-drag:none;
+  user-select:none;
+}
+.mtung-identity:hover{opacity:.65;}
+
+@media(max-width:800px){
+  .header{
+    grid-template-columns:auto 1fr auto;
+  }
+  .header-center{display:none;}
+  .mtung-identity{
+    font-size:28px;
+    letter-spacing:-1.4px;
+    gap:8px;
+  }
+  .mtung-identity img{
+    width:28px;
+    height:28px;
+  }
+}
+/* =====================================================
+   M.TUNG HEADER WORDMARK
+   Uses /mtung-wordmark.png on every website page
+   ===================================================== */
+
+.mtung-identity {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+/* Replace the text M.TUNG with the uploaded wordmark */
+.mtung-identity span {
+  display: block !important;
+  width: 145px !important;
+  height: 34px !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+
+  background-image: url("/mtung-wordmark.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+/* Keep the circular M.TUNG mark */
+.mtung-identity img {
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 800px) {
+  .mtung-identity span {
+    width: 120px !important;
+    height: 29px !important;
+  }
+}
+/* =====================================================
+   HEADER â€” SCALE TO 150%
+   ===================================================== */
+
+.header {
+  min-height: 90px !important;
+  padding: 0 42px !important;
+}
+
+.mtung-identity {
+  gap: 14px !important;
+}
+
+.mtung-identity span {
+  width: 218px !important;   /* 145px Ã— 1.5 */
+  height: 51px !important;   /* 34px Ã— 1.5 */
+}
+
+.mtung-identity img {
+  width: 42px !important;    /* 28px Ã— 1.5 */
+  height: 42px !important;
+}
+
+.header-center {
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+}
+
+.header-center span {
+  font-size: 13px !important;
+}
+
+.header nav {
+  font-size: 15px !important;
+}
+
+.header nav a {
+  margin-left: 27px !important;
+}
+
+.social {
+  gap: 14px !important;
+}
+
+.social a {
+  font-size: 15px !important;
+}
+
+@media (max-width: 800px) {
+  .header {
+    min-height: 72px !important;
+    padding: 0 20px !important;
+  }
+
+  .mtung-identity span {
+    width: 180px !important;
+    height: 43px !important;
+  }
+
+  .mtung-identity img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+//* =====================================================
+   M.TUNG HEADER â€” TRUE VERTICAL CENTER
+   ===================================================== */
+
+.header {
+  min-height: 90px !important;
+  height: 90px !important;
+  padding: 0 42px !important;
+
+  display: grid !important;
+  grid-template-columns: auto 1fr auto auto !important;
+
+  align-items: center !important;
+}
+
+/* M.TUNG wordmark + circular mark */
+.header .mtung-identity {
+  align-self: center !important;
+  transform: translateY(10px) !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+/* Center description */
+.header .header-center {
+  align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Projects / Info */
+.header nav {
+  align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Social icons */
+.header .social {
+  align-self: center !important;
+  padding: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* Language switch */
+.header .language-switch {
+  align-self: center !important;
+  transform: translateY(10px) !important;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+  .header {
+    min-height: 72px !important;
+    height: 72px !important;
+    padding: 0 20px !important;
+    align-items: center !important;
+  }
+
+  .header .mtung-identity {
+    transform: translateY(5px) !important;
+  }
+
+  .header .social {
+    top: 50% !important;
+    transform: translateY(calc(-50% + 5px)) !important;
+  }
+/* STEP 1 â€” Tighten space below header */
+.projects-page {
+  padding-top: 50px !important;
+}
+
+.page-top {
+  margin-top: 0 !important;
+}
+}
+.header .social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+
+.header .social a {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.header .social img {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  object-fit: cover !important;
+}
+
+.header .social a:hover {
+  opacity: .55 !important;
+}
+
+/* =====================================================
+   SOCIAL ICONS â€” CLEAN IMAGE VERSION
+   No CSS-generated circles/icons.
+   Uses transparent PNGs in /assets/.
+   ===================================================== */
+.header .social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding-top: 0 !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.header .social a {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  place-items: unset !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.header .social a::before,
+.header .social a::after {
+  content: none !important;
+  display: none !important;
+}
+
+.header .social img {
+  width: 24px !important;
+  height: 24px !important;
+  display: block !important;
+  object-fit: cover !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header .social a:hover {
+  opacity: .55 !important;
+}
+
+@media (max-width: 800px) {
+  .header .social {
+    gap: 14px !important;
+  }
+  .header .social a,
+  .header .social img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+}
+/* SOCIAL ICONS */
+
+.header .social {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+
+.header .social a {
+  width: 26px !important;
+  height: 26px !important;
+  display: block !important;
+  position: relative !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.header .social a::before,
+.header .social a::after {
+  content: none !important;
+  display: none !important;
+}
+
+.header .social img {
+  width: 26px !important;
+  height: 26px !important;
+  display: block !important;
+  object-fit: cover !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.header .social a:hover {
+  opacity: .55 !important;
+}
+.card video{width:100%;aspect-ratio:1.55/1;object-fit:cover;display:block;background:#e9e9e4;transition:transform .5s ease}.card:hover video{transform:scale(1.015)}
+/* =========================================================
+   INTERACTIVE PROJECT GALLERY
+   ========================================================= */
+
+.interactive-gallery {
+  padding: 70px 0 30px;
+  border-top: 1px solid #cfcfca;
+}
+
+.gallery-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 24px;
+}
+
+.gallery-note {
+  margin: 7px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.gallery-counter {
+  font-size: 11px;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+
+/* THUMBNAILS */
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0 14px;
+  margin-bottom: 18px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-thumb {
+  position: relative;
+  flex: 0 0 105px;
+  width: 105px;
+  height: 70px;
+  padding: 0;
+  border: 0;
+  background: #eee;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: .48;
+  transition: opacity .25s ease;
+}
+
+.gallery-thumb:hover {
+  opacity: .78;
+}
+
+.gallery-thumb.is-active {
+  opacity: 1;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-thumb span {
+  position: absolute;
+  left: 7px;
+  bottom: 5px;
+  font-size: 9px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(0,0,0,.55);
+  padding: 4px 5px;
+}
+
+
+/* LARGE IMAGE STAGE */
+
+.gallery-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.gallery-stage:active,
+.gallery-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.gallery-track {
+  display: flex;
+  width: 100%;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+.gallery-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.gallery-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 780px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* HINT */
+
+.gallery-hint {
+  margin: 10px 0 0;
+  text-align: right;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .interactive-gallery {
+    padding-top: 48px;
+  }
+
+  .gallery-top {
+    align-items: flex-start;
+  }
+
+  .gallery-note {
+    font-size: 11px;
+  }
+
+  .gallery-thumb {
+    flex-basis: 82px;
+    width: 82px;
+    height: 58px;
+  }
+
+  .gallery-slide img {
+    max-height: none;
+  }
+
+  .gallery-hint {
+    text-align: left;
+  }
+}
+/* =========================================================
+   SON LA â€” COMPACT PROJECT LAYOUT
+   ========================================================= */
+
+.case-page .case-intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  margin: 0;
+  padding: 22px 0 34px;
+  border-top: 1px solid #cfcfca;
+  border-bottom: 1px solid #cfcfca;
+}
+
+.case-page .case-intro .label {
+  margin: 0;
+}
+
+.case-page .case-intro .case-description {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+
+/* Bring gallery much closer to the introduction */
+
+.case-page .interactive-gallery {
+  padding: 34px 0 20px;
+  border-top: 0;
+}
+
+
+/* Compact gallery heading */
+
+.case-page .gallery-top {
+  margin-bottom: 12px;
+}
+
+
+/* Thumbnails */
+
+.case-page .gallery-thumbnails {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  gap: 6px;
+}
+
+.case-page .gallery-thumb {
+  flex-basis: 82px;
+  width: 82px;
+  height: 52px;
+}
+
+
+/* Large image */
+
+.case-page .gallery-stage {
+  max-height: 650px;
+}
+
+.case-page .gallery-slide {
+  max-height: 650px;
+}
+
+.case-page .gallery-slide img {
+  max-height: 650px;
+  width: 100%;
+  object-fit: contain;
+}
+
+
+/* Reduce hint spacing */
+
+.case-page .gallery-hint {
+  margin-top: 6px;
+}
+
+
+/* Desktop â€” keep everything visually compact */
+
+@media (min-width: 901px) {
+
+  .case-page {
+    padding-top: 34px;
+  }
+
+  .case-page .case-head {
+    margin-bottom: 18px;
+  }
+
+  .case-page .case-meta {
+    margin-bottom: 0;
+  }
+
+  .case-page .case-intro {
+    grid-template-columns: 1fr 2fr;
+    padding-top: 18px;
+    padding-bottom: 22px;
+  }
+
+  .case-page .case-intro .case-description {
+    font-size: 17px;
+  }
+
+  .case-page .interactive-gallery {
+    padding-top: 28px;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .case-page .case-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 0 24px;
+  }
+
+  .case-page .case-intro .case-description {
+    font-size: 16px;
+  }
+
+  .case-page .interactive-gallery {
+    padding-top: 28px;
+  }
+
+  .case-page .gallery-stage,
+  .case-page .gallery-slide,
+  .case-page .gallery-slide img {
+    max-height: none;
+  }
+
+}
+/* =========================================================
+   FINAL COMPACT GALLERY FRAME
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .case-page {
+    padding-top: 28px;
+  }
+
+  .case-page .case-head {
+    margin-bottom: 10px;
+  }
+
+  .case-page .case-head h1 {
+    margin-bottom: 12px;
+  }
+
+  .case-page .case-meta {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .case-page .case-intro {
+    padding-top: 14px;
+    padding-bottom: 18px;
+  }
+
+  .case-page .case-intro .case-description {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .case-page .interactive-gallery {
+    padding-top: 22px;
+  }
+
+  .case-page .gallery-top {
+    margin-bottom: 8px;
+  }
+
+  .case-page .gallery-thumbnails {
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+  }
+
+  .case-page .gallery-thumb {
+    flex-basis: 76px;
+    width: 76px;
+    height: 48px;
+  }
+
+  /* Compact large-image window */
+  .case-page .gallery-stage {
+    height: 420px;
+    max-height: 420px;
+  }
+
+  .case-page .gallery-slide {
+    height: 420px;
+    max-height: 420px;
+  }
+
+  .case-page .gallery-slide img {
+    width: 100%;
+    height: 100%;
+    max-height: 420px;
+    object-fit: contain;
+  }
+
+  .case-page .gallery-hint {
+    margin-top: 5px;
+  }
+}
+/* =========================================================
+   M.TUNG â€” PROJECT PAGE TWO-COLUMN GALLERY
+   ========================================================= */
+
+.sonla-project {
+  padding-top: 38px;
+  padding-bottom: 50px;
+}
+
+
+/* MAIN TWO-COLUMN STRUCTURE */
+
+.sonla-project .project-layout {
+  display: grid;
+  grid-template-columns: 31% 69%;
+  gap: 28px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT PROJECT INFORMATION
+   ========================================================= */
+
+.sonla-project .project-info {
+  padding-right: 18px;
+  min-width: 0;
+}
+
+.sonla-project .project-info > .label {
+  margin: 0 0 16px;
+}
+
+.sonla-project .project-info h1 {
+  margin: 0;
+  font-size: clamp(42px, 4.2vw, 68px);
+  line-height: .94;
+  letter-spacing: -.045em;
+  font-weight: 400;
+}
+
+.sonla-project .project-rule {
+  width: 100%;
+  height: 1px;
+  background: #bdbdb8;
+  margin: 28px 0;
+}
+
+
+/* METADATA */
+
+.sonla-project .case-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.sonla-project .case-meta div {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  margin: 0;
+}
+
+.sonla-project .case-meta dt {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.sonla-project .case-meta dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+
+/* ABOUT */
+
+.sonla-project .case-intro {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sonla-project .case-intro .label {
+  margin: 0 0 14px;
+}
+
+.sonla-project .case-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 330px;
+}
+
+
+/* BACK LINK */
+
+.sonla-project .back-link {
+  display: inline-block;
+  margin-top: 58px;
+  font-size: 13px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sonla-project .back-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   RIGHT GALLERY
+   ========================================================= */
+
+.sonla-project .interactive-gallery {
+  min-width: 0;
+  padding: 0;
+}
+
+
+/* GALLERY HEADER */
+
+.sonla-project .gallery-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.sonla-project .gallery-top .label {
+  margin: 0 0 6px;
+}
+
+.sonla-project .gallery-description {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.sonla-project .gallery-counter {
+  flex-shrink: 0;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   THUMBNAILS
+   ========================================================= */
+
+.sonla-project .gallery-thumbnails {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sonla-project .gallery-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.sonla-project .gallery-thumb {
+  position: relative;
+  flex: 0 0 78px;
+  width: 78px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: #f1f1ee;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sonla-project .gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: .72;
+  transition: opacity .2s ease;
+}
+
+.sonla-project .gallery-thumb:hover img,
+.sonla-project .gallery-thumb.is-active img {
+  opacity: 1;
+}
+
+.sonla-project .gallery-thumb.is-active {
+  border-color: #111;
+}
+
+.sonla-project .gallery-thumb span {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  padding: 2px 4px;
+  background: rgba(0,0,0,.72);
+  color: white;
+  font-size: 9px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   LARGE IMAGE FRAME
+   ========================================================= */
+
+.sonla-project .gallery-stage {
+  position: relative;
+  width: 100%;
+  height: min(67vh, 500px);
+  min-height: 360px;
+  overflow: hidden;
+  background: #f4f4f1;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.sonla-project .gallery-stage.is-dragging {
+  cursor: grabbing;
+}
+
+
+/* SLIDER TRACK */
+
+.sonla-project .gallery-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 420ms cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
+}
+
+
+/* EACH SLIDE */
+
+.sonla-project .gallery-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+
+/* ACTUAL IMAGE */
+
+.sonla-project .gallery-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+
+/* IMAGE COUNTER */
+
+.sonla-project .gallery-image-counter {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  color: white;
+  background: rgba(0,0,0,.65);
+  padding: 5px 7px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+
+/* DRAG TEXT */
+
+.sonla-project .gallery-drag-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  color: white;
+  background: rgba(0,0,0,.65);
+  padding: 5px 7px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   DESKTOP â€” KEEP EVERYTHING IN ONE VIEW
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  .sonla-project .project-layout {
+    grid-template-columns: 31% 69%;
+  }
+
+  .sonla-project .project-info h1 {
+    font-size: clamp(40px, 4vw, 62px);
+  }
+
+  .sonla-project .gallery-stage {
+    height: min(68vh, 500px);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .sonla-project {
+    padding-top: 28px;
+  }
+
+  .sonla-project .project-layout {
+    display: block;
+  }
+
+  .sonla-project .project-info {
+    padding-right: 0;
+    margin-bottom: 34px;
+  }
+
+  .sonla-project .project-info h1 {
+    font-size: 48px;
+  }
+
+  .sonla-project .project-rule {
+    margin: 22px 0;
+  }
+
+  .sonla-project .case-description {
+    max-width: none;
+  }
+
+  .sonla-project .back-link {
+    margin-top: 30px;
+  }
+
+  .sonla-project .gallery-stage {
+    height: 60vh;
+    min-height: 300px;
+  }
+
+  .sonla-project .gallery-thumb {
+    flex-basis: 72px;
+    width: 72px;
+    height: 48px;
+  }
+
+}
+/* =========================================================
+   FULL-SCREEN PROJECT LAYOUT
+   ========================================================= */
+
+.case-page {
+  max-width: none;
+  width: 100%;
+  padding: 36px 3.5vw 0;
+  box-sizing: border-box;
+}
+
+.case-page .case-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 27vw) minmax(0, 1fr);
+  gap: 3vw;
+  align-items: start;
+  min-height: calc(100vh - 150px);
+}
+
+/* LEFT PROJECT INFORMATION */
+.case-page .case-info {
+  position: sticky;
+  top: 32px;
+}
+
+.case-page .case-info h1 {
+  font-size: clamp(42px, 4.4vw, 76px);
+  line-height: .94;
+  letter-spacing: -.045em;
+  margin: 14px 0 34px;
+}
+
+.case-page .case-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  padding: 20px 0;
+}
+
+.case-page .case-intro {
+  display: block;
+  margin-top: 30px;
+  padding: 0;
+  border: 0;
+}
+
+.case-page .case-intro .label {
+  margin-bottom: 14px;
+}
+
+.case-page .case-description {
+  max-width: 360px;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* RIGHT IMAGE AREA */
+.case-page .case-gallery {
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.case-page .gallery-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin: 0 0 14px;
+}
+
+.case-page .gallery-heading p {
+  margin: 0;
+}
+
+/* THUMBNAILS */
+.case-page [data-gallery-thumbs] {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 10px;
+}
+
+.case-page [data-gallery-thumbs]::-webkit-scrollbar {
+  display: none;
+}
+
+.case-page [data-gallery-thumb] {
+  flex: 0 0 92px;
+  width: 92px;
+  height: 58px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: #f4f4f2;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.case-page [data-gallery-thumb] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.case-page [data-gallery-thumb].is-active {
+  border-color: #111;
+}
+
+/* MAIN IMAGE FRAME */
+.case-page [data-gallery-stage] {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 220px);
+  min-height: 520px;
+  max-height: 760px;
+  overflow: hidden;
+  background: #f7f7f5;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.case-page [data-gallery-stage].is-dragging {
+  cursor: grabbing;
+}
+
+/* HORIZONTAL SLIDE TRACK */
+.case-page [data-gallery-track] {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.case-page [data-gallery-slide] {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f7f7f5;
+}
+
+.case-page [data-gallery-slide] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+/* CONTROLS */
+.case-page .gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.case-page .gallery-arrow.prev {
+  left: 18px;
+}
+
+.case-page .gallery-arrow.next {
+  right: 18px;
+}
+
+/* COUNTER / HINT */
+.case-page [data-gallery-counter] {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  z-index: 5;
+}
+
+.case-page .gallery-hint {
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  z-index: 5;
+}
+
+/* BACK LINK */
+.case-page .back-link {
+  display: inline-block;
+  margin-top: 50px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .case-page {
+    padding: 28px 20px 0;
+  }
+
+  .case-page .case-layout {
+    display: block;
+  }
+
+  .case-page .case-info {
+    position: static;
+  }
+
+  .case-page .case-info h1 {
+    font-size: clamp(42px, 12vw, 64px);
+    margin-bottom: 28px;
+  }
+
+  .case-page .case-description {
+    max-width: none;
+  }
+
+  .case-page .case-gallery {
+    margin-top: 40px;
+  }
+
+  .case-page [data-gallery-stage] {
+    height: 65vh;
+    min-height: 400px;
+  }
+
+  .case-page [data-gallery-thumb] {
+    flex-basis: 78px;
+    width: 78px;
+    height: 50px;
+  }
+}
+/* =========================================================
+   SON LA â€” FINAL LAYOUT
+   ========================================================= */
+
+.sonla-project {
+  display: block !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 36px 24px 40px !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .project-layout {
+  display: grid !important;
+  grid-template-columns: 320px minmax(0, 1fr) !important;
+  column-gap: 32px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .project-info {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .interactive-gallery {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .gallery-thumbnails {
+  display: flex !important;
+  width: 100% !important;
+  height: 64px !important;
+  gap: 8px !important;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  overflow-x: auto !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .gallery-thumb {
+  flex: 0 0 100px !important;
+  width: 100px !important;
+  height: 64px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sonla-project .gallery-stage {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: calc(100vh - 230px) !important;
+  min-height: 560px !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .gallery-track {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.sonla-project .gallery-slide {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .gallery-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Keep mobile sensible */
+@media (max-width: 900px) {
+  .sonla-project {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 28px 20px 40px !important;
+  }
+
+  .sonla-project .project-layout {
+    display: block !important;
+  }
+
+  .sonla-project .interactive-gallery {
+    margin-top: 32px !important;
+  }
+
+  .sonla-project .gallery-stage {
+    height: 70vh !important;
+    min-height: 400px !important;
+  }
+}
+/* SON LA â€” DESKTOP GALLERY FINAL */
+
+html, body {
+  overflow-x: hidden !important;
+}
+
+.sonla-project {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 36px 24px 40px !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .project-layout {
+  display: grid !important;
+  grid-template-columns: 300px minmax(0, 1fr) !important;
+  gap: 28px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .project-info {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+.sonla-project .interactive-gallery {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sonla-project .gallery-thumbnails {
+  display: flex !important;
+  width: 100% !important;
+  gap: 8px !important;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  overflow-x: auto !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .gallery-thumb {
+  flex: 0 0 100px !important;
+  width: 100px !important;
+  height: 64px !important;
+  margin: 0 !important;
+}
+
+.sonla-project .gallery-stage {
+  position: relative !important;
+  width: 100% !important;
+  height: calc(100vh - 155px) !important;
+  min-height: 560px !important;
+  max-height: none !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.sonla-project .gallery-slide {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+}
+
+.sonla-project .gallery-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 900px) {
+  .sonla-project {
+    padding: 28px 20px 40px !important;
+  }
+
+  .sonla-project .project-layout {
+    display: block !important;
+  }
+
+  .sonla-project .interactive-gallery {
+    margin-top: 32px !important;
+  }
+
+  .sonla-project .gallery-stage {
+    height: 70vh !important;
+    min-height: 400px !important;
+  }
+}
+
+
+
+/* SON LA HEIGHT FINAL */
+.sonla-project .gallery-stage { height: calc(100vh - 120px) !important; min-height: 620px !important; max-height: none !important; }
+
+/* SON LA IMAGE SCALE FINAL */
+.sonla-project .gallery-slide img { width: 110% !important; height: 110% !important; max-width: none !important; max-height: none !important; object-fit: cover !important; }
+
+/* SON LA - FORCE GALLERY FRAME */
+.sonla-project .gallery-stage { height: 700px !important; min-height: 700px !important; max-height: 700px !important; }
+.sonla-project .gallery-track, .sonla-project .gallery-slide { height: 700px !important; min-height: 700px !important; max-height: 700px !important; }
+.sonla-project .gallery-slide img { width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; object-fit: cover !important; }
+
+/* SON LA - ZOOM OUT IMAGES 3 AND 6 ONLY */
+.sonla-project .gallery-slide:nth-child(3) img, .sonla-project .gallery-slide:nth-child(6) img { width: 82% !important; height: 82% !important; max-width: 82% !important; max-height: 82% !important; object-fit: contain !important; margin: auto !important; }
+
+/* SON LA - IMAGE 6 SCALE FINAL */
+.sonla-project .gallery-slide:nth-child(6) img { width:82% !important; height:82% !important; max-width:82% !important; max-height:82% !important; object-fit:contain !important; margin:auto !important; display:block !important; }
+
+/* SON LA - IMAGE 6 TRUE SCALE OVERRIDE */
+.sonla-project [data-gallery-slide]:nth-child(6) { display:flex !important; align-items:center !important; justify-content:center !important; }
+.sonla-project [data-gallery-slide]:nth-child(6) img { width:65% !important; height:65% !important; max-width:65% !important; max-height:65% !important; object-fit:contain !important; margin:0 auto !important; flex:none !important; }
+
+/* SON LA - IMAGE 6 FULL FRAME FINAL */
+.sonla-project [data-gallery-slide]:nth-child(6) { display:block !important; }
+.sonla-project [data-gallery-slide]:nth-child(6) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; margin:0 !important; display:block !important; }
+
+/* SON LA - IMAGE 3 FULL FRAME FINAL */
+.sonla-project [data-gallery-slide]:nth-child(3) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; margin:0 !important; display:block !important; }
+
+/* SON LA - IMAGE 7 100 PERCENT CONTAIN */
+.sonla-project [data-gallery-slide]:nth-child(7) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
+`r`n/* SON LA IMAGE 7 - FULL GALLERY FRAME */`r`n.sonla-project [data-gallery-slide]:nth-child(7) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
+
+

@@ -1,0 +1,7 @@
+At line:1 char:407
++ ...  'class=gallery-slide data-gallery-slide,'class=gallery-slide data-ga ...
++                                               ~~~~~~~~~~~~~~~~~~~
+Unexpected token 'class=gallery-slide' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+ 
