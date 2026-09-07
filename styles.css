@@ -1698,4 +1698,46 @@ html, body {
 .sonla-project [data-gallery-slide]:nth-child(3) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
 .sonla-project [data-gallery-slide]:nth-child(6) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
 .sonla-project [data-gallery-slide]:nth-child(7) img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
+/* SON LA — MOBILE FIX */
+@media (max-width: 900px) {
+  .sonla-project .gallery-stage {
+    height: 65vh !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
 
+  .sonla-project .gallery-track,
+  .sonla-project .gallery-slide {
+    height: 65vh !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  .sonla-project .gallery-thumbs {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding-bottom: 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .sonla-project .gallery-thumb {
+    flex: 0 0 auto !important;
+  }
+
+  .sonla-project .gallery-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+  }
+
+  .sonla-project [data-gallery-slide]:nth-child(3) img,
+  .sonla-project [data-gallery-slide]:nth-child(6) img,
+  .sonla-project [data-gallery-slide]:nth-child(7) img {
+    object-fit: contain !important;
+  }
+}
