@@ -10,36 +10,143 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<style>
-.case-page{max-width:1440px;margin:0 auto;padding:0 32px 90px}
-.case-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin:42px 0 18px}
-.case-head h1{font-size:clamp(36px,5vw,72px);line-height:.95;letter-spacing:-.04em;margin:0}
-.label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;margin:0 0 10px}
-.back-link{font-size:13px;white-space:nowrap}
-.case-meta{display:flex;gap:36px;flex-wrap:wrap;margin:0 0 38px;font-size:13px}
-.case-meta div{display:flex;gap:8px}
-.case-meta dt{opacity:.55}
-.case-meta dd{margin:0}
-.case-hero{width:100%;margin-bottom:48px;overflow:hidden}
-.case-hero img{display:block;width:100%;height:auto;max-height:78vh;object-fit:cover;object-position:center center}
-.case-intro{max-width:920px;margin:0 0 72px}
-.case-description{font-size:clamp(18px,2vw,25px);line-height:1.45;margin:0;letter-spacing:-.01em}
-.case-gallery{display:flex;flex-direction:column;gap:28px}
-.case-image{margin:0;width:100%;overflow:hidden}
-.case-image img{display:block;width:100%;height:auto;object-fit:cover;object-position:center center}
-.case-nav{display:flex;justify-content:space-between;margin-top:70px;padding-top:22px;border-top:1px solid currentColor;font-size:13px}
-@media(max-width:700px){
-.case-page{padding:0 16px 60px}
-.case-head{display:block;margin-top:28px}
-.back-link{display:inline-block;margin-top:18px}
-.case-meta{gap:12px;display:block}
-.case-meta div{margin-bottom:6px}
-.case-hero{margin-bottom:34px}
-.case-intro{margin-bottom:48px}
-.case-gallery{gap:14px}
+
+<style id="mtung-project-gallery-css">
+.case-page .interactive-gallery .gallery-stage,
+.case-page .interactive-gallery .gallery-track,
+.case-page .interactive-gallery .gallery-slide{
+  height:700px!important;
+  min-height:700px!important;
+  max-height:700px!important;
+}
+.case-page .interactive-gallery .gallery-slide img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+</style>
+
+<style id="mtung-project-layout-final">
+.case-page{
+  max-width:none!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0 32px 90px!important;
+  display:grid!important;
+  grid-template-columns:minmax(280px,1fr) minmax(0,2fr)!important;
+  column-gap:48px!important;
+  align-items:start!important;
+}
+.case-page .case-head{
+  grid-column:1!important;
+  grid-row:1!important;
+  display:block!important;
+  margin:42px 0 18px!important;
+}
+.case-page .case-head h1{
+  font-size:clamp(36px,4.6vw,72px)!important;
+  line-height:.95!important;
+  letter-spacing:-.04em!important;
+  margin:0!important;
+}
+.case-page .case-head .back-link{display:none!important}
+.case-page .case-meta{
+  grid-column:1!important;
+  grid-row:2!important;
+  display:block!important;
+  margin:0!important;
+  padding:0 0 28px!important;
+  border-bottom:1px solid #aaa!important;
+}
+.case-page .case-meta div{
+  display:grid!important;
+  grid-template-columns:80px 1fr!important;
+  gap:10px!important;
+  margin:0 0 8px!important;
+}
+.case-page .case-meta dt,
+.case-page .case-meta dd{
+  font-size:11px!important;
+  margin:0!important;
+}
+.case-page .case-meta dt{
+  text-transform:uppercase!important;
+  letter-spacing:.07em!important;
+  opacity:.55!important;
+}
+.case-page .case-hero{display:none!important}
+.case-page .case-intro{
+  grid-column:1!important;
+  grid-row:3!important;
+  max-width:none!important;
+  margin:28px 0 0!important;
+  padding:0!important;
+  border:0!important;
+}
+.case-page .case-intro .label{margin:0 0 10px!important}
+.case-page .case-description{
+  font-size:16px!important;
+  line-height:1.45!important;
+  letter-spacing:0!important;
+  margin:0!important;
+}
+.case-page .interactive-gallery{
+  grid-column:2!important;
+  grid-row:1 / span 3!important;
+  margin:42px 0 0!important;
+}
+.case-page .interactive-gallery .gallery-info{display:none!important}
+.case-page .interactive-gallery .gallery-thumbs{
+  margin-bottom:12px!important;
+}
+.case-page .interactive-gallery .gallery-stage{
+  background:#f2f2ef!important;
+  overflow:hidden!important;
+  touch-action:pan-y!important;
+}
+.case-page .interactive-gallery .gallery-footer{
+  margin-top:10px!important;
+}
+.case-page .case-nav{
+  grid-column:1!important;
+  grid-row:4!important;
+  display:block!important;
+  margin:28px 0 0!important;
+  padding:18px 0 0!important;
+  border-top:1px solid #aaa!important;
+  font-size:10px!important;
+  text-transform:uppercase!important;
+}
+.case-page .case-nav a{display:block!important}
+.case-page .case-nav a:not(:first-child){display:none!important}
+
+@media(max-width:900px){
+  .case-page{
+    display:block!important;
+    padding:28px 20px 60px!important;
+  }
+  .case-page .case-head,
+  .case-page .case-meta,
+  .case-page .case-intro,
+  .case-page .case-nav{display:block!important}
+  .case-page .case-head{margin:0 0 18px!important}
+  .case-page .case-meta{margin-bottom:28px!important}
+  .case-page .case-intro{margin:0 0 42px!important}
+  .case-page .interactive-gallery{margin:0!important}
+  .case-page .interactive-gallery .gallery-stage,
+  .case-page .interactive-gallery .gallery-track,
+  .case-page .interactive-gallery .gallery-slide{
+    height:min(70vw,700px)!important;
+    min-height:min(70vw,700px)!important;
+    max-height:min(70vw,700px)!important;
+  }
 }
 </style>
 </head>
+
 <body>
 <header class="header">
   <a class="mtung-identity" href="/" aria-label="M.TUNG — Home">
@@ -69,17 +176,52 @@
     <p class="case-description">Milano Community Food Hub reimagines the former municipal market at Piazzale Selinunte in San Siro as a flexible community space where food becomes a catalyst for social connection. Developed around the idea of “OttantaCinque,” the project responds to the neighbourhood’s cultural diversity through a system of adaptable market stalls, shared spaces, landscape interventions and climate-responsive strategies, transforming an underused market into a place for gathering, cooking, exchange and everyday community life.</p>
   </section>
 
-  <section class="case-gallery">
-    <figure class="case-image"><img src="/assets/milano-foodhub-01.jpg" alt="Milano Community Food Hub — image 02" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub-02.jpg" alt="Milano Community Food Hub — image 03" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub-03.jpg" alt="Milano Community Food Hub — image 04" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub-04.jpg" alt="Milano Community Food Hub — image 05" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub-05.jpg" alt="Milano Community Food Hub — image 06" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub-06.jpg" alt="Milano Community Food Hub — image 07" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub-07.jpg" alt="Milano Community Food Hub — image 08" loading="lazy" decoding="async"></figure><figure class="case-image"><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub — image 09" loading="lazy" decoding="async"></figure>
+  <section class="interactive-gallery" data-gallery>
+    <div class="gallery-info">
+      <p class="label">Project images</p>
+      <p>Explore the project through drawings, diagrams and visualisations.</p>
+    </div>
+
+    <div class="gallery-ui">
+      <div class="gallery-thumbs" data-gallery-thumbs>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 01"><img src="/assets/milano-foodhub-01.jpg" alt="" loading="lazy" decoding="async"><span>01</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 02"><img src="/assets/milano-foodhub-02.jpg" alt="" loading="lazy" decoding="async"><span>02</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 03"><img src="/assets/milano-foodhub-03.jpg" alt="" loading="lazy" decoding="async"><span>03</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 04"><img src="/assets/milano-foodhub-04.jpg" alt="" loading="lazy" decoding="async"><span>04</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 05"><img src="/assets/milano-foodhub-05.jpg" alt="" loading="lazy" decoding="async"><span>05</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 06"><img src="/assets/milano-foodhub-06.jpg" alt="" loading="lazy" decoding="async"><span>06</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 07"><img src="/assets/milano-foodhub-07.jpg" alt="" loading="lazy" decoding="async"><span>07</span></button>
+        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 08"><img src="/assets/milano-foodhub.jpg" alt="" loading="lazy" decoding="async"><span>08</span></button>
+      </div>
+
+      <div class="gallery-stage" data-gallery-stage aria-label="Project image gallery">
+        <div class="gallery-track" data-gallery-track>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-01.jpg" alt="Milano Community Food Hub — image 01" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-02.jpg" alt="Milano Community Food Hub — image 02" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-03.jpg" alt="Milano Community Food Hub — image 03" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-04.jpg" alt="Milano Community Food Hub — image 04" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-05.jpg" alt="Milano Community Food Hub — image 05" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-06.jpg" alt="Milano Community Food Hub — image 06" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub-07.jpg" alt="Milano Community Food Hub — image 07" loading="lazy" decoding="async"></div>
+          <div class="gallery-slide" data-gallery-slide><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub — image 08" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+
+      <div class="gallery-footer">
+        <span class="gallery-counter" data-gallery-counter>01 / 08</span>
+        <span class="gallery-drag-hint">Drag / swipe to explore</span>
+      </div>
+    </div>
   </section>
 
   <div class="case-nav">
-    <a href="/projects/tura/">← Previous</a>
+    <a href="/">← All projects</a>
     <a href="/projects/hanoi-theater/">Next →</a>
   </div>
 </main>
 
 <footer><span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span><a href="#top">Back to top ↑</a></footer>
+<script src="/gallery.js"></script>
 <script src="/image-protection.js"></script>
 </body>
 </html>
