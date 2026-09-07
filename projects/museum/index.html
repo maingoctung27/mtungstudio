@@ -1,8 +1,52 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hanoi Museum Exhibition — M.TUNG</title><meta name="description" content="Hanoi Museum exhibition and installation project exploring temporary structures, sculpture, light, movement and public space."><link rel="stylesheet" href="/styles.css"><link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hanoi Museum Exhibition — M.TUNG</title>
+<meta name="description" content="Hanoi Museum exhibition and installation project exploring temporary structures, sculpture, light, movement and public space.">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-</head><body>
+
+<style id="mtung-project-gallery-css">
+.case-gallery-wrap { width:100%; }
+.case-gallery-wrap .gallery-stage { height:700px !important; min-height:700px !important; max-height:700px !important; }
+.case-gallery-wrap .gallery-track,
+.case-gallery-wrap .gallery-slide { height:700px !important; min-height:700px !important; max-height:700px !important; }
+.case-gallery-wrap .gallery-slide img { width:100% !important; height:100% !important; max-width:none !important; max-height:none !important; object-fit:contain !important; object-position:center !important; margin:0 !important; display:block !important; }
+@media (max-width: 900px) {
+  .case-gallery-wrap .gallery-stage,
+  .case-gallery-wrap .gallery-track,
+  .case-gallery-wrap .gallery-slide { height:min(70vw,700px) !important; min-height:min(70vw,700px) !important; max-height:min(70vw,700px) !important; }
+}
+</style>
+
+<style id="mtung-project-layout-final">
+.case-page { width:100% !important; max-width:none !important; }
+.case-head { display:none !important; }
+.case-hero { display:none !important; }
+.case-gallery-wrap { display:grid !important; grid-template-columns:minmax(260px,0.28fr) minmax(0,0.72fr) !important; gap:40px !important; align-items:start !important; width:100% !important; }
+.case-gallery-wrap .case-info { min-width:0; }
+.case-gallery-wrap .case-meta { margin-top:0 !important; }
+.case-gallery-wrap .case-intro { margin-top:32px !important; }
+.case-gallery-wrap .case-intro:first-child { margin-top:0 !important; }
+.case-gallery-wrap .gallery-info { display:none !important; }
+.case-gallery-wrap .case-gallery { min-width:0 !important; margin:0 !important; }
+.case-gallery-wrap .gallery-heading { display:none !important; }
+.case-gallery-wrap .case-nav { grid-column:1 / -1 !important; }
+.case-gallery-wrap .case-nav a:not(:first-child) { display:none !important; }
+
+@media (max-width: 900px) {
+  .case-gallery-wrap { grid-template-columns:1fr !important; gap:28px !important; }
+  .case-gallery-wrap .case-gallery { width:100% !important; }
+}
+</style>
+</head>
+
+<body>
 <header class="header">
   <a class="mtung-identity" href="/" aria-label="M.TUNG — Home">
     <span>M.TUNG</span>
@@ -10,23 +54,82 @@
   </a>
   <div class="header-center">Architecture · Sustainability · Environmental Design<br><span>Based in Italy · Working internationally</span></div>
   <nav><a class="active" href="/">Projects</a><a href="/info.html">Info</a></nav>
-  <div class="social"><a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></div>
+  <div class="social">
+    <a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+    <a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+  </div>
 </header>
-<main class="case-page"><div class="case-head"><div><p class="label">Project 05</p><h1>Hanoi Museum Exhibition</h1></div><a class="back-link" href="/">← All projects</a></div>
-<dl class="case-meta"><div><dt>Location</dt><dd>Hanoi, Vietnam</dd></div><div><dt>Year</dt><dd>2023</dd></div><div><dt>Type</dt><dd>Exhibition · Installation · Public Space</dd></div></dl>
-<div class="case-hero"><img fetchpriority="high" decoding="async" src="/assets/hanoi-museum-aerial.webp" alt="Hanoi Museum Exhibition — aerial view"></div>
-<section class="case-intro"><p class="label">About the project</p><p class="case-description">An exhibition and installation proposal for Hanoi Museum, developed through a temporary spatial framework of scaffolding, red textile elements, public circulation and sculptural interventions. The sequence moves between the museum, garden and exhibition grounds, using movement and visual thresholds to shape the visitor experience.</p></section>
-<section class="case-gallery"><div class="gallery-heading"><p class="label">Project sequence</p><p>Selected views, site documentation and exhibition imagery.</p></div>
-<figure><img src="/assets/hanoi-museum-site-board.webp" alt="Hanoi Museum Exhibition — site plan and reference studies" loading="lazy" decoding="async"><figcaption>Site plan and exhibition references</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-aerial.webp" alt="Hanoi Museum Exhibition — aerial overview" loading="lazy" decoding="async"><figcaption>Aerial overview — exhibition landscape and circulation</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-walkway.webp" alt="Hanoi Museum Exhibition — elevated red walkway" loading="lazy" decoding="async"><figcaption>Elevated walkway — movement through the exhibition framework</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-facade.webp" alt="Hanoi Museum Exhibition — museum facade" loading="lazy" decoding="async"><figcaption>Museum facade — temporary scaffold and red installation</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-forecourt-art.webp" alt="Hanoi Museum Exhibition — forecourt installation" loading="lazy" decoding="async"><figcaption>Forecourt — exhibition field and public threshold</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-garden.webp" alt="Hanoi Museum Exhibition — garden axis" loading="lazy" decoding="async"><figcaption>Garden axis — landscape and installation</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-sculpture-passage.webp" alt="Hanoi Museum Exhibition — passage through red sculpture" loading="lazy" decoding="async"><figcaption>Sculpture passage — compressed spatial experience</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-axis.webp" alt="Hanoi Museum Exhibition — main axis" loading="lazy" decoding="async"><figcaption>Main axis — red carpet and museum approach</figcaption></figure>
-<figure><img src="/assets/hanoi-museum-axis-02.webp" alt="Hanoi Museum Exhibition — secondary axis view" loading="lazy" decoding="async"><figcaption>Secondary axis — temporary structure and public space</figcaption></figure>
-</section>
-<section class="case-intro"><p class="label">Publication</p><p class="case-description">The project is also documented in the referenced article <a href="https://hanoicreativecity.com/en/blend-sculpture-light/" target="_blank" rel="noopener">“Blend: Sculpture &amp; Light”</a>.</p></section>
-<div class="case-nav"><a href="/">← All projects</a><a href="/projects/tura/">Next: Tura →</a></div></main>
-<footer><span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span><a href="#top">Back to top ↑</a></footer><script src="/image-protection.js"></script></body></html>
+
+<main class="case-page">
+  <div class="case-gallery-wrap">
+    <aside class="case-info">
+      <p class="label">Project 05</p>
+      <h1>Hanoi Museum Exhibition</h1>
+
+      <dl class="case-meta">
+        <div><dt>Location</dt><dd>Hanoi, Vietnam</dd></div>
+        <div><dt>Year</dt><dd>2023</dd></div>
+        <div><dt>Type</dt><dd>Exhibition · Installation · Public Space</dd></div>
+      </dl>
+
+      <section class="case-intro">
+        <p class="label">About the project</p>
+        <p class="case-description">An exhibition and installation proposal for Hanoi Museum, developed through a temporary spatial framework of scaffolding, red textile elements, public circulation and sculptural interventions. The sequence moves between the museum, garden and exhibition grounds, using movement and visual thresholds to shape the visitor experience.</p>
+      </section>
+
+      <section class="case-intro">
+        <p class="label">Publication</p>
+        <p class="case-description">The project is also documented in the referenced article <a href="https://hanoicreativecity.com/en/blend-sculpture-light/" target="_blank" rel="noopener">“Blend: Sculpture &amp; Light”</a>.</p>
+      </section>
+    </aside>
+
+    <section class="case-gallery" data-gallery>
+      <div class="gallery-thumbs" data-gallery-thumbs>
+        <button type="button" data-gallery-thumb aria-label="View image 01">01</button>
+        <button type="button" data-gallery-thumb aria-label="View image 02">02</button>
+        <button type="button" data-gallery-thumb aria-label="View image 03">03</button>
+        <button type="button" data-gallery-thumb aria-label="View image 04">04</button>
+        <button type="button" data-gallery-thumb aria-label="View image 05">05</button>
+        <button type="button" data-gallery-thumb aria-label="View image 06">06</button>
+        <button type="button" data-gallery-thumb aria-label="View image 07">07</button>
+        <button type="button" data-gallery-thumb aria-label="View image 08">08</button>
+        <button type="button" data-gallery-thumb aria-label="View image 09">09</button>
+      </div>
+
+      <div class="gallery-stage" data-gallery-stage>
+        <div class="gallery-track" data-gallery-track>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-site-board.webp" alt="Hanoi Museum Exhibition — site plan and reference studies" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-aerial.webp" alt="Hanoi Museum Exhibition — aerial overview" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-walkway.webp" alt="Hanoi Museum Exhibition — elevated red walkway" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-facade.webp" alt="Hanoi Museum Exhibition — museum facade" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-forecourt-art.webp" alt="Hanoi Museum Exhibition — forecourt installation" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-garden.webp" alt="Hanoi Museum Exhibition — garden axis" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-sculpture-passage.webp" alt="Hanoi Museum Exhibition — passage through red sculpture" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-axis.webp" alt="Hanoi Museum Exhibition — main axis" loading="lazy" decoding="async"></figure>
+          <figure class="gallery-slide" data-gallery-slide><img src="/assets/hanoi-museum-axis-02.webp" alt="Hanoi Museum Exhibition — secondary axis view" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+
+      <div class="gallery-info">
+        <span data-gallery-counter>01 / 09</span>
+      </div>
+
+      <div class="case-nav">
+        <a href="/">← All projects</a>
+        <a href="/projects/tura/">Next: Tura →</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>© M.TUNG STUDIO</span>
+  <span>2026</span>
+  <span>Based in Italy</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<script src="/gallery.js"></script>
+<script src="/image-protection.js"></script>
+</body>
+</html>
