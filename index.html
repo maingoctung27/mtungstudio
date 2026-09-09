@@ -1043,4 +1043,79 @@
 })();
 </script>
 
+
+<style id="mtung-drag-glass-upgrade">
+/* DRAG → INFO — FROSTED GLASS HINT */
+@media (min-width:601px){
+  .mtung-drag-hint.right{
+    right:18px !important;
+    min-width:118px !important;
+    padding:10px 10px 9px 13px !important;
+    gap:8px !important;
+    border:1px solid rgba(255,255,255,.72) !important;
+    border-right-color:rgba(0,0,0,.12) !important;
+    border-radius:18px 7px 7px 18px !important;
+    background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.22)) !important;
+    box-shadow:0 8px 28px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.72) !important;
+    backdrop-filter:blur(15px) saturate(120%) !important;
+    -webkit-backdrop-filter:blur(15px) saturate(120%) !important;
+    opacity:.88 !important;
+  }
+
+  .mtung-drag-hint.right::before{
+    content:"";
+    position:absolute;
+    inset:1px;
+    border-radius:17px 6px 6px 17px;
+    background:linear-gradient(120deg,rgba(255,255,255,.30),transparent 55%);
+    pointer-events:none;
+  }
+
+  .mtung-drag-hint .hint-text{
+    position:relative;
+    z-index:2;
+    gap:6px !important;
+    color:rgba(15,15,15,.72) !important;
+    text-shadow:0 1px 8px rgba(255,255,255,.75);
+  }
+
+  .mtung-drag-hint .hint-arrow{
+    font-size:13px !important;
+    opacity:.65;
+  }
+
+  .mtung-drag-hint .hint-shape{
+    position:relative;
+    z-index:2;
+    width:32px !important;
+    height:25px !important;
+    filter:drop-shadow(0 2px 5px rgba(0,0,0,.10));
+  }
+
+  .mtung-drag-hint .hint-shape path{
+    fill:rgba(255,255,255,.24) !important;
+    stroke:rgba(255,255,255,.82) !important;
+    stroke-width:1.15 !important;
+    filter:drop-shadow(0 0 4px rgba(255,255,255,.45));
+  }
+
+  .mtung-drag-hint .hint-shape{
+    transform:scaleX(-1);
+  }
+
+  .mtung-drag-hint:not(.is-hidden){
+    animation:mtungGlassFloat 3.2s ease-in-out infinite;
+  }
+
+  @keyframes mtungGlassFloat{
+    0%,100%{transform:translateY(-50%) translateX(0)}
+    50%{transform:translateY(-50%) translateX(-3px)}
+  }
+
+  .mtung-drag-hint.is-hidden{
+    animation:none !important;
+  }
+}
+</style>
+
 </body></html>
