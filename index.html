@@ -1043,4 +1043,20 @@
 })();
 </script>
 
+
+<script id="mtung-bfcache-reset">
+(function () {
+  // When returning from Info with browser history, restore the homepage
+  // to its original position without showing the splash screen again.
+  window.addEventListener("pageshow", function () {
+    var shell = document.getElementById("mtung-page-shell");
+    if (shell) {
+      shell.style.transition = "none";
+      shell.style.transform = "translateX(0)";
+      shell.style.willChange = "";
+    }
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
+  });
+})();
+</script>
 </body></html>
