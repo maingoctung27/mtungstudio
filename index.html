@@ -463,6 +463,83 @@
     border:0!important;
   }
 </style>
+
+<style id="homepage-project-grid-3x2">
+/* HOMEPAGE — 3 COLUMNS × 2 ROWS, FULL FRAME */
+@media (min-width: 901px) {
+  .projects-page {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .projects-page .page-top {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .projects-page .grid {
+    width: 100% !important;
+    height: calc(100vh - 190px) !important;
+    min-height: 560px !important;
+    margin: 0 !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .projects-page .grid .card {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .projects-page .grid .card > img,
+  .projects-page .grid .card > video {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+  }
+
+  .projects-page .grid .card .meta {
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-page .grid {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .projects-page .grid .card {
+    height: auto !important;
+  }
+}
+</style>
 </head><body class="mtung-loading">
 <div id="mtung-splash" aria-hidden="true">
   <div class="mtung-splash-inner">
