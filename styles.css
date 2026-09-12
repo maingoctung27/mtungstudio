@@ -2046,3 +2046,19 @@ html, body {
     .projects-page .grid .card{transition:none!important;}
   }
 }
+
+/* FINAL FIX — ensure all 3D carousel cards are rendered on mobile */
+@media (max-width:600px){
+  .projects-page .grid .card.is-center,
+  .projects-page .grid .card.is-prev,
+  .projects-page .grid .card.is-next,
+  .projects-page .grid .card.is-far-prev,
+  .projects-page .grid .card.is-far-next,
+  .projects-page .grid .card.is-hidden{
+    display:flex!important;
+  }
+  .projects-page .grid .card.is-center{opacity:1!important;}
+  .projects-page .grid .card.is-prev,.projects-page .grid .card.is-next{opacity:.58!important;}
+  .projects-page .grid .card.is-far-prev,.projects-page .grid .card.is-far-next{opacity:.12!important;}
+  .projects-page .grid .card.is-hidden{opacity:0!important;}
+}
