@@ -82,6 +82,7 @@
           '<a href="mailto:maingoctung27@gmail.com">maingoctung27@gmail.com</a>' +
           '<a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener">Instagram</a>' +
           '<a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener">LinkedIn</a>' +
+        '<a class="mm-info-cv" href="/assets/CV00.pdf" target="_blank" rel="noopener" download>Download CV <span>↓</span></a>' +
         '</div>' +
       '</div>' +
 
@@ -123,6 +124,7 @@
           '<a href="mailto:maingoctung27@gmail.com">maingoctung27@gmail.com</a>' +
           '<a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener">Instagram</a>' +
           '<a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener">LinkedIn</a>' +
+        '<a class="mm-info-cv" href="/assets/CV00.pdf" target="_blank" rel="noopener" download>Tải CV <span>↓</span></a>' +
         '</div>' +
       '</div>';
 
