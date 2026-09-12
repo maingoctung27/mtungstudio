@@ -1741,3 +1741,254 @@ html, body {
     object-fit: contain !important;
   }
 }
+
+/* =========================================================
+   M.TUNG MOBILE 3D FLYING PROJECT CAROUSEL — FINAL
+   Desktop is intentionally untouched.
+   ========================================================= */
+@media (max-width: 800px){
+  .projects-page{max-width:none!important;width:100%!important;padding:0!important;margin:0!important;background:#fff!important;overflow:hidden!important}
+  .projects-page .page-top{display:none!important}
+  .projects-page > .mtung-seo-identity{display:none!important}
+  .projects-page .grid{display:none!important}
+  .projects-page + footer{display:none!important}
+
+  .mtung-mobile-carousel{
+    position:relative;
+    width:100%;
+    height:calc(100svh - 72px);
+    min-height:620px;
+    overflow:hidden;
+    background:#fff;
+    perspective:1200px;
+    touch-action:pan-y;
+  }
+  .mtung-mobile-topline{
+    position:absolute;
+    left:20px;right:20px;top:12px;
+    height:1px;background:#111;opacity:.9;z-index:20;
+  }
+  .mtung-mobile-status{
+    position:absolute;left:20px;right:20px;top:22px;
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:8px;letter-spacing:.08em;text-transform:uppercase;
+    color:#777;z-index:30;pointer-events:none;
+  }
+  .mtung-mobile-dots{display:flex;gap:7px;align-items:center;justify-content:center;flex:1;margin:0 18px}
+  .mtung-mobile-dot{width:28px;height:1px;background:#d1d1d1;transition:all .45s ease}
+  .mtung-mobile-dot.active{background:#111;width:32px}
+  .mtung-mobile-counter{white-space:nowrap;color:#111}
+
+  .mtung-mobile-stage{
+    position:absolute;left:0;right:0;top:68px;bottom:92px;
+    transform-style:preserve-3d;
+    z-index:5;
+  }
+  .mtung-mobile-card{
+    position:absolute;left:50%;top:50%;
+    width:min(72vw,310px);
+    height:min(112vw,500px);
+    transform-style:preserve-3d;
+    transform-origin:center center;
+    background:#fff;
+    border:1px solid rgba(0,0,0,.10);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 18px 42px rgba(0,0,0,.10);
+    transition:transform .72s cubic-bezier(.22,1,.36,1),opacity .72s ease,filter .72s ease,box-shadow .72s ease;
+    will-change:transform,opacity;
+    cursor:pointer;
+  }
+  .mtung-mobile-card .mm-media{
+    position:absolute;left:0;right:0;top:0;height:73%;
+    overflow:hidden;background:#f5f5f2;
+  }
+  .mtung-mobile-card .mm-media img,
+  .mtung-mobile-card .mm-media video{
+    width:100%;height:100%;display:block;object-fit:cover;
+  }
+  .mtung-mobile-card .mm-info{
+    position:absolute;left:0;right:0;bottom:0;height:27%;
+    padding:14px 16px 16px;background:#fff;
+    border-top:1px solid rgba(0,0,0,.09);
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .mtung-mobile-card .mm-num{font-size:8px;letter-spacing:.08em;color:#777}
+  .mtung-mobile-card .mm-title{font-size:15px;line-height:1.08;text-transform:uppercase;font-weight:500;letter-spacing:-.2px;margin-top:4px}
+  .mtung-mobile-card .mm-type{font-size:9px;line-height:1.3;color:#777;margin-top:5px}
+
+  .mtung-mobile-card[data-pos="0"]{transform:translate3d(-50%,-50%,70px) rotateY(0deg) rotateZ(0deg) scale(1);opacity:1;filter:none;z-index:10;box-shadow:0 24px 55px rgba(0,0,0,.13)}
+  .mtung-mobile-card[data-pos="1"]{transform:translate3d(33%,-50%,-80px) rotateY(-23deg) rotateZ(1deg) scale(.78);opacity:.52;filter:grayscale(.15);z-index:7}
+  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-133%,-50%,-80px) rotateY(23deg) rotateZ(-1deg) scale(.78);opacity:.52;filter:grayscale(.15);z-index:7}
+  .mtung-mobile-card[data-pos="2"]{transform:translate3d(125%,-50%,-240px) rotateY(-38deg) rotateZ(2deg) scale(.56);opacity:.08;z-index:4}
+  .mtung-mobile-card[data-pos="-2"]{transform:translate3d(-225%,-50%,-240px) rotateY(38deg) rotateZ(-2deg) scale(.56);opacity:.08;z-index:4}
+  .mtung-mobile-card[data-pos="far"]{transform:translate3d(0,-50%,-420px) scale(.35);opacity:0;z-index:1;pointer-events:none}
+
+  .mtung-mobile-bottom{
+    position:absolute;left:20px;right:20px;bottom:24px;
+    display:flex;flex-direction:column;align-items:center;gap:9px;z-index:30;
+    pointer-events:none;
+  }
+  .mtung-mobile-hint{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#777}
+  .mtung-mobile-arrow{font-size:15px;line-height:1;animation:mmFloat 1.7s ease-in-out infinite}
+  @keyframes mmFloat{0%,100%{transform:translateX(0);opacity:.5}50%{transform:translateX(6px);opacity:1}}
+
+  @media(max-width:380px){
+    .mtung-mobile-card{width:72vw;height:108vw}
+    .mtung-mobile-stage{top:65px;bottom:90px}
+    .mtung-mobile-card .mm-title{font-size:13px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .mtung-mobile-card{transition:none!important}
+    .mtung-mobile-arrow{animation:none!important}
+  }
+}
+
+
+/* =========================================================
+   M.TUNG MOBILE HOME — CLEAN REFERENCE FORMAT
+   Mobile only. Desktop is untouched.
+   ========================================================= */
+@media (max-width:800px){
+  html, body{
+    background:#fff !important;
+  }
+
+  .header{
+    background:#fff !important;
+    border-bottom:0 !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    min-height:76px !important;
+    height:76px !important;
+    padding:0 20px !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+  }
+
+  .header .mtung-identity{
+    transform:none !important;
+    gap:9px !important;
+    align-items:center !important;
+  }
+  .header .mtung-identity span{
+    width:118px !important;
+    height:29px !important;
+  }
+  .header .mtung-identity img{
+    width:25px !important;
+    height:25px !important;
+  }
+
+  /* Hide text navigation on the phone; keep the social icons visible. */
+  .header nav{
+    display:none !important;
+  }
+  .header .social{
+    position:absolute !important;
+    right:20px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:16px !important;
+    padding:0 !important;
+  }
+  .header .social a{
+    width:26px !important;
+    height:26px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+    background:transparent !important;
+  }
+  .header .social a img{
+    width:26px !important;
+    height:26px !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+
+  /* Pure-white mobile carousel. */
+  .projects-page{
+    background:#fff !important;
+  }
+  .mtung-mobile-carousel{
+    height:calc(100svh - 76px) !important;
+    min-height:0 !important;
+    background:#fff !important;
+    perspective:1400px !important;
+  }
+  .mtung-mobile-topline{
+    left:20px !important;
+    right:20px !important;
+    top:8px !important;
+    background:#111 !important;
+    opacity:1 !important;
+  }
+
+  /* No grey headline / no autoplay label. */
+  .mtung-mobile-status{
+    top:18px !important;
+    left:20px !important;
+    right:20px !important;
+    justify-content:flex-end !important;
+    background:transparent !important;
+    color:#111 !important;
+  }
+  .mtung-mobile-status > span:first-child:not(.mtung-mobile-counter){
+    display:none !important;
+  }
+  .mtung-mobile-counter{
+    color:#777 !important;
+    font-size:9px !important;
+    letter-spacing:.16em !important;
+    background:transparent !important;
+  }
+  .mtung-mobile-dots{
+    position:absolute !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    margin:0 !important;
+    top:1px !important;
+    gap:6px !important;
+  }
+  .mtung-mobile-dot{
+    width:24px !important;
+    background:#cfcfcf !important;
+  }
+  .mtung-mobile-dot.active{
+    width:30px !important;
+    background:#111 !important;
+  }
+
+  .mtung-mobile-stage{
+    top:58px !important;
+    bottom:30px !important;
+  }
+  .mtung-mobile-card{
+    width:min(68vw,310px) !important;
+    height:min(105vw,500px) !important;
+    border:1px solid rgba(0,0,0,.08) !important;
+    border-radius:12px !important;
+    box-shadow:0 22px 55px rgba(0,0,0,.12) !important;
+    background:#fff !important;
+  }
+  .mtung-mobile-card .mm-info{
+    background:#fff !important;
+  }
+
+  /* Remove the old bottom instructional UI. */
+  .mtung-mobile-bottom,
+  .mtung-mobile-bottom *{
+    display:none !important;
+  }
+  .swipe-hint,
+  #swipeHint{
+    display:none !important;
+  }
+}
