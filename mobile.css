@@ -604,14 +604,3 @@ body.mtung-mobile-info-open .header{
     line-height:1!important;
   }
 }
-
-
-/* FINAL MOBILE GUARD — 2026-09-12 */
-@media (max-width:600px){
-  .mtung-mobile-stage{top:0!important;bottom:0!important;transform:translate3d(0,72px,0)!important;}
-  .mtung-mobile-card{width:min(61vw,280px)!important;height:min(91vw,435px)!important;}
-  .mtung-mobile-card[data-pos="0"]{transform:translate3d(-50%,-50%,100px) rotateY(0deg) scale(1)!important;}
-  .mtung-mobile-card[data-pos="1"]{transform:translate3d(58%,-50%,-100px) rotateY(-30deg) rotateZ(2deg) scale(.70)!important;opacity:.58!important;}
-  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-158%,-50%,-100px) rotateY(30deg) rotateZ(-2deg) scale(.70)!important;opacity:.58!important;}
-}
-@media(max-width:380px){.mtung-mobile-stage{transform:translate3d(0,54px,0)!important;}.mtung-mobile-card{width:65vw!important;height:95vw!important;}}
