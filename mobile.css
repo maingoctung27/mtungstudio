@@ -639,3 +639,35 @@ body.mtung-mobile-info-open .header{
   .mtung-mobile-card[data-pos="1"]{transform:translate3d(18%,-44%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
   .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-118%,-44%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
 }
+/* Prevent blue text-selection highlight on mobile portfolio UI */
+@media (max-width: 600px){
+
+  html,
+  body,
+  .mtung-mobile-scene,
+  .mtung-mobile-carousel,
+  .mtung-mobile-stage,
+  .mtung-mobile-card,
+  .mtung-mobile-info-trigger {
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+
+  /* Remove the blue selection highlight */
+  ::selection {
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  ::-moz-selection {
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  /* Prevent the blue/grey tap flash on clickable elements */
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
