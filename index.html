@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mai Tung — Architect &amp; Designer | M.TUNG Studio</title><meta name="description" content="Mai Tung is an architect and designer based in Italy, working internationally across sustainable architecture, environmental design, urban design and computational design."><link rel="stylesheet" href="/styles.css?v=desktop-keep-20260912" media="screen and (min-width: 601px)">
-<link rel="stylesheet" href="/mobile.css?v=mobile-overlap-20260912" media="screen and (max-width: 600px)">
+<link rel="stylesheet" href="/mobile.css?v=mobile-overlap-v7-20260912" media="screen and (max-width: 600px)">
 <link rel="canonical" href="https://mtungstudio.pages.dev/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mai Tung — Architect &amp; Designer | M.TUNG Studio">
@@ -1003,6 +1003,42 @@
 <script src="/image-protection.js"></script>
 
 
-<script src="/mobile.js?v=mobile-overlap-20260912"></script>
+<script src="/mobile.js?v=mobile-overlap-v7-20260912"></script>
 
+
+<style id="mtung-mobile-overlap-v7">
+@media (max-width:600px){
+  /* V7: preserve the current center-card position; bring the neighboring
+     cards inward so they physically pass behind the center card. */
+  .mtung-mobile-card[data-pos="0"]{
+    transform:translate3d(-50%,-50%,100px) rotateY(0deg) rotateZ(0deg) scale(1)!important;
+    opacity:1!important;
+    z-index:10!important;
+  }
+  .mtung-mobile-card[data-pos="1"]{
+    transform:translate3d(30%,-34%,-115px) rotateY(-31deg) rotateZ(2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
+  }
+  .mtung-mobile-card[data-pos="-1"]{
+    transform:translate3d(-130%,-34%,-115px) rotateY(31deg) rotateZ(-2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
+  }
+  .mtung-mobile-card[data-pos="2"]{
+    transform:translate3d(105%,-25%,-255px) rotateY(-45deg) rotateZ(2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
+  }
+  .mtung-mobile-card[data-pos="-2"]{
+    transform:translate3d(-205%,-25%,-255px) rotateY(45deg) rotateZ(-2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
+  }
+}
+@media (max-width:380px){
+  .mtung-mobile-card[data-pos="1"]{transform:translate3d(28%,-32%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
+  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-128%,-32%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
+}
+</style>
 </body></html>
