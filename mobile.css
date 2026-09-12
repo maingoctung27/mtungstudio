@@ -615,27 +615,27 @@ body.mtung-mobile-info-open .header{
     z-index:10!important;
   }
   .mtung-mobile-card[data-pos="1"]{
-    transform:translate3d(24%,-34%,-115px) rotateY(-31deg) rotateZ(2deg) scale(.72)!important;
+    transform:translate3d(20%,-46%,-115px) rotateY(-31deg) rotateZ(2deg) scale(.72)!important;
     opacity:.58!important;
     z-index:7!important;
   }
   .mtung-mobile-card[data-pos="-1"]{
-    transform:translate3d(-124%,-34%,-115px) rotateY(31deg) rotateZ(-2deg) scale(.72)!important;
+    transform:translate3d(-120%,-46%,-115px) rotateY(31deg) rotateZ(-2deg) scale(.72)!important;
     opacity:.58!important;
     z-index:7!important;
   }
   .mtung-mobile-card[data-pos="2"]{
-    transform:translate3d(138%,-25%,-255px) rotateY(-45deg) rotateZ(2deg) scale(.48)!important;
+    transform:translate3d(120%,-34%,-255px) rotateY(-45deg) rotateZ(2deg) scale(.48)!important;
     opacity:.14!important;
     z-index:4!important;
   }
   .mtung-mobile-card[data-pos="-2"]{
-    transform:translate3d(-238%,-25%,-255px) rotateY(45deg) rotateZ(-2deg) scale(.48)!important;
+    transform:translate3d(-220%,-34%,-255px) rotateY(45deg) rotateZ(-2deg) scale(.48)!important;
     opacity:.14!important;
     z-index:4!important;
   }
 }
 @media (max-width:380px){
-  .mtung-mobile-card[data-pos="1"]{transform:translate3d(22%,-32%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
-  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-122%,-32%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
+  .mtung-mobile-card[data-pos="1"]{transform:translate3d(18%,-44%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
+  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-118%,-44%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
 }
