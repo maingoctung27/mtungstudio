@@ -186,7 +186,7 @@ html.mtung-loading,body.mtung-loading{background:#fff!important;overflow-x:hidde
   position:absolute!important;
   left:0!important;
   right:0!important;
-  top:78px!important;
+  top:58px!important;
   bottom:30px!important;
   transform-style:preserve-3d!important;
   z-index:5!important;
@@ -262,7 +262,7 @@ html.mtung-loading,body.mtung-loading{background:#fff!important;overflow-x:hidde
   .social{right:16px!important;gap:13px!important}
   .social a,.social a img{width:24px!important;height:24px!important}
   .mtung-mobile-card{width:72vw!important;height:108vw!important}
-  .mtung-mobile-stage{top:72px!important;bottom:26px!important}
+  .mtung-mobile-stage{top:58px!important;bottom:26px!important}
   .mtung-mobile-card .mm-title{font-size:13px!important}
 }
 @media(prefers-reduced-motion:reduce){
@@ -606,79 +606,24 @@ body.mtung-mobile-info-open .header{
 }
 
 
-/* FINAL PHONE TUNING — lower project card + smaller, stronger glass Info control */
+/* MOBILE LAYOUT TUNING — 2026-09-12 */
 @media (max-width:600px){
-  .mtung-mobile-stage{
-    top:78px!important;
-    bottom:30px!important;
-  }
+  .mtung-mobile-stage{top:78px!important;bottom:30px!important}
   .mtung-mobile-info-trigger{
-    left:38px!important;
-    right:38px!important;
-    bottom:16px!important;
-    height:50px!important;
+    left:38px!important;right:38px!important;bottom:16px!important;height:50px!important;
     border-radius:18px!important;
-    border:1px solid rgba(255,255,255,.82)!important;
     background:rgba(255,255,255,.20)!important;
-    color:#fff!important;
-    box-shadow:0 10px 32px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.80)!important;
     backdrop-filter:blur(34px) saturate(170%)!important;
     -webkit-backdrop-filter:blur(34px) saturate(170%)!important;
-    font-size:13px!important;
-    line-height:1!important;
-    gap:0!important;
+    box-shadow:0 10px 32px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.82)!important;
+    font-size:0!important;
   }
   .mtung-mobile-info-trigger .info-chevron{
-    font-size:18px!important;
-    line-height:12px!important;
-    transform:translateY(1px)!important;
+    display:block!important;font-size:32px!important;line-height:28px!important;
+    font-weight:300!important;transform:translateY(0)!important;color:#fff!important;
   }
 }
-@media (max-width:380px){
-  .mtung-mobile-stage{top:72px!important;bottom:26px!important}
-  .mtung-mobile-info-trigger{
-    left:30px!important;
-    right:30px!important;
-    bottom:13px!important;
-    height:48px!important;
-  }
-}
-
-
-/* MOBILE INFO SWIPE CONTROL — ARROW ONLY */
-@media (max-width:600px){
-  .mtung-mobile-info-swipe .mtung-mobile-info-label,
-  .mtung-mobile-info-swipe .info-label,
-  .mtung-mobile-info-swipe .label{
-    display:none!important;
-  }
-
-  .mtung-mobile-info-swipe{
-    height:50px!important;
-    min-height:50px!important;
-  }
-
-  .mtung-mobile-info-swipe .mtung-mobile-info-arrow,
-  .mtung-mobile-info-swipe .info-arrow,
-  .mtung-mobile-info-swipe .arrow{
-    display:block!important;
-    width:26px!important;
-    height:26px!important;
-    font-size:0!important;
-    line-height:0!important;
-  }
-
-  .mtung-mobile-info-swipe .mtung-mobile-info-arrow::before,
-  .mtung-mobile-info-swipe .info-arrow::before,
-  .mtung-mobile-info-swipe .arrow::before{
-    font-size:32px!important;
-    line-height:1!important;
-  }
-
-  /* Fallback: if the control uses a text node rather than a label,
-     keep the chevron visually dominant. */
-  .mtung-mobile-info-swipe svg{
-    width:32px!important;
-    height:32px!important;
-  }
+@media(max-width:380px){
+  .mtung-mobile-stage{top:78px!important;bottom:26px!important}
+  .mtung-mobile-info-trigger{left:30px!important;right:30px!important;bottom:14px!important;height:48px!important}
 }
