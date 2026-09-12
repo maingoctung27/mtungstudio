@@ -1,4 +1,69 @@
 (function(){
+  var translations = {
+    en: {
+      navProjects: 'Projects', navInfo: 'Info', language: 'Language',
+      projects: [
+        ['Milano Community Food Hub','Architecture · Urban · Landscape'],
+        ['Hanoi Theater','Architecture · Cultural'],
+        ['Thang Long Youth Center','Architecture · Urban · Landscape'],
+        ['Son La Climate Combat Urban Design','Urban Design · Climate'],
+        ['Hanoi Museum Installation','Architecture · Installation'],
+        ['Tura','Architecture · Cultural']
+      ]
+    },
+    vn: {
+      navProjects: 'Dự án', navInfo: 'Thông tin', language: 'Ngôn ngữ',
+      projects: [
+        ['Trung tâm Thực phẩm Cộng đồng Milano','Kiến trúc · Đô thị · Cảnh quan'],
+        ['Nhà hát Hà Nội','Kiến trúc · Văn hóa'],
+        ['Trung tâm Thanh thiếu niên Thăng Long','Kiến trúc · Đô thị · Cảnh quan'],
+        ['Thiết kế Đô thị Ứng phó Khí hậu Sơn La','Thiết kế Đô thị · Khí hậu'],
+        ['Sắp đặt Bảo tàng Hà Nội','Kiến trúc · Sắp đặt'],
+        ['Tura','Kiến trúc · Văn hóa']
+      ]
+    }
+  };
+
+  function initLanguageSwitch(){
+    if(window.innerWidth>600 || document.querySelector('.mtung-mobile-language')) return;
+    var header=document.querySelector('.header');
+    if(!header) return;
+    var wrap=document.createElement('div');
+    wrap.className='mtung-mobile-language';
+    wrap.setAttribute('aria-label','Language');
+    wrap.innerHTML='<button type="button" data-lang="en">EN</button><span>/</span><button type="button" data-lang="vn">VN</button>';
+    header.appendChild(wrap);
+    wrap.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click',function(){ setLanguage(btn.getAttribute('data-lang')); });
+    });
+  }
+
+  function setLanguage(lang){
+    if(lang!=='vn') lang='en';
+    document.documentElement.lang = lang==='vn' ? 'vi' : 'en';
+    try{ localStorage.setItem('mtung-language',lang); }catch(e){}
+    var wrap=document.querySelector('.mtung-mobile-language');
+    if(wrap){
+      wrap.querySelectorAll('button').forEach(function(btn){btn.classList.toggle('active',btn.getAttribute('data-lang')===lang);});
+    }
+    var cards=document.querySelectorAll('.mtung-mobile-card');
+    cards.forEach(function(card,i){
+      var item=translations[lang].projects[i];
+      if(!item) return;
+      var title=card.querySelector('.mm-title');
+      var type=card.querySelector('.mm-type');
+      if(title) title.textContent=item[0];
+      if(type) type.textContent=item[1];
+      card.setAttribute('aria-label','Open '+item[0]);
+    });
+    var nav=document.querySelector('.header nav');
+    if(nav){
+      var links=nav.querySelectorAll('a');
+      if(links[0]) links[0].textContent=translations[lang].navProjects;
+      if(links[1]) links[1].textContent=translations[lang].navInfo;
+    }
+  }
+
   function init(){
     if(window.innerWidth>800) return;
     var page=document.querySelector('.projects-page');
@@ -93,6 +158,10 @@
     });});
 
     position();restart();
+    initLanguageSwitch();
+    var saved='en';
+    try{saved=localStorage.getItem('mtung-language')||'en';}catch(e){}
+    setLanguage(saved);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
   window.addEventListener('resize',function(){if(window.innerWidth<=800 && !document.querySelector('.mtung-mobile-carousel'))init();});
