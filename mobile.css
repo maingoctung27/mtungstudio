@@ -604,12 +604,3 @@ body.mtung-mobile-info-open .header{
     line-height:1!important;
   }
 }
-
-
-/* FINAL MOBILE POSITION — repeat the previous upward movement; desktop untouched. */
-@media (max-width:600px){
-  .mtung-mobile-stage{top:0!important;bottom:0!important;transform:translate3d(0,-98px,0)!important;}
-}
-@media (max-width:380px){
-  .mtung-mobile-stage{transform:translate3d(0,-88px,0)!important;}
-}
