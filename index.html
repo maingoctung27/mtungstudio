@@ -956,43 +956,54 @@
 
 <script id="mtung-page-swipe">
 (function () {
+  var threshold = 60;
   var startX = 0;
   var startY = 0;
   var tracking = false;
-  var threshold = 60;
+  var startedOnProject = false;
 
   function isMobile() {
     return window.matchMedia && window.matchMedia("(max-width: 600px)").matches;
   }
 
+  function isHome() {
+    var path = window.location.pathname.replace(/\/+$/, "") || "/";
+    return path === "/" || path === "/index.html";
+  }
+
   document.addEventListener("touchstart", function (e) {
-    if (!isMobile() || e.touches.length !== 1) return;
+    if (!isMobile() || !isHome() || e.touches.length !== 1) return;
+
+    var target = e.target;
+    var card = target && target.closest ? target.closest(".projects-page .grid .card") : null;
+    var nav = target && target.closest ? target.closest(".mtung-mobile-project-nav") : null;
+
+    // The lower project selector owns its own horizontal drag.
+    if (nav || !card) {
+      tracking = false;
+      startedOnProject = false;
+      return;
+    }
 
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     tracking = true;
+    startedOnProject = true;
   }, { passive: true });
 
   document.addEventListener("touchend", function (e) {
-    if (!tracking || !isMobile() || !e.changedTouches.length) return;
+    if (!tracking || !startedOnProject || !isMobile() || !e.changedTouches.length) return;
     tracking = false;
 
     var endX = e.changedTouches[0].clientX;
     var endY = e.changedTouches[0].clientY;
-
     var dx = endX - startX;
     var dy = endY - startY;
 
-    // Only respond to a clear horizontal swipe.
-    if (Math.abs(dx) < threshold) return;
-    if (Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    if (Math.abs(dx) < threshold || Math.abs(dx) < Math.abs(dy) * 1.2) return;
 
-    var path = window.location.pathname.replace(/\/+$/, "") || "/";
-
-    // HOME → INFO: swipe left
-    if ((path === "/" || path === "/index.html") && dx < 0) {
-      window.location.assign("/info.html");
-    }
+    // Only the central project card uses HOME → INFO.
+    if (dx < 0) window.location.assign("/info.html");
   }, { passive: true });
 })();
 </script>
@@ -1118,6 +1129,103 @@
 }
 </style>
 
-\n<script id="mtung-mobile-project-carousel">\n(function(){\n  var grid=document.querySelector('.projects-page .grid');\n  if(!grid) return;\n  var cards=Array.prototype.slice.call(grid.querySelectorAll('.card'));\n  if(!cards.length) return;\n  var nav=document.createElement('div'); nav.className='mtung-mobile-project-nav';\n  nav.innerHTML='<div class="drag-label"><span>DRAG TO CHANGE PROJECT</span><span class="mtung-mobile-counter"></span></div><div class="drag-track"></div>';
-  grid.insertAdjacentElement('afterend',nav);\n  var track=nav.querySelector('.drag-track'), counter=nav.querySelector('.mtung-mobile-counter');\n  var buttons=[]; var index=0;\n  cards.forEach(function(card,i){\n    var b=document.createElement('button'); b.type='button';\n    var title=card.querySelector('h2'); b.textContent=(i+1<10?'0':'')+(i+1)+'  '+(title?title.textContent:'Project');\n    b.addEventListener('click',function(e){e.preventDefault();show(i);}); track.appendChild(b); buttons.push(b);\n  });\n  function show(i){ index=(i+cards.length)%cards.length; cards.forEach(function(c,n){c.classList.toggle('mtung-mobile-active',n===index);}); buttons.forEach(function(b,n){b.classList.toggle('active',n===index);}); counter.textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0'); buttons[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }\n  var sx=0,sy=0;\n  nav.addEventListener('touchstart',function(e){if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;}},{passive:true});\n  nav.addEventListener('touchend',function(e){if(!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15){show(index+(dx<0?1:-1));}},{passive:true});\n  /* Keep the central cover gesture for HOME → INFO; prevent card navigation after a swipe. */\n  cards.forEach(function(card){var x=0,y=0,moved=false;card.addEventListener('touchstart',function(e){if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY;moved=false;}},{passive:true});card.addEventListener('touchmove',function(e){if(e.touches.length===1&&Math.abs(e.touches[0].clientX-x)>12)moved=true;},{passive:true});card.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);});\n  show(0);\n})();\n</script>\n
+
+<script id="mtung-mobile-project-carousel">
+(function () {
+  var grid = document.querySelector('.projects-page .grid');
+  if (!grid) return;
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+  if (!cards.length) return;
+
+  var nav = document.createElement('div');
+  nav.className = 'mtung-mobile-project-nav';
+  nav.innerHTML = '<div class="drag-label"><span>DRAG TO CHANGE PROJECT</span><span class="mtung-mobile-counter"></span></div><div class="drag-track"></div>';
+  grid.insertAdjacentElement('afterend', nav);
+
+  var track = nav.querySelector('.drag-track');
+  var counter = nav.querySelector('.mtung-mobile-counter');
+  var buttons = [];
+  var index = 0;
+
+  cards.forEach(function (card, i) {
+    var button = document.createElement('button');
+    button.type = 'button';
+    var title = card.querySelector('h2');
+    button.textContent = (i + 1 < 10 ? '0' : '') + (i + 1) + '  ' + (title ? title.textContent.trim() : 'Project');
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      show(i);
+    });
+    track.appendChild(button);
+    buttons.push(button);
+  });
+
+  function show(i) {
+    index = (i + cards.length) % cards.length;
+    cards.forEach(function (card, n) {
+      card.classList.toggle('mtung-mobile-active', n === index);
+    });
+    buttons.forEach(function (button, n) {
+      button.classList.toggle('active', n === index);
+    });
+    counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+    buttons[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  var startX = 0;
+  var startY = 0;
+  var dragging = false;
+
+  nav.addEventListener('touchstart', function (event) {
+    if (event.touches.length !== 1) return;
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    dragging = true;
+  }, { passive: true });
+
+  nav.addEventListener('touchend', function (event) {
+    if (!dragging || !event.changedTouches.length) return;
+    dragging = false;
+
+    var dx = event.changedTouches[0].clientX - startX;
+    var dy = event.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+      show(index + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  // Stop a horizontal project swipe from following the card link.
+  cards.forEach(function (card) {
+    var x = 0;
+    var y = 0;
+    var moved = false;
+
+    card.addEventListener('touchstart', function (event) {
+      if (event.touches.length !== 1) return;
+      x = event.touches[0].clientX;
+      y = event.touches[0].clientY;
+      moved = false;
+    }, { passive: true });
+
+    card.addEventListener('touchmove', function (event) {
+      if (event.touches.length !== 1) return;
+      var dx = event.touches[0].clientX - x;
+      var dy = event.touches[0].clientY - y;
+      if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) moved = true;
+    }, { passive: true });
+
+    card.addEventListener('click', function (event) {
+      if (moved) {
+        event.preventDefault();
+        event.stopPropagation();
+        moved = false;
+      }
+    }, true);
+  });
+
+  show(0);
+})();
+</script>
+
 </body></html>
