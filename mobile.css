@@ -524,3 +524,56 @@ body.mtung-mobile-info-open .header{
     display:none!important;
   }
 }
+
+
+/* MOBILE INFO — compact circular profile beside the headline */
+@media (max-width:600px){
+  .mm-info-intro{
+    display:flex!important;
+    align-items:center!important;
+    gap:18px!important;
+    width:100%!important;
+    margin:0 0 4px!important;
+  }
+  .mm-info-intro-text{
+    flex:1 1 auto!important;
+    min-width:0!important;
+  }
+  .mm-info-portrait{
+    flex:0 0 94px!important;
+    width:94px!important;
+    height:94px!important;
+    margin:0!important;
+    border-radius:50%!important;
+    overflow:hidden!important;
+    background:#eee!important;
+  }
+  .mm-info-portrait img{
+    width:100%!important;
+    height:100%!important;
+    display:block!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+  .mm-info-intro .mm-info-label{
+    margin:0 0 10px!important;
+    font-size:8px!important;
+    line-height:1.1!important;
+  }
+  .mm-info-intro h1,
+  .mm-info-intro-text h1{
+    margin:0!important;
+    font-size:24px!important;
+    line-height:.98!important;
+    letter-spacing:-.045em!important;
+    font-weight:400!important;
+  }
+  .mm-info-intro .mm-info-lead{
+    margin:11px 0 0!important;
+    font-size:10px!important;
+    line-height:1.35!important;
+  }
+  .mtung-mobile-info-content .mm-info-rule{
+    margin:20px 0!important;
+  }
+}

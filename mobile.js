@@ -45,10 +45,14 @@
       '</div>' +
 
       '<div class="mtung-mobile-info-content" data-info-lang="en">' +
-        '<div class="mm-info-portrait"><img src="/assets/mai-tung-portrait.jpg" alt="Mai Tung — architect and designer based in Italy"></div>' +
-        '<p class="mm-info-label">ABOUT MAI TUNG</p>' +
-        '<h1>ARCHITECT<br>DESIGNER<br>STORYTELLER</h1>' +
-        '<p class="mm-info-lead">Based in Italy, working internationally.</p>' +
+        '<div class="mm-info-intro">' +
+          '<div class="mm-info-portrait"><img src="/assets/mai-tung-portrait.jpg" alt="Mai Tung — architect and designer based in Italy"></div>' +
+          '<div class="mm-info-intro-text">' +
+            '<p class="mm-info-label">ABOUT MAI TUNG</p>' +
+            '<h1>ARCHITECT<br>DESIGNER<br>STORYTELLER</h1>' +
+            '<p class="mm-info-lead">Based in Italy, working internationally.</p>' +
+          '</div>' +
+        '</div>' +
         '<div class="mm-info-rule"></div>' +
         '<p class="mm-info-body">My practice explores the intersection of design, technology, culture and environmental performance. I work across architecture, urban design, landscape and visual communication, with a particular interest in climate-responsive and socially grounded design.</p>' +
         '<div class="mm-info-rule"></div>' +
@@ -82,10 +86,14 @@
       '</div>' +
 
       '<div class="mtung-mobile-info-content mm-info-vn" data-info-lang="vi" hidden>' +
-        '<div class="mm-info-portrait"><img src="/assets/mai-tung-portrait.jpg" alt="Mai Tung — kiến trúc sư và nhà thiết kế"></div>' +
-        '<p class="mm-info-label">VỀ MAI TUNG</p>' +
-        '<h1>KIẾN TRÚC SƯ<br>NHÀ THIẾT KẾ<br>NGƯỜI KỂ CHUYỆN</h1>' +
-        '<p class="mm-info-lead">Làm việc tại Ý và quốc tế.</p>' +
+        '<div class="mm-info-intro">' +
+          '<div class="mm-info-portrait"><img src="/assets/mai-tung-portrait.jpg" alt="Mai Tung — kiến trúc sư và nhà thiết kế"></div>' +
+          '<div class="mm-info-intro-text">' +
+            '<p class="mm-info-label">VỀ MAI TUNG</p>' +
+            '<h1>KIẾN TRÚC SƯ<br>NHÀ THIẾT KẾ<br>NGƯỜI KỂ CHUYỆN</h1>' +
+            '<p class="mm-info-lead">Làm việc tại Ý và quốc tế.</p>' +
+          '</div>' +
+        '</div>' +
         '<div class="mm-info-rule"></div>' +
         '<p class="mm-info-body">Thực hành thiết kế của tôi khám phá giao điểm giữa thiết kế, công nghệ, văn hóa và hiệu suất môi trường. Tôi làm việc trong kiến trúc, thiết kế đô thị, cảnh quan và truyền thông thị giác, với mối quan tâm đặc biệt đến thiết kế thích ứng khí hậu và hướng đến cộng đồng.</p>' +
         '<div class="mm-info-rule"></div>' +
