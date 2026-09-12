@@ -1804,3 +1804,245 @@ html, body {
     touch-action:pan-y !important;
   }
 }
+
+
+/* =========================================================
+   M.TUNG MOBILE HOME — 3D FLYING PROJECT CAROUSEL
+   Mobile homepage only. Desktop remains unchanged.
+   ========================================================= */
+@media (max-width:600px){
+  html,body{
+    background:#fff!important;
+    overflow-x:hidden!important;
+  }
+
+  .projects-page{
+    width:100%!important;
+    max-width:none!important;
+    padding:0!important;
+    margin:0!important;
+  }
+
+  .projects-page .grid{
+    position:relative!important;
+    width:100%!important;
+    height:calc(100svh - 62px)!important;
+    min-height:640px!important;
+    max-height:820px!important;
+    margin:0!important;
+    padding:54px 0 0!important;
+    display:block!important;
+    overflow:hidden!important;
+    perspective:1100px!important;
+    perspective-origin:50% 45%!important;
+    background:#fff!important;
+  }
+
+  .projects-page .grid .card,
+  .projects-page .grid .card.mtung-mobile-active{
+    position:absolute!important;
+    top:54px!important;
+    left:50%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    width:74vw!important;
+    max-width:390px!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+    background:#fff!important;
+    border:1px solid rgba(0,0,0,.08)!important;
+    border-radius:18px!important;
+    box-shadow:0 18px 40px rgba(0,0,0,.12)!important;
+    transform-origin:50% 78%!important;
+    transition:
+      transform .82s cubic-bezier(.22,1,.36,1),
+      opacity .62s ease,
+      filter .62s ease,
+      box-shadow .82s cubic-bezier(.22,1,.36,1)!important;
+    will-change:transform,opacity,filter!important;
+    backface-visibility:hidden!important;
+    -webkit-backface-visibility:hidden!important;
+    z-index:1!important;
+    pointer-events:none!important;
+  }
+
+  .projects-page .grid .card>img,
+  .projects-page .grid .card>video{
+    flex:0 0 auto!important;
+    width:100%!important;
+    height:53vh!important;
+    min-height:360px!important;
+    max-height:500px!important;
+    aspect-ratio:auto!important;
+    object-fit:cover!important;
+    object-position:center!important;
+    display:block!important;
+    background:#f7f7f7!important;
+    transform:none!important;
+    border-radius:17px 17px 0 0!important;
+  }
+
+  .projects-page .grid .card .meta{
+    flex:0 0 auto!important;
+    width:100%!important;
+    border-top:0!important;
+    margin:0!important;
+    padding:14px 16px 16px!important;
+    display:block!important;
+    background:#fff!important;
+  }
+
+  .projects-page .grid .card .meta>div{display:block!important;}
+  .projects-page .grid .card .meta .num{
+    display:block!important;
+    font-size:9px!important;
+    line-height:1!important;
+    letter-spacing:.13em!important;
+    color:#999!important;
+    margin:0 0 7px!important;
+  }
+  .projects-page .grid .card .meta h2{
+    font-size:20px!important;
+    line-height:1.03!important;
+    letter-spacing:-.035em!important;
+    text-transform:uppercase!important;
+    font-weight:500!important;
+    margin:0 0 7px!important;
+    color:#111!important;
+  }
+  .projects-page .grid .card .meta p{
+    font-size:9px!important;
+    line-height:1.3!important;
+    letter-spacing:.07em!important;
+    text-transform:uppercase!important;
+    color:#999!important;
+    margin:0!important;
+  }
+  .projects-page .grid .card .arrow{display:none!important;}
+
+  /* Center card */
+  .projects-page .grid .card.is-center{
+    transform:translate3d(-50%,0,80px) rotateY(0deg) rotateZ(0deg) scale(1)!important;
+    opacity:1!important;
+    filter:none!important;
+    z-index:20!important;
+    pointer-events:auto!important;
+    box-shadow:0 22px 48px rgba(0,0,0,.13)!important;
+  }
+
+  /* Cards immediately beside the center — the flying 3D effect */
+  .projects-page .grid .card.is-prev{
+    transform:translate3d(-118%,18px,-90px) rotateY(28deg) rotateZ(-2deg) scale(.78)!important;
+    opacity:.58!important;
+    filter:grayscale(.12)!important;
+    z-index:10!important;
+    pointer-events:auto!important;
+  }
+  .projects-page .grid .card.is-next{
+    transform:translate3d(18%,18px,-90px) rotateY(-28deg) rotateZ(2deg) scale(.78)!important;
+    opacity:.58!important;
+    filter:grayscale(.12)!important;
+    z-index:10!important;
+    pointer-events:auto!important;
+  }
+
+  .projects-page .grid .card.is-far-prev{
+    transform:translate3d(-177%,48px,-220px) rotateY(38deg) rotateZ(-4deg) scale(.60)!important;
+    opacity:.12!important;
+    filter:grayscale(.3)!important;
+    z-index:5!important;
+  }
+  .projects-page .grid .card.is-far-next{
+    transform:translate3d(77%,48px,-220px) rotateY(-38deg) rotateZ(4deg) scale(.60)!important;
+    opacity:.12!important;
+    filter:grayscale(.3)!important;
+    z-index:5!important;
+  }
+
+  .projects-page .grid .card.is-hidden{
+    transform:translate3d(0,70px,-360px) scale(.45)!important;
+    opacity:0!important;
+    z-index:0!important;
+    pointer-events:none!important;
+  }
+
+  .mtung-mobile-project-nav{
+    position:relative!important;
+    z-index:50!important;
+    display:block!important;
+    margin:0!important;
+    padding:0 20px 22px!important;
+    background:#fff!important;
+    touch-action:pan-y!important;
+    user-select:none!important;
+    -webkit-user-select:none!important;
+  }
+
+  .mtung-mobile-project-nav .drag-label{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    border-top:1px solid #111!important;
+    padding-top:10px!important;
+    font-size:8px!important;
+    line-height:1!important;
+    letter-spacing:.14em!important;
+    color:#888!important;
+    text-transform:uppercase!important;
+  }
+  .mtung-mobile-project-nav .drag-track{
+    display:none!important;
+  }
+  .mtung-mobile-counter{
+    color:#111!important;
+    font-variant-numeric:tabular-nums!important;
+    letter-spacing:.1em!important;
+  }
+  .mtung-mobile-project-nav .drag-dots{
+    display:flex!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:7px!important;
+    margin-top:12px!important;
+  }
+  .mtung-mobile-project-nav .drag-dot{
+    display:block!important;
+    width:18px!important;
+    height:2px!important;
+    background:#d0d0d0!important;
+    transition:width .4s ease,background .4s ease!important;
+  }
+  .mtung-mobile-project-nav .drag-dot.active{
+    width:34px!important;
+    background:#111!important;
+  }
+
+  footer,.swipe-hint{display:none!important;}
+
+  /* Keep the existing HOME → INFO gesture, but make the project carousel feel independent. */
+  .projects-page .grid .card.is-center::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+  }
+}
+
+@media (max-width:380px){
+  .projects-page .grid{min-height:600px!important;padding-top:42px!important;}
+  .projects-page .grid .card{top:42px!important;width:78vw!important;}
+  .projects-page .grid .card>img,
+  .projects-page .grid .card>video{height:50vh!important;min-height:320px!important;}
+  .projects-page .grid .card .meta h2{font-size:18px!important;}
+  .projects-page .grid .card.is-prev{transform:translate3d(-112%,20px,-90px) rotateY(25deg) scale(.72)!important;}
+  .projects-page .grid .card.is-next{transform:translate3d(12%,20px,-90px) rotateY(-25deg) scale(.72)!important;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  @media (max-width:600px){
+    .projects-page .grid .card{transition:none!important;}
+  }
+}
