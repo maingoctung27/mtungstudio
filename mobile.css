@@ -606,29 +606,36 @@ body.mtung-mobile-info-open .header{
 }
 
 
-/* V5 — mobile-only 3D card bench. Center position intentionally unchanged. */
+/* V6 — mobile-only OVERLAPPING 3D card bench.
+   Center position is unchanged. Side cards intentionally sit partly behind it. */
 @media (max-width:600px){
   .mtung-mobile-card[data-pos="0"]{
     transform:translate3d(-50%,-50%,100px) rotateY(0deg) rotateZ(0deg) scale(1)!important;
+    opacity:1!important;
+    z-index:10!important;
   }
   .mtung-mobile-card[data-pos="1"]{
-    transform:translate3d(66%,-34%,-150px) rotateY(-34deg) rotateZ(2deg) scale(.68)!important;
-    opacity:.52!important;
+    transform:translate3d(24%,-34%,-115px) rotateY(-31deg) rotateZ(2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
   }
   .mtung-mobile-card[data-pos="-1"]{
-    transform:translate3d(-166%,-34%,-150px) rotateY(34deg) rotateZ(-2deg) scale(.68)!important;
-    opacity:.52!important;
+    transform:translate3d(-124%,-34%,-115px) rotateY(31deg) rotateZ(-2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
   }
   .mtung-mobile-card[data-pos="2"]{
-    transform:translate3d(190%,-25%,-320px) rotateY(-48deg) scale(.44)!important;
-    opacity:.12!important;
+    transform:translate3d(138%,-25%,-255px) rotateY(-45deg) rotateZ(2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
   }
   .mtung-mobile-card[data-pos="-2"]{
-    transform:translate3d(-290%,-25%,-320px) rotateY(48deg) scale(.44)!important;
-    opacity:.12!important;
+    transform:translate3d(-238%,-25%,-255px) rotateY(45deg) rotateZ(-2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
   }
 }
 @media (max-width:380px){
-  .mtung-mobile-card[data-pos="1"]{transform:translate3d(64%,-32%,-145px) rotateY(-32deg) rotateZ(2deg) scale(.67)!important;}
-  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-164%,-32%,-145px) rotateY(32deg) rotateZ(-2deg) scale(.67)!important;}
+  .mtung-mobile-card[data-pos="1"]{transform:translate3d(22%,-32%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
+  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-122%,-32%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
 }
