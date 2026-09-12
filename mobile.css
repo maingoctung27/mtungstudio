@@ -1,0 +1,271 @@
+/* M.TUNG PHONE — INDEPENDENT MOBILE STYLESHEET
+   Loaded only at max-width: 600px.
+   Desktop / tablet styles are not loaded on the homepage at these widths.
+*/
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100%;background:#fff;color:#111;font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.45;overflow-x:hidden}
+body{background:#fff!important}
+a{color:inherit;text-decoration:none}
+
+/* Keep the existing splash from affecting the independent mobile layout. */
+#mtung-splash{display:none!important}
+html.mtung-loading,body.mtung-loading{background:#fff!important;overflow-x:hidden!important}
+
+/* HEADER — clean reference format */
+.header{
+  position:relative!important;
+  width:100%!important;
+  height:76px!important;
+  min-height:76px!important;
+  padding:0 20px!important;
+  margin:0!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr auto!important;
+  align-items:center!important;
+  gap:0!important;
+  background:#fff!important;
+  border:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  z-index:100!important;
+}
+.header-center,.header nav{display:none!important}
+.mtung-identity{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:9px!important;
+  width:max-content!important;
+  padding:0!important;
+  margin:0!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+}
+.mtung-identity span{
+  display:block!important;
+  width:118px!important;
+  height:29px!important;
+  font-size:0!important;
+  line-height:0!important;
+  color:transparent!important;
+  background-image:url('/mtung-wordmark.png')!important;
+  background-repeat:no-repeat!important;
+  background-position:left center!important;
+  background-size:contain!important;
+}
+.mtung-identity img{
+  display:block!important;
+  width:25px!important;
+  height:25px!important;
+  object-fit:contain!important;
+  margin:0!important;
+  padding:0!important;
+  user-select:none!important;
+  -webkit-user-drag:none!important;
+}
+
+/* Instagram + LinkedIn exactly as clean standalone icons */
+.social{
+  position:absolute!important;
+  right:20px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:16px!important;
+  padding:0!important;
+  margin:0!important;
+  z-index:110!important;
+}
+.social a{
+  width:26px!important;
+  height:26px!important;
+  border:0!important;
+  border-radius:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0!important;
+  margin:0!important;
+  background:transparent!important;
+}
+.social a img{
+  width:26px!important;
+  height:26px!important;
+  object-fit:contain!important;
+  display:block!important;
+}
+
+/* PHONE HOMEPAGE */
+.projects-page{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  background:#fff!important;
+  overflow:hidden!important;
+}
+.projects-page>.mtung-seo-identity{display:none!important}
+.projects-page>.page-top{display:none!important}
+.projects-page>.grid{display:none!important}
+.projects-page + footer{display:none!important}
+
+.mtung-mobile-carousel{
+  position:relative!important;
+  width:100%!important;
+  height:calc(100svh - 76px)!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  perspective:1400px!important;
+  touch-action:pan-y!important;
+}
+
+/* Thin line below header */
+.mtung-mobile-topline{
+  position:absolute!important;
+  left:20px!important;
+  right:20px!important;
+  top:8px!important;
+  height:1px!important;
+  background:#111!important;
+  opacity:1!important;
+  z-index:20!important;
+}
+
+/* Counter only — no AUTO PLAYING PROJECTS text */
+.mtung-mobile-status{
+  position:absolute!important;
+  left:20px!important;
+  right:20px!important;
+  top:18px!important;
+  height:18px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  font-size:9px!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+  color:#777!important;
+  z-index:30!important;
+  pointer-events:none!important;
+  background:transparent!important;
+}
+.mtung-mobile-dots{
+  position:absolute!important;
+  left:50%!important;
+  top:8px!important;
+  transform:translateX(-50%)!important;
+  display:flex!important;
+  gap:6px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:0!important;
+}
+.mtung-mobile-dot{
+  display:block!important;
+  width:24px!important;
+  height:1px!important;
+  background:#cfcfcf!important;
+  transition:width .7s ease,background .7s ease!important;
+}
+.mtung-mobile-dot.active{width:30px!important;background:#111!important}
+.mtung-mobile-counter{
+  display:block!important;
+  white-space:nowrap!important;
+  color:#777!important;
+  font-size:9px!important;
+  letter-spacing:.16em!important;
+  background:transparent!important;
+}
+
+/* 3D card stage */
+.mtung-mobile-stage{
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  top:58px!important;
+  bottom:30px!important;
+  transform-style:preserve-3d!important;
+  z-index:5!important;
+}
+.mtung-mobile-card{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:min(68vw,310px)!important;
+  height:min(105vw,500px)!important;
+  transform-style:preserve-3d!important;
+  transform-origin:center center!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  border:1px solid rgba(0,0,0,.08)!important;
+  border-radius:12px!important;
+  box-shadow:0 22px 55px rgba(0,0,0,.12)!important;
+  transition:transform .95s cubic-bezier(.22,1,.36,1),opacity .95s ease,filter .95s ease,box-shadow .95s ease!important;
+  will-change:transform,opacity!important;
+  cursor:pointer!important;
+}
+.mtung-mobile-card .mm-media{
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  height:73%!important;
+  overflow:hidden!important;
+  background:#f5f5f2!important;
+}
+.mtung-mobile-card .mm-media img,
+.mtung-mobile-card .mm-media video{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+  margin:0!important;
+  padding:0!important;
+}
+.mtung-mobile-card .mm-info{
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  height:27%!important;
+  padding:14px 16px 16px!important;
+  margin:0!important;
+  background:#fff!important;
+  border-top:1px solid rgba(0,0,0,.09)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+}
+.mtung-mobile-card .mm-num{font-size:8px!important;letter-spacing:.08em!important;color:#777!important}
+.mtung-mobile-card .mm-title{font-size:15px!important;line-height:1.08!important;text-transform:uppercase!important;font-weight:500!important;letter-spacing:-.2px!important;margin-top:4px!important}
+.mtung-mobile-card .mm-type{font-size:9px!important;line-height:1.3!important;color:#777!important;margin-top:5px!important}
+
+/* Flying positions */
+.mtung-mobile-card[data-pos="0"]{transform:translate3d(-50%,-50%,80px) rotateY(0deg) rotateZ(0deg) scale(1)!important;opacity:1!important;filter:none!important;z-index:10!important;box-shadow:0 24px 55px rgba(0,0,0,.13)!important}
+.mtung-mobile-card[data-pos="1"]{transform:translate3d(35%,-50%,-100px) rotateY(-24deg) rotateZ(1deg) scale(.76)!important;opacity:.48!important;filter:grayscale(.12)!important;z-index:7!important}
+.mtung-mobile-card[data-pos="-1"]{transform:translate3d(-135%,-50%,-100px) rotateY(24deg) rotateZ(-1deg) scale(.76)!important;opacity:.48!important;filter:grayscale(.12)!important;z-index:7!important}
+.mtung-mobile-card[data-pos="2"]{transform:translate3d(128%,-50%,-280px) rotateY(-40deg) rotateZ(2deg) scale(.54)!important;opacity:.10!important;z-index:4!important}
+.mtung-mobile-card[data-pos="-2"]{transform:translate3d(-228%,-50%,-280px) rotateY(40deg) rotateZ(-2deg) scale(.54)!important;opacity:.10!important;z-index:4!important}
+.mtung-mobile-card[data-pos="far"]{transform:translate3d(0,-50%,-460px) scale(.32)!important;opacity:0!important;z-index:1!important;pointer-events:none!important}
+
+/* No swipe-to-info layer and no instructional text */
+.mtung-mobile-bottom,.mtung-mobile-bottom *,.swipe-hint,#swipeHint{display:none!important}
+
+@media(max-width:380px){
+  .header{padding-left:16px!important;padding-right:16px!important}
+  .mtung-identity span{width:105px!important;height:27px!important}
+  .mtung-identity img{width:23px!important;height:23px!important}
+  .social{right:16px!important;gap:13px!important}
+  .social a,.social a img{width:24px!important;height:24px!important}
+  .mtung-mobile-card{width:72vw!important;height:108vw!important}
+  .mtung-mobile-stage{top:58px!important;bottom:26px!important}
+  .mtung-mobile-card .mm-title{font-size:13px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .mtung-mobile-card{transition:none!important}
+  .mtung-mobile-dot{transition:none!important}
+}
