@@ -1044,19 +1044,80 @@
 </script>
 
 
-<script id="mtung-bfcache-reset">
-(function () {
-  // When returning from Info with browser history, restore the homepage
-  // to its original position without showing the splash screen again.
-  window.addEventListener("pageshow", function () {
-    var shell = document.getElementById("mtung-page-shell");
-    if (shell) {
-      shell.style.transition = "none";
-      shell.style.transform = "translateX(0)";
-      shell.style.willChange = "";
-    }
-    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
-  });
-})();
-</script>
+<style id="mtung-drag-glass-upgrade">
+/* DRAG → INFO — FROSTED GLASS HINT */
+@media (min-width:601px){
+  .mtung-drag-hint.right{
+    right:18px !important;
+    min-width:118px !important;
+    padding:10px 10px 9px 13px !important;
+    gap:8px !important;
+    border:1px solid rgba(255,255,255,.72) !important;
+    border-right-color:rgba(0,0,0,.12) !important;
+    border-radius:18px 7px 7px 18px !important;
+    background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.22)) !important;
+    box-shadow:0 8px 28px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.72) !important;
+    backdrop-filter:blur(15px) saturate(120%) !important;
+    -webkit-backdrop-filter:blur(15px) saturate(120%) !important;
+    opacity:.88 !important;
+  }
+
+  .mtung-drag-hint.right::before{
+    content:"";
+    position:absolute;
+    inset:1px;
+    border-radius:17px 6px 6px 17px;
+    background:linear-gradient(120deg,rgba(255,255,255,.30),transparent 55%);
+    pointer-events:none;
+  }
+
+  .mtung-drag-hint .hint-text{
+    position:relative;
+    z-index:2;
+    gap:6px !important;
+    color:rgba(15,15,15,.72) !important;
+    text-shadow:0 1px 8px rgba(255,255,255,.75);
+  }
+
+  .mtung-drag-hint .hint-arrow{
+    font-size:13px !important;
+    opacity:.65;
+  }
+
+  .mtung-drag-hint .hint-shape{
+    position:relative;
+    z-index:2;
+    width:32px !important;
+    height:25px !important;
+    filter:drop-shadow(0 2px 5px rgba(0,0,0,.10));
+  }
+
+  .mtung-drag-hint .hint-shape path{
+    fill:rgba(255,255,255,.24) !important;
+    stroke:rgba(255,255,255,.82) !important;
+    stroke-width:1.15 !important;
+    filter:drop-shadow(0 0 4px rgba(255,255,255,.45));
+  }
+
+  .mtung-drag-hint .hint-shape{
+    transform:scaleX(-1);
+  }
+
+  .mtung-drag-hint:not(.is-hidden){
+    animation:mtungGlassFloat 3.2s ease-in-out infinite;
+  }
+
+  @keyframes mtungGlassFloat{
+    0%,100%{transform:translateY(-50%) translateX(0)}
+    50%{transform:translateY(-50%) translateX(-3px)}
+  }
+
+  .mtung-drag-hint.is-hidden{
+    animation:none !important;
+  }
+}
+</style>
+
+\n<script id="mtung-mobile-project-carousel">\n(function(){\n  var grid=document.querySelector('.projects-page .grid');\n  if(!grid) return;\n  var cards=Array.prototype.slice.call(grid.querySelectorAll('.card'));\n  if(!cards.length) return;\n  var nav=document.createElement('div'); nav.className='mtung-mobile-project-nav';\n  nav.innerHTML='<div class="drag-label"><span>DRAG TO CHANGE PROJECT</span><span class="mtung-mobile-counter"></span></div><div class="drag-track"></div>';
+  grid.insertAdjacentElement('afterend',nav);\n  var track=nav.querySelector('.drag-track'), counter=nav.querySelector('.mtung-mobile-counter');\n  var buttons=[]; var index=0;\n  cards.forEach(function(card,i){\n    var b=document.createElement('button'); b.type='button';\n    var title=card.querySelector('h2'); b.textContent=(i+1<10?'0':'')+(i+1)+'  '+(title?title.textContent:'Project');\n    b.addEventListener('click',function(e){e.preventDefault();show(i);}); track.appendChild(b); buttons.push(b);\n  });\n  function show(i){ index=(i+cards.length)%cards.length; cards.forEach(function(c,n){c.classList.toggle('mtung-mobile-active',n===index);}); buttons.forEach(function(b,n){b.classList.toggle('active',n===index);}); counter.textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0'); buttons[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}); }\n  var sx=0,sy=0;\n  nav.addEventListener('touchstart',function(e){if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;}},{passive:true});\n  nav.addEventListener('touchend',function(e){if(!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.15){show(index+(dx<0?1:-1));}},{passive:true});\n  /* Keep the central cover gesture for HOME → INFO; prevent card navigation after a swipe. */\n  cards.forEach(function(card){var x=0,y=0,moved=false;card.addEventListener('touchstart',function(e){if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY;moved=false;}},{passive:true});card.addEventListener('touchmove',function(e){if(e.touches.length===1&&Math.abs(e.touches[0].clientX-x)>12)moved=true;},{passive:true});card.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);});\n  show(0);\n})();\n</script>\n
 </body></html>
