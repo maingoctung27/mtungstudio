@@ -1843,3 +1843,152 @@ html, body {
     .mtung-mobile-arrow{animation:none!important}
   }
 }
+
+
+/* =========================================================
+   M.TUNG MOBILE HOME — CLEAN REFERENCE FORMAT
+   Mobile only. Desktop is untouched.
+   ========================================================= */
+@media (max-width:800px){
+  html, body{
+    background:#fff !important;
+  }
+
+  .header{
+    background:#fff !important;
+    border-bottom:0 !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    min-height:76px !important;
+    height:76px !important;
+    padding:0 20px !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+  }
+
+  .header .mtung-identity{
+    transform:none !important;
+    gap:9px !important;
+    align-items:center !important;
+  }
+  .header .mtung-identity span{
+    width:118px !important;
+    height:29px !important;
+  }
+  .header .mtung-identity img{
+    width:25px !important;
+    height:25px !important;
+  }
+
+  /* Hide text navigation on the phone; keep the social icons visible. */
+  .header nav{
+    display:none !important;
+  }
+  .header .social{
+    position:absolute !important;
+    right:20px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:16px !important;
+    padding:0 !important;
+  }
+  .header .social a{
+    width:26px !important;
+    height:26px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 !important;
+    background:transparent !important;
+  }
+  .header .social a img{
+    width:26px !important;
+    height:26px !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+
+  /* Pure-white mobile carousel. */
+  .projects-page{
+    background:#fff !important;
+  }
+  .mtung-mobile-carousel{
+    height:calc(100svh - 76px) !important;
+    min-height:0 !important;
+    background:#fff !important;
+    perspective:1400px !important;
+  }
+  .mtung-mobile-topline{
+    left:20px !important;
+    right:20px !important;
+    top:8px !important;
+    background:#111 !important;
+    opacity:1 !important;
+  }
+
+  /* No grey headline / no autoplay label. */
+  .mtung-mobile-status{
+    top:18px !important;
+    left:20px !important;
+    right:20px !important;
+    justify-content:flex-end !important;
+    background:transparent !important;
+    color:#111 !important;
+  }
+  .mtung-mobile-status > span:first-child:not(.mtung-mobile-counter){
+    display:none !important;
+  }
+  .mtung-mobile-counter{
+    color:#777 !important;
+    font-size:9px !important;
+    letter-spacing:.16em !important;
+    background:transparent !important;
+  }
+  .mtung-mobile-dots{
+    position:absolute !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    margin:0 !important;
+    top:1px !important;
+    gap:6px !important;
+  }
+  .mtung-mobile-dot{
+    width:24px !important;
+    background:#cfcfcf !important;
+  }
+  .mtung-mobile-dot.active{
+    width:30px !important;
+    background:#111 !important;
+  }
+
+  .mtung-mobile-stage{
+    top:58px !important;
+    bottom:30px !important;
+  }
+  .mtung-mobile-card{
+    width:min(68vw,310px) !important;
+    height:min(105vw,500px) !important;
+    border:1px solid rgba(0,0,0,.08) !important;
+    border-radius:12px !important;
+    box-shadow:0 22px 55px rgba(0,0,0,.12) !important;
+    background:#fff !important;
+  }
+  .mtung-mobile-card .mm-info{
+    background:#fff !important;
+  }
+
+  /* Remove the old bottom instructional UI. */
+  .mtung-mobile-bottom,
+  .mtung-mobile-bottom *{
+    display:none !important;
+  }
+  .swipe-hint,
+  #swipeHint{
+    display:none !important;
+  }
+}

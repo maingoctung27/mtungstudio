@@ -989,136 +989,13 @@
 
     var path = window.location.pathname.replace(/\/+$/, "") || "/";
 
-    // HOME → INFO: swipe left
-    if ((path === "/" || path === "/index.html") && dx < 0) {
-      window.location.assign("/info.html");
-    }
+    // Mobile homepage: horizontal swipes are reserved for the project carousel.
+    // Do not navigate from HOME to INFO by swiping.
+    return;
   }, { passive: true });
 })();
 </script>
 <script src="/image-protection.js"></script>
-<div class="swipe-hint" id="swipeHint" aria-hidden="true">
-  <span class="arrow">←</span>
-  <span>SWIPE LEFT → INFO</span>
-  <span class="arrow">→</span>
-</div>
-
-
-<script id="swipe-hint-js">
-(function () {
-  var hint = document.getElementById('swipeHint');
-  if (!hint) return;
-
-  window.setTimeout(function () {
-    hint.classList.add('is-hidden');
-  }, 4500);
-})();
-</script>
-
-
-<div class="mtung-drag-hint right" id="mtungDragHint" aria-hidden="true">
-  <div class="hint-text">
-    <span>DRAG</span>
-    <span class="hint-arrow">←</span>
-    <span>INFO</span>
-  </div>
-  <svg class="hint-shape" viewBox="0 0 30 24" aria-hidden="true">
-    <path d="M24 2.5 Q27 2.5 27 5.5 L27 18.5 Q27 21.5 24 21.5 L6.5 15.5 Q2.5 12 6.5 8.5 Z"/>
-  </svg>
-</div>
-
-
-<script id="mtung-drag-hint-js">
-(function () {
-  var hint = document.getElementById("mtungDragHint");
-  if (!hint) return;
-
-  window.setTimeout(function () {
-    hint.classList.add("is-hidden");
-  }, 6000);
-
-  window.addEventListener("mousedown", function () {
-    hint.classList.add("is-hidden");
-  }, { passive: true });
-})();
-</script>
-
-
-<style id="mtung-drag-glass-upgrade">
-/* DRAG → INFO — FROSTED GLASS HINT */
-@media (min-width:601px){
-  .mtung-drag-hint.right{
-    right:18px !important;
-    min-width:118px !important;
-    padding:10px 10px 9px 13px !important;
-    gap:8px !important;
-    border:1px solid rgba(255,255,255,.72) !important;
-    border-right-color:rgba(0,0,0,.12) !important;
-    border-radius:18px 7px 7px 18px !important;
-    background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.22)) !important;
-    box-shadow:0 8px 28px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.72) !important;
-    backdrop-filter:blur(15px) saturate(120%) !important;
-    -webkit-backdrop-filter:blur(15px) saturate(120%) !important;
-    opacity:.88 !important;
-  }
-
-  .mtung-drag-hint.right::before{
-    content:"";
-    position:absolute;
-    inset:1px;
-    border-radius:17px 6px 6px 17px;
-    background:linear-gradient(120deg,rgba(255,255,255,.30),transparent 55%);
-    pointer-events:none;
-  }
-
-  .mtung-drag-hint .hint-text{
-    position:relative;
-    z-index:2;
-    gap:6px !important;
-    color:rgba(15,15,15,.72) !important;
-    text-shadow:0 1px 8px rgba(255,255,255,.75);
-  }
-
-  .mtung-drag-hint .hint-arrow{
-    font-size:13px !important;
-    opacity:.65;
-  }
-
-  .mtung-drag-hint .hint-shape{
-    position:relative;
-    z-index:2;
-    width:32px !important;
-    height:25px !important;
-    filter:drop-shadow(0 2px 5px rgba(0,0,0,.10));
-  }
-
-  .mtung-drag-hint .hint-shape path{
-    fill:rgba(255,255,255,.24) !important;
-    stroke:rgba(255,255,255,.82) !important;
-    stroke-width:1.15 !important;
-    filter:drop-shadow(0 0 4px rgba(255,255,255,.45));
-  }
-
-  .mtung-drag-hint .hint-shape{
-    transform:scaleX(-1);
-  }
-
-  .mtung-drag-hint:not(.is-hidden){
-    animation:mtungGlassFloat 3.2s ease-in-out infinite;
-  }
-
-  @keyframes mtungGlassFloat{
-    0%,100%{transform:translateY(-50%) translateX(0)}
-    50%{transform:translateY(-50%) translateX(-3px)}
-  }
-
-  .mtung-drag-hint.is-hidden{
-    animation:none !important;
-  }
-}
-</style>
-
-</body></html>
 
 <script id="mtung-mobile-3d-final">
 (function(){
@@ -1133,7 +1010,7 @@
     var carousel=document.createElement('section');
     carousel.className='mtung-mobile-carousel';
     carousel.setAttribute('aria-label','Selected projects');
-    carousel.innerHTML='<div class="mtung-mobile-topline"></div><div class="mtung-mobile-status"><span>AUTO PLAYING PROJECTS</span><div class="mtung-mobile-dots"></div><span class="mtung-mobile-counter">01 / 06</span></div><div class="mtung-mobile-stage"></div><div class="mtung-mobile-bottom"><span class="mtung-mobile-arrow">→</span><span class="mtung-mobile-hint">Drag / swipe to change project</span></div>';
+    carousel.innerHTML='<div class="mtung-mobile-topline"></div><div class="mtung-mobile-status"><div class="mtung-mobile-dots"></div><span class="mtung-mobile-counter">01 / 06</span></div><div class="mtung-mobile-stage"></div><div class="mtung-mobile-bottom"></div>';
     page.insertBefore(carousel,grid);
 
     var stage=carousel.querySelector('.mtung-mobile-stage');
@@ -1160,18 +1037,19 @@
       var num=(src.querySelector('.num')||{}).textContent || String(i+1).padStart(2,'0');
       var title=(src.querySelector('h2')||{}).textContent || '';
       var type=(src.querySelector('.meta p')||{}).textContent || '';
-      info.innerHTML='<div><div class="mm-num">'+num+'</div><div class="mm-title"></div><div class="mm-type"></div></div>';
+      info.innerHTML='<div><div class="mm-num"></div><div class="mm-title"></div><div class="mm-type"></div></div>';
+      info.querySelector('.mm-num').textContent=num.trim();
       info.querySelector('.mm-title').textContent=title.trim();
       info.querySelector('.mm-type').textContent=type.trim();
       c.appendChild(mediaWrap); c.appendChild(info); stage.appendChild(c); cards.push(c);
       var dot=document.createElement('span'); dot.className='mtung-mobile-dot'; dots.appendChild(dot);
     });
 
-    var index=0, timer=null, downX=0,downY=0,dragging=false, moved=false;
+    var index=0,timer=null,downX=0,downY=0,dragging=false,moved=false;
     var total=cards.length;
-    var duration=4300;
+    var duration=8000;
 
-    function norm(n){return (n%total+total)%total}
+    function norm(n){return (n%total+total)%total;}
     function position(){
       cards.forEach(function(c,i){
         var d=i-index;
@@ -1180,16 +1058,16 @@
         c.setAttribute('data-pos',Math.abs(d)>2?'far':String(d));
         c.style.pointerEvents=(d===0)?'auto':'none';
       });
-      [].slice.call(dots.children).forEach(function(d,i){d.classList.toggle('active',i===index)});
+      [].slice.call(dots.children).forEach(function(d,i){d.classList.toggle('active',i===index);});
       counter.textContent=String(index+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
     }
-    function go(step){index=norm(index+step);position();restart()}
-    function restart(){clearInterval(timer);timer=setInterval(function(){go(1)},duration)}
+    function go(step){index=norm(index+step);position();restart();}
+    function restart(){clearInterval(timer);timer=setInterval(function(){go(1);},duration);}
 
     carousel.addEventListener('pointerdown',function(e){
       if(e.pointerType==='mouse' && e.button!==0)return;
       downX=e.clientX;downY=e.clientY;dragging=true;moved=false;
-      carousel.setPointerCapture && carousel.setPointerCapture(e.pointerId);
+      if(carousel.setPointerCapture) carousel.setPointerCapture(e.pointerId);
     });
     carousel.addEventListener('pointermove',function(e){
       if(!dragging)return;
@@ -1197,27 +1075,27 @@
     });
     carousel.addEventListener('pointerup',function(e){
       if(!dragging)return;dragging=false;
-      var dx=e.clientX-downX, dy=e.clientY-downY;
+      var dx=e.clientX-downX,dy=e.clientY-downY;
       if(Math.abs(dx)>45 && Math.abs(dx)>Math.abs(dy)*1.15){
         go(dx<0?1:-1);e.preventDefault();return;
       }
       restart();
     });
-    carousel.addEventListener('pointercancel',function(){dragging=false;restart()});
+    carousel.addEventListener('pointercancel',function(){dragging=false;restart();});
     carousel.addEventListener('click',function(e){
-      if(moved){e.preventDefault();e.stopPropagation();moved=false}
+      if(moved){e.preventDefault();e.stopPropagation();moved=false;}
     },true);
 
-    // Clicking the visible side of the carousel changes to that neighboring project.
     cards.forEach(function(c){c.addEventListener('click',function(e){
       var i=Number(c.getAttribute('data-index'));var d=i-index;
       if(d>total/2)d-=total;if(d<-total/2)d+=total;
-      if(d!==0){e.preventDefault();go(d>0?1:-1)}
-    })});
+      if(d!==0){e.preventDefault();go(d>0?1:-1);}
+    });});
 
     position();restart();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-  window.addEventListener('resize',function(){if(window.innerWidth<=800 && !document.querySelector('.mtung-mobile-carousel'))init()});
+  window.addEventListener('resize',function(){if(window.innerWidth<=800 && !document.querySelector('.mtung-mobile-carousel'))init();});
 })();
 </script>
+</body></html>
