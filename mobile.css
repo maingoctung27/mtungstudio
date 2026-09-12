@@ -606,10 +606,36 @@ body.mtung-mobile-info-open .header{
 }
 
 
-/* FINAL MOBILE POSITION — repeat the previous upward movement; desktop untouched. */
+/* V6 — mobile-only OVERLAPPING 3D card bench.
+   Center position is unchanged. Side cards intentionally sit partly behind it. */
 @media (max-width:600px){
-  .mtung-mobile-stage{top:0!important;bottom:0!important;transform:translate3d(0,-98px,0)!important;}
+  .mtung-mobile-card[data-pos="0"]{
+    transform:translate3d(-50%,-50%,100px) rotateY(0deg) rotateZ(0deg) scale(1)!important;
+    opacity:1!important;
+    z-index:10!important;
+  }
+  .mtung-mobile-card[data-pos="1"]{
+    transform:translate3d(20%,-46%,-115px) rotateY(-31deg) rotateZ(2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
+  }
+  .mtung-mobile-card[data-pos="-1"]{
+    transform:translate3d(-120%,-46%,-115px) rotateY(31deg) rotateZ(-2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
+  }
+  .mtung-mobile-card[data-pos="2"]{
+    transform:translate3d(120%,-34%,-255px) rotateY(-45deg) rotateZ(2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
+  }
+  .mtung-mobile-card[data-pos="-2"]{
+    transform:translate3d(-220%,-34%,-255px) rotateY(45deg) rotateZ(-2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
+  }
 }
 @media (max-width:380px){
-  .mtung-mobile-stage{transform:translate3d(0,-88px,0)!important;}
+  .mtung-mobile-card[data-pos="1"]{transform:translate3d(18%,-44%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
+  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-118%,-44%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
 }
