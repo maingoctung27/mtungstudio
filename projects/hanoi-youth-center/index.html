@@ -310,14 +310,14 @@
       <button class="bim-drawer__close" type="button" data-bim-close aria-label="Close BIM data">×</button>
     </div>
     <div class="bim-drawer__body">
-      <p class="bim-drawer__intro">Structured building information extracted from the Rhino model through Grasshopper. The BIM dataset will be connected here in a later stage.</p>
+      <p class="bim-drawer__intro">Structured building information extracted from the Rhino model through Grasshopper and loaded from the live project dataset.</p>
       <div class="bim-stats" aria-label="BIM summary">
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Curtain Wall Frames</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Curtain Wall Glazing</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Walls</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Floors</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Roof Elements</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Total Objects</div></div>
+        <div class="bim-stat"><div class="bim-stat__value" data-stat="framing">—</div><div class="bim-stat__label">Curtain Wall Frames</div></div>
+        <div class="bim-stat"><div class="bim-stat__value" data-stat="glazing">—</div><div class="bim-stat__label">Curtain Wall Glazing</div></div>
+        <div class="bim-stat"><div class="bim-stat__value" data-stat="wall">—</div><div class="bim-stat__label">Walls</div></div>
+        <div class="bim-stat"><div class="bim-stat__value" data-stat="floor">—</div><div class="bim-stat__label">Floors</div></div>
+        <div class="bim-stat"><div class="bim-stat__value" data-stat="roof">—</div><div class="bim-stat__label">Roof Elements</div></div>
+        <div class="bim-stat"><div class="bim-stat__value" data-stat="total">—</div><div class="bim-stat__label">Total Objects</div></div>
       </div>
       <div class="bim-tabs" role="tablist" aria-label="BIM categories">
         <button class="bim-tab is-active" type="button">All</button>
@@ -335,11 +335,11 @@
       </div>
       <div class="bim-table-wrap">
         <table class="bim-table">
-          <thead><tr><th>ID</th><th>Classification</th><th>Level</th><th>Location</th><th>Status</th><th>Material</th></tr></thead>
-          <tbody><tr class="bim-empty"><td colspan="6">BIM data: null<br><span>Connect the Grasshopper JSON dataset in Stage 2.</span></td></tr></tbody>
+          <thead><tr><th>MKS ID</th><th>Classification</th><th>Location</th><th>Sign</th><th>Status</th><th>Description</th><th>Level</th><th>IFC</th></tr></thead>
+          <tbody><tr class="bim-empty"><td colspan="8">Loading BIM data…</td></tr></tbody>
         </table>
       </div>
-      <div class="bim-drawer__foot">Data interface prepared for the Thang Long Youth Center OpenBIM workflow. No BIM records are embedded in this version.</div>
+      <div class="bim-drawer__foot" data-bim-foot>Data loaded from the Grasshopper JSON dataset. Current dataset: CurtainWall-Framing.</div>
     </div>
   </aside>
   <button class="bim-open-tab" type="button" data-bim-open aria-label="Open BIM data">BIM Data&nbsp; →</button>
@@ -358,13 +358,77 @@
   const openButtons=document.querySelectorAll('[data-bim-open]');
   const closeButtons=document.querySelectorAll('[data-bim-close]');
   const backdrop=document.querySelector('[data-bim-backdrop]');
+  const tbody=document.querySelector('.bim-table tbody');
+  const search=document.querySelector('.bim-search');
+  const levelSelect=document.querySelector('.bim-level');
+  const tabs=[...document.querySelectorAll('.bim-tab')];
   if(!drawer) return;
+
+  let records=[];
+  let activeCategory='All';
+
   function open(){drawer.setAttribute('aria-hidden','false');drawer.classList.add('is-open');backdrop&&backdrop.classList.add('is-visible');document.body.classList.add('bim-drawer-open');}
   function close(){drawer.setAttribute('aria-hidden','true');drawer.classList.remove('is-open');backdrop&&backdrop.classList.remove('is-visible');document.body.classList.remove('bim-drawer-open');}
   openButtons.forEach(b=>b.addEventListener('click',open));
   closeButtons.forEach(b=>b.addEventListener('click',close));
   backdrop&&backdrop.addEventListener('click',close);
   document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const categoryMap={
+    Framing:'CurtainWall-Framing', Glazing:'CurtainWall-Glazing', Wall:'Wall-Exterior',
+    Floor:'Floor', Roof:'Roof', Stair:'Circulation-RampOrStair', Column:'Structural-Column'
+  };
+
+  function setStats(){
+    const counts={}; records.forEach(r=>counts[r.Classification]=(counts[r.Classification]||0)+1);
+    const key={framing:'CurtainWall-Framing',glazing:'CurtainWall-Glazing',wall:'Wall-Exterior',floor:'Floor',roof:'Roof'};
+    Object.keys(key).forEach(k=>{const el=document.querySelector('[data-stat="'+k+'"]');if(el)el.textContent=counts[key[k]]||0;});
+    const total=document.querySelector('[data-stat="total"]'); if(total) total.textContent=records.length;
+  }
+
+  function setLevels(){
+    const levels=[...new Set(records.map(r=>r.Level).filter(Boolean))];
+    levelSelect.innerHTML='<option value="">All Levels</option>'+levels.map(l=>'<option value="'+esc(l)+'">'+esc(l)+'</option>').join('');
+  }
+
+  function render(){
+    const q=(search.value||'').trim().toLowerCase();
+    const level=levelSelect.value||'';
+    const wanted=categoryMap[activeCategory]||'';
+    const filtered=records.filter(r=>{
+      if(wanted && r.Classification!==wanted) return false;
+      if(level && r.Level!==level) return false;
+      if(!q) return true;
+      return [r.MKS_ID,r.Classification,r.Location,r.Sign,r.Status,r.Description,r.Level,r.IFC].some(v=>String(v??'').toLowerCase().includes(q));
+    });
+    if(!filtered.length){tbody.innerHTML='<tr class="bim-empty"><td colspan="8">No BIM records match the current filters.</td></tr>';return;}
+    tbody.innerHTML=filtered.map(r=>'<tr>'+[
+      r.MKS_ID,r.Classification,r.Location,r.Sign,r.Status,r.Description,r.Level,r.IFC
+    ].map(v=>'<td>'+esc(v||'—')+'</td>').join('')+'</tr>').join('');
+  }
+
+  tabs.forEach(tab=>tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('is-active')); tab.classList.add('is-active');
+    activeCategory=tab.textContent.trim(); render();
+  }));
+  search&&search.addEventListener('input',render);
+  levelSelect&&levelSelect.addEventListener('change',render);
+
+  fetch('/data/bim.json',{cache:'no-store'})
+    .then(r=>{if(!r.ok) throw new Error('HTTP '+r.status); return r.json();})
+    .then(data=>{
+      const firstKey=Object.keys(data||{})[0];
+      records=Array.isArray(data)?data:(firstKey&&Array.isArray(data[firstKey])?data[firstKey]:[]);
+      setStats(); setLevels(); render();
+      const foot=document.querySelector('[data-bim-foot]');
+      if(foot) foot.textContent='Data loaded from Grasshopper JSON · '+records.length.toLocaleString()+' records · '+(firstKey||'BIM dataset');
+    })
+    .catch(err=>{
+      console.error('BIM JSON load failed:',err);
+      tbody.innerHTML='<tr class="bim-empty"><td colspan="8">BIM data could not be loaded.<br><span>Check /data/bim.json.</span></td></tr>';
+      const foot=document.querySelector('[data-bim-foot]'); if(foot) foot.textContent='BIM dataset unavailable. Expected file: /data/bim.json';
+    });
 })();
 </script>
 </body>
