@@ -1,199 +1,599 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Thang Long Youth Center — M.TUNG</title>
-<meta name="description" content="A youth-oriented architectural and urban design project. The case study presents the relationship between architecture, landscape and public activity, with space for the project story, drawings and visual development.">
-<link rel="stylesheet" href="/styles.css">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mai Tung — Architect &amp; Designer | M.TUNG Studio</title><meta name="description" content="Mai Tung is an architect and designer based in Italy, working internationally across sustainable architecture, environmental design, urban design and computational design."><link rel="stylesheet" href="/styles.css?v=desktop-keep-20260912" media="screen and (min-width: 601px)">
+<link rel="stylesheet" href="/mobile.css?v=mobile-overlap-v7-20260912" media="screen and (max-width: 600px)">
+<link rel="canonical" href="https://mtungstudio.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mai Tung — Architect &amp; Designer | M.TUNG Studio">
+<meta property="og:description" content="Mai Tung is an architect and designer based in Italy, working internationally across sustainable architecture, environmental design, urban design and computational design.">
+<meta property="og:url" content="https://mtungstudio.pages.dev/">
+<meta property="og:site_name" content="M.TUNG Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mai Tung — Architect &amp; Designer | M.TUNG Studio">
+<meta name="twitter:description" content="Architecture, sustainability, environmental design and urban design by Mai Tung.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mtungstudio.pages.dev/#website",
+      "url": "https://mtungstudio.pages.dev/",
+      "name": "M.TUNG Studio",
+      "alternateName": "Mai Tung",
+      "description": "Architecture, sustainability, environmental design and urban design by Mai Tung."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mtungstudio.pages.dev/#person",
+      "name": "Mai Tung",
+      "url": "https://mtungstudio.pages.dev/",
+      "jobTitle": "Architect & Designer",
+      "sameAs": [
+        "https://www.linkedin.com/in/mai-tung-79a442216/",
+        "https://www.instagram.com/maitungiii/"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "M.TUNG Studio",
+        "url": "https://mtungstudio.pages.dev/"
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<style id="mtung-project-gallery-css">
-.case-page .interactive-gallery .gallery-stage,
-.case-page .interactive-gallery .gallery-track,
-.case-page .interactive-gallery .gallery-slide{
-  height:700px!important;
-  min-height:700px!important;
-  max-height:700px!important;
-}
-.case-page .interactive-gallery .gallery-slide img{
-  width:100%!important;
-  height:100%!important;
-  max-width:none!important;
-  max-height:none!important;
-  object-fit:contain!important;
-  object-position:center!important;
-}
-</style>
-
-<style id="mtung-project-layout-final">
-.case-page{
-  max-width:none!important;
-  width:100%!important;
-  margin:0!important;
-  padding:0 32px 90px!important;
-  display:grid!important;
-  grid-template-columns:minmax(280px,1fr) minmax(0,2fr)!important;
-  column-gap:48px!important;
-  align-items:start!important;
-}
-.case-page .case-head{
-  grid-column:1!important;
-  grid-row:1!important;
-  display:block!important;
-  margin:42px 0 18px!important;
-}
-.case-page .case-head h1{
-  font-size:clamp(36px,4.6vw,72px)!important;
-  line-height:.95!important;
-  letter-spacing:-.04em!important;
-  margin:0!important;
-}
-.case-page .case-head .back-link{display:none!important}
-.case-page .case-meta{
-  grid-column:1!important;
-  grid-row:2!important;
-  display:block!important;
-  margin:0!important;
-  padding:0 0 28px!important;
-  border-bottom:1px solid #aaa!important;
-}
-.case-page .case-meta div{
-  display:grid!important;
-  grid-template-columns:80px 1fr!important;
-  gap:10px!important;
-  margin:0 0 8px!important;
-}
-.case-page .case-meta dt,
-.case-page .case-meta dd{
-  font-size:11px!important;
-  margin:0!important;
-}
-.case-page .case-meta dt{
-  text-transform:uppercase!important;
-  letter-spacing:.07em!important;
-  opacity:.55!important;
-}
-.case-page .case-hero{display:none!important}
-.case-page .case-intro{
-  grid-column:1!important;
-  grid-row:3!important;
-  max-width:none!important;
-  margin:28px 0 0!important;
+  
+<style id="hanoi-museum-popup-css">
+.hanoi-exhibition-modal{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2147483647!important;
+  display:none!important;
+  pointer-events:none!important;
+  background:transparent!important;
   padding:0!important;
-  border:0!important;
 }
-.case-page .case-intro .label{margin:0 0 10px!important}
-.case-page .case-description{
-  font-size:16px!important;
-  line-height:1.45!important;
-  letter-spacing:0!important;
-  margin:0!important;
-}
-.case-page .interactive-gallery{
-  grid-column:2!important;
-  grid-row:1 / span 3!important;
-  margin:42px 0 0!important;
-}
-.case-page .interactive-gallery .gallery-info{display:none!important}
-.case-page .interactive-gallery .gallery-thumbs{
-  margin-bottom:12px!important;
-}
-.case-page .interactive-gallery .gallery-stage{
-  background:#f2f2ef!important;
-  overflow:hidden!important;
-  touch-action:pan-y!important;
-}
-.case-page .interactive-gallery .gallery-footer{
-  margin-top:10px!important;
-}
-.case-page .case-nav{
-  grid-column:1!important;
-  grid-row:4!important;
+.hanoi-exhibition-modal.is-open{
   display:block!important;
-  margin:28px 0 0!important;
-  padding:18px 0 0!important;
-  border-top:1px solid #aaa!important;
-  font-size:10px!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+.hanoi-exhibition-dialog{
+  position:fixed!important;
+  left:0;
+  top:0;
+  transform:none;
+  width:min(300px,calc(100vw - 28px))!important;
+  padding:20px 24px 21px!important;
+  background:rgba(255,255,255,.97)!important;
+  color:#111!important;
+  border:1px solid rgba(0,0,0,.09)!important;
+  border-radius:12px!important;
+  box-shadow:0 8px 28px rgba(0,0,0,.10)!important;
+  pointer-events:auto!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  box-sizing:border-box!important;
+  transition:left .08s ease-out,top .08s ease-out!important;
+}
+.hanoi-exhibition-close{
+  position:absolute!important;
+  top:7px!important;
+  right:10px!important;
+  border:0!important;
+  background:none!important;
+  color:#111!important;
+  font-size:19px!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  padding:4px!important;
+}
+.hanoi-exhibition-dialog .popup-label{
+  margin:0 0 7px!important;
+  font-size:8px!important;
+  letter-spacing:.08em!important;
   text-transform:uppercase!important;
+  opacity:.45!important;
 }
-.case-page .case-nav a{display:block!important}
-.case-page .case-nav a:not(:first-child){display:none!important}
+.hanoi-exhibition-dialog h2{
+  margin:0 0 8px!important;
+  font-size:19px!important;
+  line-height:1.08!important;
+  font-weight:500!important;
+  letter-spacing:-.02em!important;
+}
+.hanoi-exhibition-dialog p{
+  margin:0 0 15px!important;
+  max-width:255px!important;
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+.hanoi-exhibition-link{
+  display:inline-block!important;
+  padding:7px 11px!important;
+  background:#111!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  font-size:10px!important;
+  border-radius:5px!important;
+}
+.hanoi-exhibition-link:hover{opacity:.76!important}
+@media(max-width:600px){
+  .hanoi-exhibition-dialog{
+    width:min(280px,calc(100vw - 24px))!important;
+    padding:19px 21px 20px!important;
+  }
+}
+</style>
 
-@media(max-width:900px){
-  .case-page{
+
+<style id="mtung-identity-fix">
+.mtung-identity{display:inline-flex!important;align-items:center!important;gap:9px!important;text-decoration:none!important;color:inherit!important;white-space:nowrap!important}
+.mtung-identity span{display:block!important;font-size:0!important;line-height:0!important;color:transparent!important;background-image:url("/mtung-wordmark.png")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important}
+.mtung-identity img{display:block!important;width:28px!important;height:28px!important;object-fit:contain!important;opacity:1!important}
+</style>
+
+<style id="language-switch-css">
+.language-switch{display:inline-flex;align-items:center;gap:5px;margin-left:14px;font-size:10px;letter-spacing:.04em;white-space:nowrap}
+.language-switch a{color:inherit;text-decoration:none;opacity:.45}
+.language-switch a:hover,.language-switch .lang-active{opacity:1}
+</style>
+<style id="mtung-splash-css">
+  html.mtung-loading,
+  body.mtung-loading {
+    overflow: hidden !important;
+  }
+
+  #mtung-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity .65s cubic-bezier(.22,1,.36,1), visibility .65s;
+  }
+
+  #mtung-splash.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .mtung-splash-inner {
+    width: min(520px, 62vw);
+    text-align: center;
+  }
+
+  .mtung-splash-logo {
+    display: block;
+    width: min(260px, 31vw);
+    height: auto;
+    margin: 0 auto 30px;
+    object-fit: contain;
+    opacity: 1;
+    filter: none;
+  }
+
+  .mtung-splash-title {
+    margin: 0 0 30px;
+    font-family: inherit;
+    font-size: clamp(34px, 5vw, 68px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.055em;
+  }
+
+  .mtung-splash-logo { opacity: 1; filter: none; }
+
+  .mtung-splash-line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    background: rgba(255,255,255,.18);
+  }
+
+  .mtung-splash-light {
+    position: absolute;
+    top: 0;
+    left: -24%;
+    width: 24%;
+    height: 1px;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(255,255,255,.9), 0 0 28px rgba(255,255,255,.45);
+    animation: mtung-light-run 1.65s cubic-bezier(.65,0,.35,1) .08s forwards;
+  }
+
+  @keyframes mtung-light-run {
+    0%   { left: -24%; opacity: 0; }
+    8%   { opacity: 1; }
+    82%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    .mtung-splash-inner { width: min(360px, 72vw); }
+    .mtung-splash-logo {
+    display: block;
+    width: min(520px, 62vw);
+    height: auto;
+    margin: 0 auto 30px;
+    object-fit: contain;
+  }
+
+  .mtung-splash-title { margin-bottom: 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #mtung-splash { transition-duration: .2s; }
+    .mtung-splash-light { animation: none; left: 100%; opacity: 0; }
+  }
+</style>
+
+<style id="swipe-hint-css">
+  .swipe-hint{
+    position:fixed;
+    left:50%;
+    bottom:22px;
+    transform:translateX(-50%);
+    z-index:2147483646;
+    display:none;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border:1px solid rgba(0,0,0,.14);
+    border-radius:20px;
+    background:rgba(255,255,255,.92);
+    color:#111;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.12em;
+    white-space:nowrap;
+    opacity:1;
+    transition:opacity .7s ease, transform .7s ease;
+    pointer-events:none;
+  }
+  .swipe-hint.is-hidden{
+    opacity:0;
+    transform:translateX(-50%) translateY(8px);
+  }
+  .swipe-hint .arrow{
+    font-size:14px;
+    letter-spacing:0;
+    line-height:8px;
+  }
+  @media (max-width:600px){
+    .swipe-hint{display:flex}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .swipe-hint{transition:none}
+  }
+</style>
+
+
+<style id="mtung-desktop-drag-css">
+@media (min-width:601px){
+  body.mtung-dragging,
+  body.mtung-dragging *{
+    cursor:grabbing !important;
+    user-select:none !important;
+  }
+}
+</style>
+
+
+<style id="mtung-drag-hint-css">
+  .mtung-drag-hint{
+    position:fixed;
+    top:50%;
+    z-index:9998;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    transform:translateY(-50%);
+    color:#111;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.13em;
+    white-space:nowrap;
+    pointer-events:none;
+    opacity:.58;
+    user-select:none;
+  }
+
+  .mtung-drag-hint .hint-text{
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+
+  /* Small rounded triangular outline: 50% of the previous visual size. */
+  .mtung-drag-hint .hint-shape{
+    width:26px;
+    height:22px;
+    display:block;
+    overflow:visible;
+  }
+
+  .mtung-drag-hint .hint-shape path{
+    fill:none;
+    stroke:#111;
+    stroke-width:1.35;
+    stroke-linejoin:round;
+    stroke-linecap:round;
+  }
+
+  .mtung-drag-hint .hint-arrow{
+    display:inline-block;
+    font-size:14px;
+    line-height:1;
+    letter-spacing:0;
+    animation:mtungHintArrow 1.7s ease-in-out infinite;
+  }
+
+  .mtung-drag-hint.right{
+    right:22px;
+  }
+
+  .mtung-drag-hint.left{
+    left:22px;
+  }
+
+  @keyframes mtungHintArrow{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(-5px)}
+  }
+
+  .mtung-drag-hint.left .hint-arrow{
+    animation-name:mtungHintArrowRight;
+  }
+
+  @keyframes mtungHintArrowRight{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(5px)}
+  }
+
+  .mtung-drag-hint.is-hidden{
+    opacity:0;
+    transition:opacity .6s ease;
+  }
+
+  @media (max-width:600px){
+    .mtung-drag-hint{display:none}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .mtung-drag-hint .hint-arrow{animation:none}
+  }
+</style>
+
+
+<style id="mtung-page-preview-css">
+@media (min-width:601px){
+  #mtung-drag-preview{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    z-index:2147483645!important;
+    pointer-events:none!important;
+    background:#fff!important;
     display:block!important;
-    padding:28px 20px 60px!important;
+    opacity:1!important;
+    visibility:visible!important;
   }
-  .case-page .case-head,
-  .case-page .case-meta,
-  .case-page .case-intro,
-  .case-page .case-nav{display:block!important}
-  .case-page .case-head{margin:0 0 18px!important}
-  .case-page .case-meta{margin-bottom:28px!important}
-  .case-page .case-intro{margin:0 0 42px!important}
-  .case-page .interactive-gallery{margin:0!important}
-  .case-page .interactive-gallery .gallery-stage,
-  .case-page .interactive-gallery .gallery-track,
-  .case-page .interactive-gallery .gallery-slide{
-    height:min(70vw,700px)!important;
-    min-height:min(70vw,700px)!important;
-    max-height:min(70vw,700px)!important;
+  body{
+    position:relative;
+    overflow-x:hidden!important;
+    background:#fff!important;
+  }
+  #mtung-page-shell{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background:#fff;
+    z-index:2147483644;
+    transform:translateX(0);
+    will-change:auto;
+  }
+  body.mtung-preview-active{
+    overflow:hidden!important;
+  }
+}
+@media (max-width:600px){
+  #mtung-drag-preview{display:none!important}
+}
+</style>
+
+<style id="mtung-preview-isolation-fix">
+@media (min-width:601px){
+  iframe#mtung-drag-preview{
+    display:block!important;
+    visibility:visible!important;
+    pointer-events:none!important;
+    position:fixed!important;
+    inset:0 auto auto 0!important;
+    width:100vw!important;
+    height:100vh!important;
+    margin:0!important;
+    border:0!important;
+  }
+  body.mtung-dragging{
+    cursor:grabbing!important;
+    user-select:none!important;
   }
 }
 </style>
 
-<style id="mtung-bim-drawer-css">
-/* M.TUNG — BIM drawer: presentation shell only, data intentionally empty/null */
-.bim-drawer{position:fixed;z-index:1200;top:0;right:0;width:min(520px,92vw);height:100dvh;background:#202323;color:#f4f4f1;transform:translateX(100%);transition:transform .45s cubic-bezier(.22,.61,.36,1);box-shadow:-18px 0 45px rgba(0,0,0,.12);display:flex;flex-direction:column;font-family:Arial,Helvetica,sans-serif}
-.bim-drawer.is-open{transform:translateX(0)}
-.bim-drawer__top{display:flex;align-items:flex-start;justify-content:space-between;padding:34px 34px 22px;border-bottom:1px solid rgba(255,255,255,.16)}
-.bim-drawer__eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.58;margin:0 0 9px}
-.bim-drawer__title{font-size:28px;line-height:1;margin:0;letter-spacing:-.02em;font-weight:400}
-.bim-drawer__close{appearance:none;border:0;background:transparent;color:inherit;font-size:28px;line-height:1;padding:0;cursor:pointer;opacity:.8}
-.bim-drawer__close:hover{opacity:1}
-.bim-drawer__body{overflow:auto;padding:26px 34px 42px}
-.bim-drawer__intro{font-size:13px;line-height:1.5;opacity:.72;max-width:410px;margin:0 0 24px}
-.bim-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px}
-.bim-stat{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.045);padding:15px 14px;min-height:82px}
-.bim-stat__value{font-size:25px;line-height:1;margin-bottom:8px;letter-spacing:-.02em}
-.bim-stat__label{font-size:10px;line-height:1.3;text-transform:uppercase;letter-spacing:.08em;opacity:.58}
-.bim-tabs{display:flex;gap:20px;overflow:auto;border-bottom:1px solid rgba(255,255,255,.16);margin-bottom:18px}
-.bim-tab{appearance:none;border:0;background:none;color:inherit;opacity:.52;padding:0 0 10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;cursor:pointer;border-bottom:1px solid transparent}
-.bim-tab.is-active{opacity:1;border-bottom-color:#fff}
-.bim-controls{display:grid;grid-template-columns:1fr 130px;gap:8px;margin-bottom:12px}
-.bim-search,.bim-level{width:100%;box-sizing:border-box;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2);padding:11px 12px;font:inherit;font-size:11px;outline:none}
-.bim-search::placeholder{color:rgba(255,255,255,.5)}
-.bim-level option{color:#111}
-.bim-table-wrap{border:1px solid rgba(255,255,255,.16);overflow:auto;max-height:410px}
-.bim-table{width:100%;border-collapse:collapse;min-width:650px;font-size:11px}
-.bim-table th,.bim-table td{padding:10px 9px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1);white-space:nowrap}
-.bim-table th{font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.58;position:sticky;top:0;background:#202323}
-.bim-empty td{text-align:center;padding:42px 20px;white-space:normal;opacity:.58;line-height:1.5}
-.bim-drawer__foot{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);font-size:10px;line-height:1.5;opacity:.55}
-.bim-open-tab{position:fixed;z-index:1190;right:0;top:50%;transform:translateY(-50%);appearance:none;border:0;background:#202323;color:#fff;padding:18px 11px;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.13em;text-transform:uppercase;font-size:9px;cursor:pointer;box-shadow:-5px 0 18px rgba(0,0,0,.08);transition:right .45s cubic-bezier(.22,.61,.36,1),opacity .25s}
-.bim-drawer.is-open~.bim-open-tab{right:min(520px,92vw);opacity:0;pointer-events:none}
-.bim-backdrop{position:fixed;inset:0;z-index:1180;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .35s}
-.bim-backdrop.is-visible{opacity:1;pointer-events:auto}
-.bim-trigger-inline{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-top:16px;font-size:10px;text-transform:uppercase;letter-spacing:.09em;cursor:pointer}
-.bim-trigger-inline span:last-child{font-size:16px}
-@media(max-width:900px){
- .bim-drawer{width:100vw}
- .bim-drawer__top{padding:24px 20px 18px}
- .bim-drawer__body{padding:22px 20px 34px}
- .bim-stats{grid-template-columns:repeat(2,1fr)}
- .bim-controls{grid-template-columns:1fr}
- .bim-drawer.is-open~.bim-open-tab{right:100vw}
- .bim-open-tab{top:auto;bottom:22px;transform:none;writing-mode:horizontal-tb;padding:12px 15px;right:16px}
-}
-@media(prefers-reduced-motion:reduce){.bim-drawer,.bim-backdrop,.bim-open-tab{transition:none}}
+<style id="mtung-seo-identity-css">
+  .mtung-seo-identity{
+    position:absolute!important;
+    width:1px!important;
+    height:1px!important;
+    padding:0!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    clip:rect(0,0,0,0)!important;
+    white-space:nowrap!important;
+    border:0!important;
+  }
 </style>
-</head>
 
-<body>
+<style id="homepage-project-grid-3x2">
+/* HOMEPAGE — 3 COLUMNS × 2 ROWS, FULL FRAME */
+@media (min-width: 901px) {
+  .projects-page {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .projects-page .page-top {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .projects-page .grid {
+    width: 100% !important;
+    height: calc(100vh - 190px) !important;
+    min-height: 560px !important;
+    margin: 0 !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .projects-page .grid .card {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .projects-page .grid .card > img,
+  .projects-page .grid .card > video {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+  }
+
+  .projects-page .grid .card .meta {
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-page .grid {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .projects-page .grid .card {
+    height: auto !important;
+  }
+}
+</style>
+
+<style id="mtung-mobile-geometry-final">
+@media (max-width:600px){
+  /* MOBILE ONLY: desktop stylesheet is not touched. */
+  html,body{background:#fff!important;overflow-x:hidden!important;}
+  .projects-page{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;overflow:hidden!important;}
+  .projects-page>.page-top,.projects-page>.grid,.projects-page+footer{display:none!important;}
+  .mtung-mobile-scene{height:calc(100svh - 76px)!important;overflow:hidden!important;position:relative!important;}
+  .mtung-mobile-carousel{height:100%!important;min-height:0!important;overflow:hidden!important;position:relative!important;perspective:1400px!important;}
+  .mtung-mobile-stage{
+    top:0!important;bottom:0!important;
+    transform:translate3d(0,-58px,0)!important;
+  }
+  .mtung-mobile-card{
+    width:min(61vw,280px)!important;
+    height:min(91vw,435px)!important;
+  }
+  .mtung-mobile-card[data-pos="0"]{
+    transform:translate3d(-50%,-50%,100px) rotateY(0deg) rotateZ(0deg) scale(1)!important;
+    opacity:1!important;
+  }
+  .mtung-mobile-card[data-pos="1"]{
+    transform:translate3d(66%,-34%,-150px) rotateY(-34deg) rotateZ(2deg) scale(.68)!important;
+    opacity:.55!important;
+  }
+  .mtung-mobile-card[data-pos="-1"]{
+    transform:translate3d(-166%,-34%,-150px) rotateY(34deg) rotateZ(-2deg) scale(.68)!important;
+    opacity:.55!important;
+  }
+  .mtung-mobile-card[data-pos="2"]{
+    transform:translate3d(190%,-25%,-320px) rotateY(-48deg) scale(.44)!important;
+    opacity:.14!important;
+  }
+  .mtung-mobile-card[data-pos="-2"]{
+    transform:translate3d(-290%,-25%,-320px) rotateY(48deg) scale(.44)!important;
+    opacity:.14!important;
+  }
+  .mtung-mobile-card[data-pos="far"]{opacity:0!important;}
+  .mtung-mobile-info-trigger{
+    left:42px!important;right:42px!important;bottom:14px!important;height:46px!important;
+    border-radius:17px!important;
+    background:rgba(255,255,255,.24)!important;
+    backdrop-filter:blur(36px) saturate(175%)!important;
+    -webkit-backdrop-filter:blur(36px) saturate(175%)!important;
+    color:#fff!important;font-size:0!important;
+  }
+  .mtung-mobile-info-trigger .info-chevron{
+    display:block!important;font-size:35px!important;line-height:30px!important;
+    transform:none!important;font-weight:300!important;
+  }
+}
+@media (max-width:380px){
+  .mtung-mobile-stage{transform:translate3d(0,-48px,0)!important;}
+  .mtung-mobile-card{width:65vw!important;height:95vw!important;}
+  .mtung-mobile-info-trigger{left:30px!important;right:30px!important;height:44px!important;}
+}
+</style>
+</head><body class="mtung-loading">
+<div id="mtung-splash" aria-hidden="true">
+  <div class="mtung-splash-inner">
+    <img class="mtung-splash-logo" src="/assets/mtung-splash-logo-white.png" alt="M.TUNG">
+    <div class="mtung-splash-line"><span class="mtung-splash-light"></span></div>
+  </div>
+</div>
+
 <header class="header">
   <a class="mtung-identity" href="/" aria-label="M.TUNG — Home">
     <span>M.TUNG</span>
@@ -202,170 +602,443 @@
   <div class="header-center">Architecture · Sustainability · Environmental Design<br><span>Based in Italy · Working internationally</span></div>
   <nav><a class="active" href="/">Projects</a><a href="/info.html">Info</a></nav>
   <div class="social">
-    <a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
-    <a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+    <a href="https://www.instagram.com/maitungiii/" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="/assets/instagram-icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/in/mai-tung-79a442216/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <img src="/assets/linkedin-icon.png" alt="LinkedIn">
+    </a>
   </div>
 </header>
-
-<main class="case-page">
-  <div class="case-head">
-    <div><p class="label">Project 03</p><h1>Thang Long Youth Center</h1></div>
-    <a class="back-link" href="/">← All projects</a>
+<main class="projects-page"><p class="mtung-seo-identity">Mai Tung — Architect &amp; Designer based in Italy, working internationally across sustainable architecture, environmental design, urban design and computational design.</p><div class="page-top"><h1>Projects</h1><p>Selected work in architecture, urban design, sustainability and environmental design.</p></div><section class="grid"><a class="card" href="/projects/milano-food-hub/" data-book-popup="milano-food-hub" data-author="Mai Tung"><img src="/assets/milano-foodhub.jpg" alt="Milano Community Food Hub by Mai Tung — sustainable architecture in San Siro, Milan" loading="lazy" decoding="async"><div class="meta"><div><span class="num">01</span><h2>Milano Community Food Hub</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-theater/" data-author="Mai Tung"><img src="/assets/hanoi-theater-exterior.webp" alt="Hanoi Theater by Mai Tung — cultural architecture" loading="lazy" decoding="async"><div class="meta"><div><span class="num">02</span><h2>Hanoi Theater</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/hanoi-youth-center/" data-author="Mai Tung"><video autoplay muted loop playsinline preload="metadata" aria-label="Thang Long Youth Center by Mai Tung — architecture, urban design and landscape">
+  <source src="/assets/thang-long-youth-center-cover.mp4" type="video/mp4">
+</video><div class="meta"><div><span class="num">03</span><h2>Thang Long Youth Center</h2><p>Architecture · Urban · Landscape</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/sonla/" data-author="Mai Tung"><img src="/assets/sonla.webp" alt="Son La Climate Combat Urban Design by Mai Tung — climate-responsive urban design" loading="lazy" decoding="async"><div class="meta"><div><span class="num">04</span><h2>Son La Climate Combat Urban Design</h2><p>Urban Design · Climate</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/museum/" data-exhibition-popup="hanoi-museum" data-author="Mai Tung"><img src="/assets/hanoi-museum.webp" alt="Hanoi Museum Installation by Mai Tung — architecture and installation" loading="lazy" decoding="async"><div class="meta"><div><span class="num">05</span><h2>Hanoi Museum Installation</h2><p>Architecture · Installation</p></div><span class="arrow">↗</span></div></a><a class="card" href="/projects/tura/" data-author="Mai Tung"><img src="/assets/tura.jpg" alt="Tura by Mai Tung — cultural architecture" loading="lazy" decoding="async"><div class="meta"><div><span class="num">06</span><h2>Tura</h2><p>Architecture · Cultural</p></div><span class="arrow">↗</span></div></a></section></main>
+<footer><span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span><a href="#top">Back to top ↑</a></footer>
+<div class="hanoi-exhibition-modal" id="hanoiExhibitionModal" aria-hidden="true">
+  <div class="hanoi-exhibition-dialog" role="dialog" aria-modal="true" aria-labelledby="hanoiExhibitionTitle">
+    <button class="hanoi-exhibition-close" type="button" aria-label="Close">×</button>
+    <p class="popup-label">Featured elsewhere</p>
+    <h2 id="hanoiExhibitionTitle">Hanoi Museum Exhibition</h2>
+    <p>View the exhibition / project feature on Hanoi Creative City.</p>
+    <a class="hanoi-exhibition-link" href="https://hanoicreativecity.com/en/blend-sculpture-light/" target="_blank" rel="noopener noreferrer">View feature →</a>
   </div>
+</div>
 
-  <dl class="case-meta">
-    <div><dt>Location</dt><dd>Hanoi, Vietnam</dd></div>
-    <div><dt>Year</dt><dd>2024</dd></div>
-    <div><dt>Type</dt><dd>Architecture · Urban · Landscape</dd></div>
-  </dl>
-
-  <div class="case-hero">
-    <img fetchpriority="high" decoding="async" src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center — main view">
+<div class="hanoi-exhibition-modal" id="milanoBookModal" aria-hidden="true">
+  <div class="hanoi-exhibition-dialog" role="dialog" aria-modal="true" aria-labelledby="milanoBookTitle">
+    <button class="hanoi-exhibition-close" type="button" aria-label="Close">×</button>
+    <p class="popup-label">Featured elsewhere</p>
+    <h2 id="milanoBookTitle">Milano Community Food Hub</h2>
+    <p>View the full project book.</p>
+    <a class="hanoi-exhibition-link" href="https://www.calameo.com/read/0082742829d4061535a52" target="_blank" rel="noopener noreferrer">View full book →</a>
   </div>
+</div>
 
-  <section class="case-intro">
-    <p class="label">About the project</p>
-    <p class="case-description">A youth-oriented architectural and urban design project. The case study presents the relationship between architecture, landscape and public activity, with space for the project story, drawings and visual development.</p>
-  </section>
+<script>
+(function () {
+  var card = document.querySelector('[data-exhibition-popup="hanoi-museum"]');
+  var modal = document.getElementById('hanoiExhibitionModal');
+  var dialog = modal ? modal.querySelector('.hanoi-exhibition-dialog') : null;
 
-  <section class="interactive-gallery" data-gallery>
-    <div class="gallery-info">
-      <p class="label">Project images</p>
-      <p>Visual documentation, drawings and project development.</p>
-    </div>
+  if (!card || !modal || !dialog) return;
 
-    <div class="gallery-ui">
-      <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 01"><img src="/assets/thang-long-youth-center-01.jpg" alt="" loading="lazy" decoding="async"><span>01</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 02"><img src="/assets/thang-long-youth-center-02.jpg" alt="" loading="lazy" decoding="async"><span>02</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 03"><img src="/assets/thang-long-youth-center-03.jpg" alt="" loading="lazy" decoding="async"><span>03</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 04"><img src="/assets/thang-long-youth-center-04.webp" alt="" loading="lazy" decoding="async"><span>04</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 05"><img src="/assets/thang-long-youth-center-05.png" alt="" loading="lazy" decoding="async"><span>05</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 06"><img src="/assets/thang-long-youth-center-06.png" alt="" loading="lazy" decoding="async"><span>06</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 07"><img src="/assets/thang-long-youth-center-07.jpg" alt="" loading="lazy" decoding="async"><span>07</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 08"><img src="/assets/thang-long-youth-center-08.jpg" alt="" loading="lazy" decoding="async"><span>08</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 09"><img src="/assets/thang-long-youth-center-09.jpg" alt="" loading="lazy" decoding="async"><span>09</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 10"><img src="/assets/thang-long-youth-center-10.jpg" alt="" loading="lazy" decoding="async"><span>10</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 11"><img src="/assets/thang-long-youth-center-11.jpg" alt="" loading="lazy" decoding="async"><span>11</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 12"><img src="/assets/thang-long-youth-center-12.jpg" alt="" loading="lazy" decoding="async"><span>12</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 13"><img src="/assets/thang-long-youth-center-13.jpg" alt="" loading="lazy" decoding="async"><span>13</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 14"><img src="/assets/thang-long-youth-center-14.jpg" alt="" loading="lazy" decoding="async"><span>14</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 15"><img src="/assets/thang-long-youth-center-15.jpg" alt="" loading="lazy" decoding="async"><span>15</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 16"><img src="/assets/thang-long-youth-center-16.png" alt="" loading="lazy" decoding="async"><span>16</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 17"><img src="/assets/thang-long-youth-center-17.jpg" alt="" loading="lazy" decoding="async"><span>17</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 18"><img src="/assets/thang-long-youth-center-18.jpg" alt="" loading="lazy" decoding="async"><span>18</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 19"><img src="/assets/thang-long-youth-center-19.jpg" alt="" loading="lazy" decoding="async"><span>19</span></button>
-        <button class="gallery-thumb" type="button" data-gallery-thumb aria-label="View image 20"><img src="/assets/thang-long-youth-center-20.jpg" alt="" loading="lazy" decoding="async"><span>20</span></button>
-      </div>
+  var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var image = card.querySelector('img');
+  var raf = null;
+  var hideTimer = null;
+  var mouseX = 0;
+  var mouseY = 0;
 
-      <div class="gallery-stage" data-gallery-stage aria-label="Thang Long Youth Center project gallery">
-        <div class="gallery-track" data-gallery-track>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center — project image 1" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-02.jpg" alt="Thang Long Youth Center — project image 2" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-03.jpg" alt="Thang Long Youth Center — project image 3" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-04.webp" alt="Thang Long Youth Center — project image 4" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-05.png" alt="Thang Long Youth Center — project image 5" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-06.png" alt="Thang Long Youth Center — project image 6" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-07.jpg" alt="Thang Long Youth Center — project image 7" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-08.jpg" alt="Thang Long Youth Center — project image 8" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-09.jpg" alt="Thang Long Youth Center — project image 9" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-10.jpg" alt="Thang Long Youth Center — project image 10" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-11.jpg" alt="Thang Long Youth Center — project image 11" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-12.jpg" alt="Thang Long Youth Center — project image 12" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-13.jpg" alt="Thang Long Youth Center — project image 13" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-14.jpg" alt="Thang Long Youth Center — project image 14" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-15.jpg" alt="Thang Long Youth Center — project image 15" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-16.png" alt="Thang Long Youth Center — project image 16" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-17.jpg" alt="Thang Long Youth Center — project image 17" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-18.jpg" alt="Thang Long Youth Center — project image 18" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-19.jpg" alt="Thang Long Youth Center — project image 19" loading="lazy" decoding="async"></div>
-          <div class="gallery-slide" data-gallery-slide><img src="/assets/thang-long-youth-center-20.jpg" alt="Thang Long Youth Center — project image 20" loading="lazy" decoding="async"></div>
-        </div>
-      </div>
+  function movePopup() {
+    raf = null;
 
-      <div class="gallery-footer">
-        <span class="gallery-counter" data-gallery-counter>01 / 20</span>
-        <span class="gallery-drag-hint">Drag / swipe to explore</span>
-      </div>
+    var rect = (image || card).getBoundingClientRect();
+    var boxW = dialog.offsetWidth;
+    var boxH = dialog.offsetHeight;
+    var margin = 12;
+    var gap = 18;
 
-      <button class="bim-trigger-inline" type="button" data-bim-open aria-label="Open BIM data">
-        <span>Open BIM data</span><span>→</span>
-      </button>
-    </div>
-  </section>
+    var minX = rect.left + margin;
+    var maxX = rect.right - boxW - margin;
+    var minY = rect.top + margin;
+    var maxY = rect.bottom - boxH - margin;
 
-  <div class="case-nav">
-    <a href="/">← All projects</a>
-    <a href="/projects/sonla/">Next: Son La Climate Combat Urban Design →</a>
-  </div>
-</main>
+    var x = mouseX + gap;
+    var y = mouseY + gap;
 
-  <div class="bim-backdrop" data-bim-backdrop></div>
-  <aside class="bim-drawer" data-bim-drawer aria-label="BIM data" aria-hidden="true">
-    <div class="bim-drawer__top">
-      <div>
-        <p class="bim-drawer__eyebrow">OpenBIM / Computational Documentation</p>
-        <h2 class="bim-drawer__title">BIM Data</h2>
-      </div>
-      <button class="bim-drawer__close" type="button" data-bim-close aria-label="Close BIM data">×</button>
-    </div>
-    <div class="bim-drawer__body">
-      <p class="bim-drawer__intro">Structured building information extracted from the Rhino model through Grasshopper. The BIM dataset will be connected here in a later stage.</p>
-      <div class="bim-stats" aria-label="BIM summary">
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Curtain Wall Frames</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Curtain Wall Glazing</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Walls</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Floors</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Roof Elements</div></div>
-        <div class="bim-stat"><div class="bim-stat__value">—</div><div class="bim-stat__label">Total Objects</div></div>
-      </div>
-      <div class="bim-tabs" role="tablist" aria-label="BIM categories">
-        <button class="bim-tab is-active" type="button">All</button>
-        <button class="bim-tab" type="button">Framing</button>
-        <button class="bim-tab" type="button">Glazing</button>
-        <button class="bim-tab" type="button">Wall</button>
-        <button class="bim-tab" type="button">Floor</button>
-        <button class="bim-tab" type="button">Roof</button>
-        <button class="bim-tab" type="button">Stair</button>
-        <button class="bim-tab" type="button">Column</button>
-      </div>
-      <div class="bim-controls">
-        <input class="bim-search" type="search" placeholder="Search BIM ID, material, level…" aria-label="Search BIM data">
-        <select class="bim-level" aria-label="Filter by level"><option>All Levels</option></select>
-      </div>
-      <div class="bim-table-wrap">
-        <table class="bim-table">
-          <thead><tr><th>ID</th><th>Classification</th><th>Level</th><th>Location</th><th>Status</th><th>Material</th></tr></thead>
-          <tbody><tr class="bim-empty"><td colspan="6">BIM data: null<br><span>Connect the Grasshopper JSON dataset in Stage 2.</span></td></tr></tbody>
-        </table>
-      </div>
-      <div class="bim-drawer__foot">Data interface prepared for the Thang Long Youth Center OpenBIM workflow. No BIM records are embedded in this version.</div>
-    </div>
-  </aside>
-  <button class="bim-open-tab" type="button" data-bim-open aria-label="Open BIM data">BIM Data&nbsp; →</button>
+    if (x > maxX) x = mouseX - boxW - gap;
+    if (y > maxY) y = mouseY - boxH - gap;
 
-<footer>
-  <span>© M.TUNG STUDIO</span><span>2026</span><span>Based in Italy</span>
-  <a href="#top">Back to top ↑</a>
-</footer>
+    x = Math.max(minX, Math.min(x, maxX));
+    y = Math.max(minY, Math.min(y, maxY));
 
-<script src="/gallery.js"></script>
-<script src="/image-protection.js"></script>
+    dialog.style.setProperty('left', x + 'px', 'important');
+    dialog.style.setProperty('top', y + 'px', 'important');
+  }
 
-<script id="mtung-bim-drawer-js">
-(function(){
-  const drawer=document.querySelector('[data-bim-drawer]');
-  const openButtons=document.querySelectorAll('[data-bim-open]');
-  const closeButtons=document.querySelectorAll('[data-bim-close]');
-  const backdrop=document.querySelector('[data-bim-backdrop]');
-  if(!drawer) return;
-  function open(){drawer.setAttribute('aria-hidden','false');drawer.classList.add('is-open');backdrop&&backdrop.classList.add('is-visible');document.body.classList.add('bim-drawer-open');}
-  function close(){drawer.setAttribute('aria-hidden','true');drawer.classList.remove('is-open');backdrop&&backdrop.classList.remove('is-visible');document.body.classList.remove('bim-drawer-open');}
-  openButtons.forEach(b=>b.addEventListener('click',open));
-  closeButtons.forEach(b=>b.addEventListener('click',close));
-  backdrop&&backdrop.addEventListener('click',close);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+  function showPopup(e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+
+    requestAnimationFrame(movePopup);
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    // Gives the cursor enough time to travel from the image to the popup.
+    hideTimer = setTimeout(function () {
+      if (!dialog.matches(':hover')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 700);
+  }
+
+  function hidePopup() {
+    clearTimeout(hideTimer);
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  card.addEventListener('mouseenter', showPopup);
+
+  card.addEventListener('mousemove', function (e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!raf) raf = requestAnimationFrame(movePopup);
+  });
+
+  // Do not disappear instantly when moving from the image toward the popup.
+  card.addEventListener('mouseleave', scheduleHide);
+
+  // The popup is clickable. Entering it cancels the pending close.
+  dialog.addEventListener('mouseenter', function () {
+    clearTimeout(hideTimer);
+  });
+
+  // Once the cursor leaves the popup, close it.
+  dialog.addEventListener('mouseleave', hidePopup);
+
+  closeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    hidePopup();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') hidePopup();
+  });
 })();
 </script>
-</body>
-</html>
+
+<script>
+(function () {
+  var card = document.querySelector('[data-book-popup="milano-food-hub"]');
+  var modal = document.getElementById('milanoBookModal');
+  var dialog = modal ? modal.querySelector('.hanoi-exhibition-dialog') : null;
+
+  if (!card || !modal || !dialog) return;
+
+  var closeButton = modal.querySelector('.hanoi-exhibition-close');
+  var image = card.querySelector('img');
+  var raf = null;
+  var hideTimer = null;
+  var mouseX = 0;
+  var mouseY = 0;
+
+  function movePopup() {
+    raf = null;
+    var rect = (image || card).getBoundingClientRect();
+    var boxW = dialog.offsetWidth;
+    var boxH = dialog.offsetHeight;
+    var margin = 12;
+    var gap = 18;
+
+    var minX = rect.left + margin;
+    var maxX = rect.right - boxW - margin;
+    var minY = rect.top + margin;
+    var maxY = rect.bottom - boxH - margin;
+
+    var x = mouseX + gap;
+    var y = mouseY + gap;
+
+    if (x > maxX) x = mouseX - boxW - gap;
+    if (y > maxY) y = mouseY - boxH - gap;
+
+    x = Math.max(minX, Math.min(x, maxX));
+    y = Math.max(minY, Math.min(y, maxY));
+
+    dialog.style.setProperty('left', x + 'px', 'important');
+    dialog.style.setProperty('top', y + 'px', 'important');
+  }
+
+  function showPopup(e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(movePopup);
+  }
+
+  function scheduleHide() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () {
+      if (!dialog.matches(':hover')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }, 700);
+  }
+
+  function hidePopup() {
+    clearTimeout(hideTimer);
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  card.addEventListener('mouseenter', showPopup);
+  card.addEventListener('mousemove', function (e) {
+    clearTimeout(hideTimer);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!raf) raf = requestAnimationFrame(movePopup);
+  });
+  card.addEventListener('mouseleave', scheduleHide);
+
+  dialog.addEventListener('mouseenter', function () {
+    clearTimeout(hideTimer);
+  });
+  dialog.addEventListener('mouseleave', hidePopup);
+
+  closeButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    hidePopup();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') hidePopup();
+  });
+})();
+</script>
+
+
+<script id="mtung-splash-js">
+(function () {
+  var splash = document.getElementById('mtung-splash');
+  if (!splash) return;
+
+  var reduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var delay = reduced ? 450 : 2050;
+
+  window.setTimeout(function () {
+    splash.classList.add('is-leaving');
+    document.documentElement.classList.remove('mtung-loading');
+    document.body.classList.remove('mtung-loading');
+
+    window.setTimeout(function () {
+      if (splash.parentNode) splash.parentNode.removeChild(splash);
+    }, reduced ? 250 : 700);
+  }, delay);
+})();
+</script>
+<script id="mtung-desktop-drag">
+(function () {
+  if (new URLSearchParams(window.location.search).has("dragpreview")) return;
+  var down = false;
+  var startX = 0;
+  var startY = 0;
+  var currentX = 0;
+  var threshold = 100;
+  var navigating = false;
+  var preview = null;
+  var pageShell = null;
+
+  function ensurePageShell() {
+    if (pageShell) return;
+    pageShell = document.createElement("div");
+    pageShell.id = "mtung-page-shell";
+    while (document.body.firstChild) {
+      pageShell.appendChild(document.body.firstChild);
+    }
+    document.body.appendChild(pageShell);
+  }
+
+  function isDesktop() {
+    return window.matchMedia && window.matchMedia("(min-width: 601px)").matches;
+  }
+
+  function createPreview() {
+    if (preview || !isDesktop()) return;
+    preview = document.createElement("iframe");
+    preview.id = "mtung-drag-preview";
+    preview.setAttribute("aria-hidden", "true");
+    preview.tabIndex = -1;
+    preview.src = "/info.html?dragpreview=1";
+    document.documentElement.appendChild(preview);
+    setPreviewShift(0);
+    preview.addEventListener("load", function () {
+      try {
+        var doc = preview.contentDocument;
+        if (!doc) return;
+        var style = doc.createElement("style");
+        style.textContent = "#mtung-splash,.mtung-drag-hint,.swipe-hint{display:none!important}html,body{overflow:hidden!important}";
+        doc.head.appendChild(style);
+        doc.documentElement.classList.remove("mtung-loading");
+        if (doc.body) doc.body.classList.remove("mtung-loading");
+      } catch(e) {}
+    });
+  }
+
+  function setPreviewShift(x) {
+    if (!preview) return;
+    preview.style.transform = "translateX(" + (window.innerWidth + x) + "px)";
+  }
+
+  function resetPreview() {
+    if (!preview) return;
+    preview.style.transition = "";
+    setPreviewShift(0);
+    preview.style.opacity = "1";
+  }
+
+  function setPageShift(x) {
+    ensurePageShell();
+    pageShell.style.transform = "translateX(" + x + "px)";
+    pageShell.style.transition = "none";
+    setPreviewShift(x);
+    if (preview) preview.style.transition = "none";
+  }
+
+  function resetPageShift() {
+    if (pageShell) {
+      pageShell.style.transform = "";
+      pageShell.style.transition = "";
+      pageShell.style.willChange = "";
+    }
+    resetPreview();
+  }
+
+  createPreview();
+
+  document.addEventListener("mousedown", function (e) {
+    if (!isDesktop() || e.button !== 0 || navigating) return;
+
+    down = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    currentX = 0;
+
+    createPreview();
+    document.body.classList.add("mtung-dragging", "mtung-preview-active");
+    ensurePageShell();
+    pageShell.style.willChange = "transform";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!down || navigating) return;
+
+    var dx = e.clientX - startX;
+    var dy = e.clientY - startY;
+
+    if (Math.abs(dx) < Math.abs(dy) * 1.15) return;
+
+    currentX = Math.min(0, Math.max(-window.innerWidth, dx));
+    setPageShift(currentX * 0.9);
+    e.preventDefault();
+  });
+
+  function finishDrag() {
+    if (!down || navigating) return;
+    down = false;
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
+
+    if (currentX <= -threshold) {
+      navigating = true;
+      var duration = ".38s cubic-bezier(.22,.61,.36,1)";
+      pageShell.style.transition = "transform " + duration;
+      pageShell.style.transform = "translateX(-100vw)";
+      if (preview) {
+        preview.style.transition = "transform " + duration;
+        preview.style.transform = "translateX(0)";
+      }
+      setTimeout(function () { window.location.assign("/info.html"); }, 300);
+    } else {
+      pageShell.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      pageShell.style.transform = "translateX(0)";
+      if (preview) {
+        preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+        preview.style.transform = "translateX(100vw)";
+      }
+      setTimeout(resetPageShift, 320);
+    }
+  }
+
+  document.addEventListener("mouseup", finishDrag);
+
+  document.addEventListener("mouseleave", function () {
+    if (!down || navigating) return;
+    down = false;
+    document.body.classList.remove("mtung-dragging", "mtung-preview-active");
+    pageShell.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+    pageShell.style.transform = "translateX(0)";
+    if (preview) {
+      preview.style.transition = "transform .3s cubic-bezier(.22,.61,.36,1)";
+      preview.style.transform = "translateX(100vw)";
+    }
+    setTimeout(resetPageShift, 320);
+  });
+})();
+</script>
+
+<script src="/image-protection.js"></script>
+
+
+<script src="/mobile.js?v=mobile-overlap-v7-20260912"></script>
+
+
+<style id="mtung-mobile-overlap-v7">
+@media (max-width:600px){
+  /* V7: preserve the current center-card position; bring the neighboring
+     cards inward so they physically pass behind the center card. */
+  .mtung-mobile-card[data-pos="0"]{
+    transform:translate3d(-50%,-50%,100px) rotateY(0deg) rotateZ(0deg) scale(1)!important;
+    opacity:1!important;
+    z-index:10!important;
+  }
+  .mtung-mobile-card[data-pos="1"]{
+    transform:translate3d(20%,-46%,-115px) rotateY(-31deg) rotateZ(2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
+  }
+  .mtung-mobile-card[data-pos="-1"]{
+    transform:translate3d(-120%,-46%,-115px) rotateY(31deg) rotateZ(-2deg) scale(.72)!important;
+    opacity:.58!important;
+    z-index:7!important;
+  }
+  .mtung-mobile-card[data-pos="2"]{
+    transform:translate3d(120%,-34%,-255px) rotateY(-45deg) rotateZ(2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
+  }
+  .mtung-mobile-card[data-pos="-2"]{
+    transform:translate3d(-220%,-34%,-255px) rotateY(45deg) rotateZ(-2deg) scale(.48)!important;
+    opacity:.14!important;
+    z-index:4!important;
+  }
+}
+@media (max-width:380px){
+  .mtung-mobile-card[data-pos="1"]{transform:translate3d(18%,-44%,-110px) rotateY(-29deg) rotateZ(2deg) scale(.70)!important;}
+  .mtung-mobile-card[data-pos="-1"]{transform:translate3d(-118%,-44%,-110px) rotateY(29deg) rotateZ(-2deg) scale(.70)!important;}
+}
+</style>
+</body></html>
