@@ -145,7 +145,7 @@
   }
 }
 </style>
-</head>
+\n<style id="mtung-bim-panel-css">\n.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}\n.case-page{position:relative!important}\n.case-page .bim-panel{grid-column:2!important;grid-row:1 / span 5!important;margin-top:42px!important;position:sticky;top:86px;align-self:start;background:#202423;color:#f5f5f0;padding:28px 26px 24px;border:1px solid #353a38;max-height:calc(100vh - 110px);overflow:hidden;min-width:0}\n.bim-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:1px solid #555b58;padding-bottom:16px}\n.bim-panel .label{color:#aeb4b0;margin:0 0 7px;font-size:9px;letter-spacing:.12em}\n.bim-panel h2{font-size:27px;line-height:1;margin:0;font-weight:500;letter-spacing:-.03em}\n.bim-status{font-size:8px;letter-spacing:.12em;border:1px solid #666d69;padding:5px 7px;color:#c2c7c3;white-space:nowrap}\n.bim-intro{font-size:11px;line-height:1.5;color:#c1c6c3;max-width:520px;margin:16px 0 20px}\n.bim-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#4b514e;border:1px solid #4b514e;margin-bottom:22px}\n.bim-stats div{background:#292e2c;padding:12px 10px 11px;min-height:73px}\n.bim-stats strong{display:block;font-size:21px;font-weight:400;letter-spacing:-.03em}\n.bim-stats span{display:block;font-size:8px;line-height:1.35;color:#aeb4b0;text-transform:uppercase;letter-spacing:.04em;margin-top:5px}\n.bim-tabs{display:flex;gap:15px;overflow:auto;border-bottom:1px solid #4d5350;scrollbar-width:none;margin-bottom:13px}\n.bim-tabs::-webkit-scrollbar{display:none}\n.bim-tabs button{appearance:none;background:none;border:0;color:#9fa6a2;font:inherit;font-size:8px;text-transform:uppercase;letter-spacing:.1em;padding:0 0 9px;white-space:nowrap;cursor:pointer;position:relative}\n.bim-tabs button.is-active{color:#f5f5f0}\n.bim-tabs button.is-active:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:#f5f5f0}\n.bim-controls{display:grid;grid-template-columns:1fr 132px;gap:8px;margin-bottom:10px}\n.bim-search,.bim-level{display:flex;align-items:center;border:1px solid #505652;background:#242927;min-width:0}\n.bim-search span{padding-left:10px;color:#9ea5a1;font-size:16px}\n.bim-search input,.bim-level select{width:100%;border:0;outline:0;background:transparent;color:#e9ece9;font:inherit;font-size:10px;padding:10px}\n.bim-search input::placeholder{color:#858d88}\n.bim-level select{appearance:none}\n.bim-level select option{background:#242927;color:#e9ece9}\n.bim-table-wrap{border:1px solid #4d5350;overflow:auto;max-height:355px;scrollbar-color:#69706c #242927}\n.bim-table{width:100%;border-collapse:collapse;min-width:670px;font-size:9px;line-height:1.25}\n.bim-table th,.bim-table td{border-bottom:1px solid #454b48;border-right:1px solid #454b48;padding:8px 7px;text-align:left;vertical-align:top}\n.bim-table th:last-child,.bim-table td:last-child{border-right:0}\n.bim-table th{position:sticky;top:0;background:#2a2f2d;color:#b9bfbc;font-size:8px;text-transform:uppercase;letter-spacing:.07em;font-weight:500;z-index:1}\n.bim-table td{color:#d9ddda}\n.bim-table td:first-child{font-weight:600;color:#f5f5f0;white-space:nowrap}\n.bim-table tr:hover td{background:#303634}\n.bim-table .empty{padding:24px;text-align:center;color:#9ba19e}\n.bim-table-footer{display:flex;justify-content:space-between;gap:15px;padding:9px 0 17px;color:#8f9792;font-size:8px;line-height:1.35}\n.bim-note{text-align:right}\n.bim-method{border-top:1px solid #4d5350;padding-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:15px}\n.bim-method span{display:block;font-size:7px;letter-spacing:.1em;color:#858d88;margin-bottom:4px}\n.bim-method strong{font-size:9px;font-weight:400;color:#d1d5d2}\n.case-page .interactive-gallery{grid-column:1!important;grid-row:4!important;margin-top:42px!important}\n.case-page .case-head{grid-column:1!important}\n.case-page .case-meta{grid-column:1!important}\n.case-page .case-intro{grid-column:1!important}\n@media(max-width:1100px){\n  .case-page{grid-template-columns:minmax(250px,1fr) minmax(460px,1.25fr)!important;column-gap:28px!important}\n  .case-page .bim-panel{padding:22px 18px!important}\n  .bim-stats{grid-template-columns:repeat(2,1fr)}\n  .bim-controls{grid-template-columns:1fr}\n}\n@media(max-width:900px){\n  .case-page{display:block!important;padding:28px 20px 60px!important}\n  .case-page .bim-panel{position:relative;top:auto;max-height:none;margin:36px 0 0!important;padding:22px 16px!important}\n  .case-page .interactive-gallery{margin:36px 0 0!important}\n  .bim-table-wrap{max-height:420px}\n}\n</style>\n</head>
 
 <body>
 <header class="header">
@@ -172,6 +172,74 @@
     <div><dt>Year</dt><dd>2024</dd></div>
     <div><dt>Type</dt><dd>Architecture · Urban · Landscape</dd></div>
   </dl>
+
+  <aside class="bim-panel" aria-label="Building Information Model data">
+    <div class="bim-panel-head">
+      <div>
+        <p class="label">OpenBIM / Computational Documentation</p>
+        <h2>BIM DATA</h2>
+      </div>
+      <span class="bim-status">RHINO + GH</span>
+    </div>
+    <p class="bim-intro">Structured building information extracted from the Rhino model through Grasshopper.</p>
+
+    <div class="bim-stats" aria-label="BIM object counts">
+      <div><strong>1,760</strong><span>Curtain wall frames</span></div>
+      <div><strong>750</strong><span>Curtain wall glazing</span></div>
+      <div><strong>43</strong><span>Walls</span></div>
+      <div><strong>73</strong><span>Floors</span></div>
+      <div><strong>84</strong><span>Roof elements</span></div>
+      <div><strong>47</strong><span>Stairs / ramps</span></div>
+      <div><strong>4</strong><span>Columns</span></div>
+      <div><strong>2,867</strong><span>Total objects</span></div>
+    </div>
+
+    <div class="bim-tabs" role="tablist" aria-label="BIM categories">
+      <button class="is-active" type="button" data-bim-filter="All">All</button>
+      <button type="button" data-bim-filter="CurtainWall-Framing">Framing</button>
+      <button type="button" data-bim-filter="CurtainWall-Glazing">Glazing</button>
+      <button type="button" data-bim-filter="Wall-Exterior">Wall</button>
+      <button type="button" data-bim-filter="Floor">Floor</button>
+      <button type="button" data-bim-filter="Roof">Roof</button>
+      <button type="button" data-bim-filter="Circulation-RampOrStair">Stair</button>
+      <button type="button" data-bim-filter="Structural-Column">Column</button>
+    </div>
+
+    <div class="bim-controls">
+      <label class="bim-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="bimSearch" type="search" placeholder="Search BIM ID, material, level…" autocomplete="off">
+      </label>
+      <label class="bim-level">
+        <span class="sr-only">Level</span>
+        <select id="bimLevel">
+          <option value="All">All levels</option>
+          <option value="L00_Ground">L00_Ground</option>
+          <option value="L01">L01</option>
+          <option value="L02">L02</option>
+          <option value="L03">L03</option>
+          <option value="L06">L06</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="bim-table-wrap">
+      <table class="bim-table">
+        <thead><tr><th>ID</th><th>Classification</th><th>Level</th><th>Location</th><th>Status</th><th>Material</th></tr></thead>
+        <tbody id="bimRows"></tbody>
+      </table>
+    </div>
+
+    <div class="bim-table-footer">
+      <span id="bimCount">Showing 0 objects</span>
+      <span class="bim-note">Sample view · full dataset can be loaded from JSON</span>
+    </div>
+
+    <div class="bim-method">
+      <div><span>DATA SOURCE</span><strong>Rhino UserText + Grasshopper</strong></div>
+      <div><span>FORMAT</span><strong>OpenBIM-ready metadata</strong></div>
+    </div>
+  </aside>
 
   <div class="case-hero">
     <img fetchpriority="high" decoding="async" src="/assets/thang-long-youth-center-01.jpg" alt="Thang Long Youth Center — main view">
@@ -257,5 +325,5 @@
 
 <script src="/gallery.js"></script>
 <script src="/image-protection.js"></script>
-</body>
+\n<script id="mtung-bim-panel-js">\n(function(){\n  const rows = [\n    {id:'FRM-1760',classification:'CurtainWall-Framing',level:'L01',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1759',classification:'CurtainWall-Framing',level:'L03',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1758',classification:'CurtainWall-Framing',level:'L06',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1757',classification:'CurtainWall-Framing',level:'L01',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1756',classification:'CurtainWall-Framing',level:'L01',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1755',classification:'CurtainWall-Framing',level:'L03',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1754',classification:'CurtainWall-Framing',level:'L03',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1753',classification:'CurtainWall-Framing',level:'L06',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1752',classification:'CurtainWall-Framing',level:'L06',location:'Main Building',status:'Design',material:'By Layer / No Object Material'},\n    {id:'FRM-1751',classification:'CurtainWall-Framing',level:'L01',location:'Main Building',status:'Design',material:'By Layer / No Object Material'}\n  ];\n  const tbody=document.getElementById('bimRows');\n  const count=document.getElementById('bimCount');\n  const search=document.getElementById('bimSearch');\n  const level=document.getElementById('bimLevel');\n  let category='All';\n  const esc=v=>String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));\n  function render(){\n    const q=search.value.trim().toLowerCase();\n    const l=level.value;\n    const filtered=rows.filter(r=>\n      (category==='All'||r.classification===category)&&\n      (l==='All'||r.level===l)&&\n      (!q||Object.values(r).some(v=>String(v).toLowerCase().includes(q)))\n    );\n    tbody.innerHTML=filtered.length?filtered.map(r=>`<tr><td>${esc(r.id)}</td><td>${esc(r.classification)}</td><td>${esc(r.level)}</td><td>${esc(r.location)}</td><td>${esc(r.status)}</td><td>${esc(r.material)}</td></tr>`).join(''):'<tr><td class="empty" colspan="6">No matching BIM objects.</td></tr>';\n    count.textContent=`Showing ${filtered.length} sample object${filtered.length===1?'':'s'} · 2,867 objects in model`;\n  }\n  document.querySelectorAll('[data-bim-filter]').forEach(btn=>btn.addEventListener('click',()=>{\n    document.querySelectorAll('[data-bim-filter]').forEach(b=>b.classList.remove('is-active'));\n    btn.classList.add('is-active'); category=btn.dataset.bimFilter; render();\n  }));\n  search.addEventListener('input',render);\n  level.addEventListener('change',render);\n  render();\n})();\n</script>\n</body>
 </html>
